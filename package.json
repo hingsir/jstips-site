@@ -4,8 +4,18 @@
   "description": "![header](https://raw.githubusercontent.com/loverajoel/jstips/master/resources/jstips-header-blog.gif)",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hingsir/jstips-site.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "highlight.js": "^9.1.0",
+    "marked": "^0.3.5"
+  }
 }

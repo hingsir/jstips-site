@@ -1,0 +1,6 @@
+<ul>
+    <% tips.forEach(function(tip,index){ %>
+        <li><a href="<%= tip.id  + '.html' %>" class="<%= index == current ? 'cur' : '' %>"
+		 title="<%= tip.title %>"><%= tip.title %></a></li>
+    <% }); %>
+</ul>

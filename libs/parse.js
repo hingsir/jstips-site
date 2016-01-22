@@ -9,7 +9,7 @@ var parse = {
         generate.generate(tips);
     },
     saveFile: function(content){
-        var file = 'readme.md'
+        var file = '_readme.md'
         fs.unlink(file);
         fs.appendFile(file,content,'utf-8');
     },

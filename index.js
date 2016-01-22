@@ -1,5 +1,5 @@
 var https = require('https');
-var parse = require('./parse.js')
+var parse = require('./libs/parse.js')
 
 var options = {
     hostname: 'api.github.com',
@@ -11,7 +11,7 @@ var options = {
 }
 /*
 var fs = require('fs')
-fs.readFile('readme.md','utf-8',function(err,data){
+fs.readFile('_readme.md','utf-8',function(err,data){
     if(err) throw err;
     parse.parse(data);
 })*/
