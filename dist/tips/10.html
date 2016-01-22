@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A JS tip per day!</title>
+    <link rel="stylesheet" type="text/css" href="../css/github_1.css">
+    <link rel="stylesheet" type="text/css" href="../css/github_2.css">
+</head>
+</head>
+<body>
+    <ul>
+        
+            <li><a href="21.html">21.Shuffle an Array</a></li>
+        
+            <li><a href="20.html">20.Return objects to enable chaining of functions</a></li>
+        
+            <li><a href="19.html">19.Safe string concatenation</a></li>
+        
+            <li><a href="18.html">18.Rounding the fast way</a></li>
+        
+            <li><a href="17.html">17.Node.js: Run a module if it is not required</a></li>
+        
+            <li><a href="16.html">16.Passing arguments to callback functions</a></li>
+        
+            <li><a href="15.html">15.Even simpler way of using indexOf as a contains clause</a></li>
+        
+            <li><a href="14.html">14.Fat Arrow Functions #ES6</a></li>
+        
+            <li><a href="13.html">13.Tip to measure performance of a javascript block</a></li>
+        
+            <li><a href="12.html">12.Pseudomandatory parameters in ES6 functions #ES6</a></li>
+        
+            <li><a href="11.html">11.Hoisting</a></li>
+        
+            <li><a href="10.html">10.Check if a property is in a Object</a></li>
+        
+            <li><a href="09.html">09.Template Strings</a></li>
+        
+            <li><a href="08.html">08.Converting a Node List to an Array</a></li>
+        
+            <li><a href="07.html">07.&#34;use strict&#34; and get lazy</a></li>
+        
+            <li><a href="06.html">06.Writing a single method for arrays or single elements</a></li>
+        
+            <li><a href="05.html">05.Differences between `undefined` and `null`</a></li>
+        
+            <li><a href="04.html">04.Sorting strings with accented characters</a></li>
+        
+            <li><a href="03.html">03.Improve Nested Conditionals</a></li>
+        
+            <li><a href="02.html">02.ReactJs - Keys in children components are important</a></li>
+        
+            <li><a href="1.html">1.AngularJs: `$digest` vs `$apply`</a></li>
+        
+            <li><a href="0.html">0.Insert item inside an Array</a></li>
+        
+    </ul>
+    <div id="content-wrap">
+        &lt;h2&gt;#10 - Check if a property is in a Object&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;2016-01-10 by &lt;a href=&#34;https://www.twitter.com/loverajoel&#34;&gt;@loverajoel&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;When you have to check if a property is present on an &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects&#34;&gt;object&lt;/a&gt;, you probably are doing something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;/code&gt;`javascript
+var myObject = {
+  name: &amp;#39;@tips_js&amp;#39;
+};&lt;/p&gt;
+
+&lt;p&gt;if (myObject.name) { ... }&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;/code&gt;`&lt;/p&gt;
+
+&lt;p&gt;That&amp;#39;s ok, but you have to know that there are two native ways for this kind of thing, the &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in&#34;&gt;&lt;code&gt;in&lt;/code&gt; operator&lt;/a&gt; and &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty&#34;&gt;&lt;code&gt;Object.hasOwnProperty&lt;/code&gt;&lt;/a&gt;, every object descended from &lt;code&gt;Object&lt;/code&gt;, has both ways available.&lt;/p&gt;
+
+&lt;h3&gt;See the big Difference&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;/code&gt;`javascript
+var myObject = {
+  name: &amp;#39;@tips_js&amp;#39;
+};&lt;/p&gt;
+
+&lt;p&gt;myObject.hasOwnProperty(&amp;#39;name&amp;#39;); // true
+&amp;#39;name&amp;#39; in myObject; // true&lt;/p&gt;
+
+&lt;p&gt;myObject.hasOwnProperty(&amp;#39;valueOf&amp;#39;); // false, valueOf is inherited from the prototype chain
+&amp;#39;valueOf&amp;#39; in myObject; // true&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;/code&gt;`&lt;/p&gt;
+
+&lt;p&gt;Both differ in the depth that they check the properties, in other words &lt;code&gt;hasOwnProperty&lt;/code&gt; will only return true if key is available on that object directly, however the &lt;code&gt;in&lt;/code&gt; operator doesn&amp;#39;t discriminate between properties created on an object and properties inherited from the prototype chain.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s another example&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;/code&gt;`javascript
+var myFunc = function() {
+  this.name = &amp;#39;@tips_js&amp;#39;;
+};
+myFunc.prototype.age = &amp;#39;10 days&amp;#39;;&lt;/p&gt;
+
+&lt;p&gt;var user = new myFunc();&lt;/p&gt;
+
+&lt;p&gt;user.hasOwnProperty(&amp;#39;name&amp;#39;); // true
+user.hasOwnProperty(&amp;#39;age&amp;#39;); // false, because age is from the prototype chain
+&lt;code&gt;&lt;/code&gt;`&lt;/p&gt;
+
+&lt;p&gt;Check here for &lt;a href=&#34;https://jsbin.com/tecoqa/edit?js,console&#34;&gt;live examples&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;I also recommend reading &lt;a href=&#34;https://github.com/loverajoel/jstips/issues/62&#34;&gt;this discussion&lt;/a&gt; about common mistakes made when checking a properties&amp;#39; existence in objects.&lt;/p&gt;    </div>
+</ul>
+</body>
+</html>

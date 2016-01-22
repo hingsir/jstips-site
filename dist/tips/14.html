@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A JS tip per day!</title>
+    <link rel="stylesheet" type="text/css" href="../css/github_1.css">
+    <link rel="stylesheet" type="text/css" href="../css/github_2.css">
+</head>
+</head>
+<body>
+    <ul>
+        
+            <li><a href="21.html">21.Shuffle an Array</a></li>
+        
+            <li><a href="20.html">20.Return objects to enable chaining of functions</a></li>
+        
+            <li><a href="19.html">19.Safe string concatenation</a></li>
+        
+            <li><a href="18.html">18.Rounding the fast way</a></li>
+        
+            <li><a href="17.html">17.Node.js: Run a module if it is not required</a></li>
+        
+            <li><a href="16.html">16.Passing arguments to callback functions</a></li>
+        
+            <li><a href="15.html">15.Even simpler way of using indexOf as a contains clause</a></li>
+        
+            <li><a href="14.html">14.Fat Arrow Functions #ES6</a></li>
+        
+            <li><a href="13.html">13.Tip to measure performance of a javascript block</a></li>
+        
+            <li><a href="12.html">12.Pseudomandatory parameters in ES6 functions #ES6</a></li>
+        
+            <li><a href="11.html">11.Hoisting</a></li>
+        
+            <li><a href="10.html">10.Check if a property is in a Object</a></li>
+        
+            <li><a href="09.html">09.Template Strings</a></li>
+        
+            <li><a href="08.html">08.Converting a Node List to an Array</a></li>
+        
+            <li><a href="07.html">07.&#34;use strict&#34; and get lazy</a></li>
+        
+            <li><a href="06.html">06.Writing a single method for arrays or single elements</a></li>
+        
+            <li><a href="05.html">05.Differences between `undefined` and `null`</a></li>
+        
+            <li><a href="04.html">04.Sorting strings with accented characters</a></li>
+        
+            <li><a href="03.html">03.Improve Nested Conditionals</a></li>
+        
+            <li><a href="02.html">02.ReactJs - Keys in children components are important</a></li>
+        
+            <li><a href="1.html">1.AngularJs: `$digest` vs `$apply`</a></li>
+        
+            <li><a href="0.html">0.Insert item inside an Array</a></li>
+        
+    </ul>
+    <div id="content-wrap">
+        &lt;h2&gt;#14 - Fat Arrow Functions #ES6&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;2016-01-13 by &lt;a href=&#34;https://github.com/pklinger/&#34;&gt;@pklinger&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Introduced as a new feature in ES6, fat arrow functions may come as a handy tool to write more code in less lines. The name comes from its syntax as &lt;code&gt;=&amp;gt;&lt;/code&gt; is a &amp;#39;fat arrow&amp;#39; compared to a thin arrow &lt;code&gt;-&amp;gt;&lt;/code&gt;. Some programmers might already know this type of functions from different languages such as Haskell as &amp;#39;lambda expressions&amp;#39; respectively &amp;#39;anonymous functions&amp;#39;. It is called anonymous, as these arrow functions do not have a descriptive function name.&lt;/p&gt;
+
+&lt;h3&gt;What are the benefits?&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt;Syntax: less LOC; no more typing &lt;code&gt;function&lt;/code&gt; keyword over and over again&lt;/li&gt;&lt;li&gt;Semantics: capturing the keyword &lt;code&gt;this&lt;/code&gt; from the surrounding context&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3&gt;Simple syntax example&lt;/h3&gt;
+
+&lt;p&gt;Have a look at these two code snippets, which exactly do the same job. You will quickly understand what fat arrow functions do.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;/code&gt;`javascript
+// general syntax for fat arrow functions
+param =&amp;gt; expression&lt;/p&gt;
+
+&lt;p&gt;// may also be written with parentheses
+// parentheses are required on multiple params
+(param1 [, param2]) =&amp;gt; expression&lt;/p&gt;
+
+&lt;p&gt;// using functions
+var arr = [5,3,2,9,1];
+var arrFunc = arr.map(function(x) {
+  return x * x;
+});
+console.log(arr)&lt;/p&gt;
+
+&lt;p&gt;// using fat arrow
+var arr = [5,3,2,9,1];
+var arrFunc = arr.map((x) =&amp;gt; x*x);
+console.log(arr)
+&lt;code&gt;&lt;/code&gt;`&lt;/p&gt;
+
+&lt;p&gt;As you may see, the fat arrow function in this case may save you time typing out the parentheses as well as the function and return keywords. I would advice you to always write parentheses around the parameter inputs as the parentheses will be needed for multiple input parameters such as in &lt;code&gt;(x,y) =&amp;gt; x+y&lt;/code&gt; anyways. It is just a way to cope with forgetting them in different use cases. But the code above would also work like this: &lt;code&gt;x =&amp;gt; x*x&lt;/code&gt;. So far these are only syntactical improvements, which lead to less LOC and better readability.&lt;/p&gt;
+
+&lt;h3&gt;Lexically binding &lt;code&gt;this&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;There is another good reason to use fat arrow functions. There is the issue with the context of &lt;code&gt;this&lt;/code&gt;. With arrow functions, you will not worry about &lt;code&gt;.bind(this)&lt;/code&gt; or setting &lt;code&gt;that = this&lt;/code&gt; anymore, as fat arrow functions pick the context of &lt;code&gt;this&lt;/code&gt; from the lexical surrounding. Have a look at the next &lt;a href=&#34;https://jsfiddle.net/pklinger/rw94oc11/&#34;&gt;example&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;/code&gt;`javascript&lt;/p&gt;
+
+&lt;p&gt;// globally defined this.i
+this.i = 100;&lt;/p&gt;
+
+&lt;p&gt;var counterA = new CounterA();
+var counterB = new CounterB();
+var counterC = new CounterC();
+var counterD = new CounterD();&lt;/p&gt;
+
+&lt;p&gt;// bad example
+function CounterA() {
+  // CounterA&amp;#39;s &lt;code&gt;this&lt;/code&gt; instance (!! gets ignored here)
+  this.i = 0;
+  setInterval(function () {
+    // &lt;code&gt;this&lt;/code&gt; refers to global object, not to CounterA&amp;#39;s &lt;code&gt;this&lt;/code&gt;
+    // therefore starts counting with 100, not with 0 (local this.i)
+    this.i++;
+    document.getElementById(&amp;quot;counterA&amp;quot;).innerHTML = this.i;
+  }, 500);
+}&lt;/p&gt;
+
+&lt;p&gt;// manually binding that = this
+function CounterB() {
+  this.i = 0;
+  var that = this;
+  setInterval(function() {
+    that.i++;
+    document.getElementById(&amp;quot;counterB&amp;quot;).innerHTML = that.i;
+  }, 500);
+}&lt;/p&gt;
+
+&lt;p&gt;// using .bind(this)
+function CounterC() {
+  this.i = 0;
+  setInterval(function() {
+    this.i++;
+    document.getElementById(&amp;quot;counterC&amp;quot;).innerHTML = this.i;
+  }.bind(this), 500);
+}&lt;/p&gt;
+
+&lt;p&gt;// fat arrow function
+function CounterD() {
+  this.i = 0;
+  setInterval(() =&amp;gt; {
+    this.i++;
+    document.getElementById(&amp;quot;counterD&amp;quot;).innerHTML = this.i;
+  }, 500);
+}
+&lt;code&gt;&lt;/code&gt;`&lt;/p&gt;
+
+&lt;p&gt;Further information about fat arrow functions may be found at &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions&#34;&gt;MDN&lt;/a&gt;. To see different syntax options visit &lt;a href=&#34;http://jsrocks.org/2014/10/arrow-functions-and-their-scope/&#34;&gt;this site&lt;/a&gt;.&lt;/p&gt;    </div>
+</ul>
+</body>
+</html>

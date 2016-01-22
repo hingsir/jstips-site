@@ -1,0 +1,11 @@
+{
+  "name": "jstips-site",
+  "version": "1.0.0",
+  "description": "![header](https://raw.githubusercontent.com/loverajoel/jstips/master/resources/jstips-header-blog.gif)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
