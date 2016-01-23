@@ -79,12 +79,15 @@
 		display: inline-block;
 	}
 	#readme .markdown-body{
-		padding: 45px 10px;
+		padding: 25px 10px;
 	}
 	#ds-thread, #ds-share{
 		padding: 0 10px !important;
 	}
 	.catalog ul>li{
 		height: auto;
+	}
+	#forkme{
+		display: none;
 	}
 }
