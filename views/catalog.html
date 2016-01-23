@@ -1,0 +1,18 @@
+<html lang="en">
+<%- include('head.html') -%>
+<body>
+    <div class="main-content clearfix">
+        <div id="catalog-wrap" class="catalog">
+            <div class="catalog-header">
+                <h1><a href="https://github.com/loverajoel/jstips">A JS tip per day</a></h1>
+            </div>
+            <ul>
+                <% tips.forEach(function(tip,index){ %>
+                    <li><a href="<%= tip.id  + '.html' %>"
+                     title="<%= tip.title %>"><%= tip.title %></a></li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
