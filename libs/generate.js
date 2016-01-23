@@ -3,7 +3,7 @@ var fs = require('fs');
 var marked = require('marked');
 var config = require('../config.js');
 
-var baseUrl = 'https://hingsir.github.io/jstips-site/';
+var baseUrl = config.baseUrl;
 
 marked.setOptions({
     enderer: new marked.Renderer(),
