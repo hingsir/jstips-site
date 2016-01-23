@@ -9,12 +9,6 @@ var options = {
         'User-Agent': 'test'
     }
 }
-/*
-var fs = require('fs')
-fs.readFile('_readme.md','utf-8',function(err,data){
-    if(err) throw err;
-    parse.parse(data);
-})*/
 
 https.get(options,function(res){
     var data = ''

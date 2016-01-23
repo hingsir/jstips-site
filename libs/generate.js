@@ -1,30 +1,33 @@
 var ejs = require('ejs');
 var fs = require('fs');
 var marked = require('marked');
+var config = require('../config.js');
 
 var baseUrl = 'https://hingsir.github.io/jstips-site/';
 
 marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: true,
-  smartLists: true,
-  smartypants: false
+    enderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false
 });
 marked.setOptions({
-  highlight: function (code) {
-    return require('highlight.js').highlightAuto(code).value;
-  }
+    highlight: function (code) {
+        return require('highlight.js').highlightAuto(code).value;
+    }
 });
 
 var generate = {
     generate: function(tips){
+        this.mkdirs('dist/tips');
         tips.forEach(function(tip,index){
             var url = 'dist/tips/'+ tip.id +'.html';
-            ejs.renderFile('views/layout.html',{
+            ejs.renderFile('source/views/layout.html',{
+                config: config,
                 tips: tips,
                 tip: tip,
                 current: index,
@@ -40,10 +43,20 @@ var generate = {
             })
         })
 
-        ejs.renderFile('views/catalog.html',{
-           tips: tips
+        ejs.renderFile('source/views/catalog.html',{
+            config: config,
+            tips: tips
         },function(err,result){
-           fs.writeFile('dist/tips/catalog.html',result,'utf-8');
+            fs.writeFile('dist/tips/catalog.html',result,'utf-8');
+        })
+    },
+    mkdirs: function(path){
+        var temp;
+        path.split('/').forEach(function(dir){
+            temp = temp ? temp + '/' + dir : dir;
+            if(!fs.existsSync(temp)){
+                fs.mkdir(temp);
+            }
         })
     }
 }

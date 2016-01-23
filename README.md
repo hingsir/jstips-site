@@ -7,7 +7,7 @@
 Install with [npm](https://www.npmjs.com/)
 
 ```sh
-$ npm install && npm start
+$ npm install && gulp
 ```
 ## License
 
