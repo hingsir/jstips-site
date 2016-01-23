@@ -1,6 +1,11 @@
-<ul>
-    <% tips.forEach(function(tip,index){ %>
-        <li><a href="<%= tip.id  + '.html' %>" class="<%= index == current ? 'cur' : '' %>"
-		 title="<%= tip.title %>"><%= tip.title %></a></li>
-    <% }); %>
-</ul>
+<div id="sider-wrap" class="catalog">
+    <div class="catalog-header">
+        <h1><a href="https://github.com/loverajoel/jstips">A JS tip per day</a></h1>
+    </div>
+    <ul>
+        <% tips.forEach(function(tip,index){ %>
+            <li><a href="<%= tip.id  + '.html' %>" class="<%= index == current ? 'cur' : '' %>"
+             title="<%= tip.title %>"><%= tip.title %></a></li>
+        <% }); %>
+    </ul>
+</div>

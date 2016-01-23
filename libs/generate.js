@@ -39,6 +39,12 @@ var generate = {
                 }
             })
         })
+
+        ejs.renderFile('views/catalog.html',{
+           tips: tips
+        },function(err,result){
+           fs.writeFile('dist/tips/catalog.html',result,'utf-8');
+        })
     }
 }
 

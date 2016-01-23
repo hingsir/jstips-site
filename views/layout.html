@@ -1,26 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>jstips - A JS tip per day</title>
-    <meta name="keywords" content="jstips,tips,js,javascript,front end">
-    <meta name="description" content="Introduces these short and useful daily JavaScript tips that will allow you to improve your code writing. With less than 2 minutes each day, you will be able to read about performance, conventions, hacks, interview questions and all the items that the future of this awesome language holds for us">
-    <link rel="stylesheet" type="text/css" href="../css/github_1.css">
-    <link rel="stylesheet" type="text/css" href="../css/github_2.css">
-    <link rel="stylesheet" type="text/css" href="../js/highlight/styles/github.css">
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
-</head>
-</head>
+<%- include('head.html') -%>
 <body>
     <div class="main-content clearfix">
-        <div id="sider-wrap">
-            <div class="sider-header">
-                <h1><a href="https://github.com/loverajoel/jstips">A JS tip per day</a></h1>
-            </div>
-            <%- include('sider.html') -%>
-        </div>
+        <%- include('sider.html') -%>
         <div id="content-wrap">
             <%- include('content.html') -%>
+            <a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a>
             <%- include('comment.html') -%>
             <div class="site-footer">
                 <p class="copyright">Powered by <a href="https://github.com/hingsir">@hingsir</a>, 2016</p>
