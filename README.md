@@ -2,7 +2,7 @@
 
 > Static site of jstips
 
-## Install
+## Usage
 
 Install with [npm](https://www.npmjs.com/)
 
