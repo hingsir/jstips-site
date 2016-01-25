@@ -1,7 +1,7 @@
 var fs = require('fs');
 var generate = require('./generate.js');
-var github = require('./github.js')
-//var _ = require('lodash');
+var github = require('./github.js');
+var gutil = require('gulp-util');
 
 var localStorage = {}; //
 var tips = [];
@@ -16,22 +16,36 @@ function saveLocalStorage(){
 }
 
 function pushTip(item, callback){
-    var name = item.name;
+    var name = item.name,
+        content = item.content,
+        baseInfo = content.match(/\-{3}[\s\S]+\-{3}/)[0],
+        detailInfo = content.replace(baseInfo,''),
+        filename = name.substring(11, name.length-3) + '.html';
+        
     tips.push({
         source:{
             name: name,
-            content: item.content
+            content: content
         },
-        title: name.substr(11,name.length - 3)
+        baseInfo:{
+            date: name.substring(0,10),
+            title: baseInfo.match(/title:.*/)[0].replace(/title:\s*/,''),
+            number: baseInfo.match(/tip-number:.*/)[0].replace(/tip-number:\s*/,''),
+            username: baseInfo.match(/tip-username:.*/)[0].replace(/tip-username:\s*/,''),
+            profile: baseInfo.match(/tip-username-profile:.*/)[0].replace(/tip-username-profile:\s*/,''),
+            tldr: baseInfo.match(/tip-tldr:.*/)[0].replace(/tip-tldr:\s*/,'')
+        },
+        detailInfo: detailInfo,
+        filename: filename
     })
     unsynchronized--;
+    gutil.log('synchronized: ' + item.name);
     if(unsynchronized === 0){
         callback(tips);
     }
 }
 
 function synchronizeTips(remoteList, callback){
-
     unsynchronized = remoteList.length;
     remoteList.forEach(function(item,index){
         var name = item.name;
@@ -39,31 +53,30 @@ function synchronizeTips(remoteList, callback){
             github.request(item.git_url.replace('https://api.github.com',''),function(data){
                 var obj = JSON.parse(data);
                 localStorage[name] = {
+                    name: name,
                     sha: item.sha,
                     content: new Buffer(obj.content,'base64').toString()
-                }
+                };
                 pushTip(localStorage[name], callback);
             })
         }else{
-            localStorage[name] = item;
-            pushTip(item, callback);
+            pushTip(localStorage[name], callback);
         }
     })
 }
 
-var parse = {
-    parse: function(remoteData){
-        var remoteList = JSON.parse(remoteData);console.log(remoteList)
+var sync = {
+    sync: function(remoteData){
+        var remoteList = JSON.parse(remoteData);
+        loadLocalStorage();
         synchronizeTips(remoteList, function(tips){
-
             saveLocalStorage();
-
-            tips.sort(function(a, b){
-                a.name.substr(0,10) < b.name.substr(0,10);
+            tips.sort(function(a, b){console.log(a.baseInfo.number)
+                parseInt(a.baseInfo.number) - parseInt(b.baseInfo.number);
             })
             generate.generate(tips);
         });
     }
 }
 
-module.exports = parse;
+module.exports = sync;

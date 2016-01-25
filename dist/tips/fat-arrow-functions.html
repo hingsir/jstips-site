@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>jstips - A JS tip per day</title><meta name="keywords" content="jstips,tips,js,javascript,front end"><meta name="description" content="Introduces these short and useful daily JavaScript tips that will allow you to improve your code writing. With less than 2 minutes each day, you will be able to read about performance, conventions, hacks, interview questions and all the items that the future of this awesome language holds for us"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scale=no"><link rel="icon" type="image/x-icon" href="../images/favicon.ico"><link rel="stylesheet" type="text/css" href="../css/all-c3bb497a3a.min.css"></head><body><div class="main-content clearfix"><div id="sider-wrap" class="catalog"><div class="catalog-header"><h1><a href="https://github.com/loverajoel/jstips">A JS tip per day</a></h1></div><ul><li><a href="insert-item-inside-an-array.html" class="" title="00.Insert item inside an Array">00.Insert item inside an Array</a></li><li><a href="use_===_instead_of_==.html" class="" title="24.Use === instead of ==">24.Use === instead of ==</a></li><li><a href="keys-in-children-components-are-important.html" class="" title="02.Keys in children components are important">02.Keys in children components are important</a></li><li><a href="improve-nested-conditionals.html" class="" title="03.Improve Nested Conditionals">03.Improve Nested Conditionals</a></li><li><a href="sorting-strings-with-accented-characters.html" class="" title="04.Sorting strings with accented characters">04.Sorting strings with accented characters</a></li><li><a href="differences-between-undefined-and-null.html" class="" title="05.Differences between `undefined` and `null`">05.Differences between `undefined` and `null`</a></li><li><a href="writing-a-single-method-for-arrays-and-a-single-element.html" class="" title="06.Writing a single method for arrays and a single element">06.Writing a single method for arrays and a single element</a></li><li><a href="use-strict-and-get-lazy.html" class="" title="07.use strict and get lazy">07.use strict and get lazy</a></li><li><a href="converting-a-node-list-to-an-array.html" class="" title="08.Converting a Node List to an Array">08.Converting a Node List to an Array</a></li><li><a href="template-strings.html" class="" title="09.Template Strings">09.Template Strings</a></li><li><a href="check-if-a-property-is-in-a-object.html" class="" title="10.Check if a property is in a Object">10.Check if a property is in a Object</a></li><li><a href="hoisting.html" class="" title="11.Hoisting">11.Hoisting</a></li><li><a href="angularjs-digest-vs-apply.html" class="" title="01.AngularJs - `$digest` vs `$apply`">01.AngularJs - `$digest` vs `$apply`</a></li><li><a href="tip-to-measure-performance-of-a-javascript-block.html" class="" title="13.Tip to measure performance of a javascript block">13.Tip to measure performance of a javascript block</a></li><li><a href="fat-arrow-functions.html" class="cur" title="14.Fat Arrow Functions">14.Fat Arrow Functions</a></li><li><a href="even-simpler-way-of-using-indexof-as-a-contains-clause.html" class="" title="15.Even simpler way of using `indexOf` as a contains clause">15.Even simpler way of using `indexOf` as a contains clause</a></li><li><a href="passing-arguments-to-callback-functions.html" class="" title="16.Passing arguments to callback functions">16.Passing arguments to callback functions</a></li><li><a href="nodejs-run-a-module-if-it-is-not-required.html" class="" title="17.Node.js - Run a module if it is not `required`">17.Node.js - Run a module if it is not `required`</a></li><li><a href="rounding-the-fast-way.html" class="" title="18.Rounding the fast way">18.Rounding the fast way</a></li><li><a href="safe-string-concatenation.html" class="" title="19.Safe string concatenation">19.Safe string concatenation</a></li><li><a href="return-objects-to-enable-chaining-of-functions.html" class="" title="20.Return objects to enable chaining of functions">20.Return objects to enable chaining of functions</a></li><li><a href="shuffle-an-array.html" class="" title="21.Shuffle an Array">21.Shuffle an Array</a></li><li><a href="two-ways-to-empty-an-array.html" class="" title="22.Two ways to empty an array">22.Two ways to empty an array</a></li><li><a href="converting-to-number-fast-way.html" class="" title="23.Converting to number fast way">23.Converting to number fast way</a></li><li><a href="pseudomandatory-parameters-in-es6-functions.html" class="" title="12.Pseudomandatory parameters in ES6 functions">12.Pseudomandatory parameters in ES6 functions</a></li></ul></div><div id="content-wrap"><div id="readme" class="boxed-group clearfix announce instapaper_body md"><article class="markdown-body entry-content" itemprop="mainContentOfPage"><h2 id="-14-fat-arrow-functions">#14 - Fat Arrow Functions</h2><blockquote><p>2016-01-14 by <a href="https://github.com/pklinger/">@pklinger</a></p></blockquote><p>Introduced as a new feature in ES6, fat arrow functions may come as a handy tool to write more code in fewer lines. The name comes from its syntax, <code>=&gt;</code>, which is a &#39;fat arrow&#39;, as compared to a thin arrow <code>-&gt;</code>. Some programmers might already know this type of function from different languages such as Haskell, as &#39;lambda expressions&#39;, or as &#39;anonymous functions&#39;. It is called anonymous, as these arrow functions do not have a descriptive function name.</p><h3 id="what-are-the-benefits-">What are the benefits?</h3><ul><li>Syntax: fewer LOC; no more typing <code>function</code> keyword over and over again</li><li>Semantics: capturing the keyword <code>this</code> from the surrounding context</li></ul><h3 id="simple-syntax-example">Simple syntax example</h3><p>Have a look at these two code snippets, which do the exact same job, and you will quickly understand what fat arrow functions do:</p><pre><code class="lang-javascript"><span class="hljs-comment">// general syntax for fat arrow functions</span>
+param =&gt; expression
+
+<span class="hljs-comment">// may also be written with parentheses</span>
+<span class="hljs-comment">// parentheses are required on multiple params</span>
+(param1 [, param2]) =&gt; expression
+
+
+<span class="hljs-comment">// using functions</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>];
+<span class="hljs-keyword">var</span> arrFunc = arr.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span> </span>{
+  <span class="hljs-keyword">return</span> x * x;
+});
+console.log(arr)
+
+<span class="hljs-comment">// using fat arrow</span>
+<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>];
+<span class="hljs-keyword">var</span> arrFunc = arr.map((x) =&gt; x*x);
+console.log(arr)
+</code></pre><p>As you can see, the fat arrow function in this case can save you time typing out the parentheses as well as the function and return keywords. I would advise you to always write parentheses around the parameter inputs, as the parentheses will be needed for multiple input parameters, such as in <code>(x,y) =&gt; x+y</code>. It is just a way to cope with forgetting them in different use cases. But the code above would also work like this: <code>x =&gt; x*x</code>. So far, these are only syntactical improvements, which lead to fewer LOC and better readability.</p><h3 id="lexically-binding-this-">Lexically binding <code>this</code></h3><p>There is another good reason to use fat arrow functions. There is the issue with the context of <code>this</code>. With arrow functions, you don&#39;t need to worry about <code>.bind(this)</code> or setting <code>that = this</code> anymore, as fat arrow functions pick the context of <code>this</code> from the lexical surrounding. Have a look at the next [example] (<a href="https://jsfiddle.net/pklinger/rw94oc11/">https://jsfiddle.net/pklinger/rw94oc11/</a>):</p><pre><code class="lang-javascript">
+<span class="hljs-comment">// globally defined this.i</span>
+<span class="hljs-keyword">this</span>.i = <span class="hljs-number">100</span>;
+
+<span class="hljs-keyword">var</span> counterA = <span class="hljs-keyword">new</span> CounterA();
+<span class="hljs-keyword">var</span> counterB = <span class="hljs-keyword">new</span> CounterB();
+<span class="hljs-keyword">var</span> counterC = <span class="hljs-keyword">new</span> CounterC();
+<span class="hljs-keyword">var</span> counterD = <span class="hljs-keyword">new</span> CounterD();
+
+<span class="hljs-comment">// bad example</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CounterA</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// CounterA's `this` instance (!! gets ignored here)</span>
+  <span class="hljs-keyword">this</span>.i = <span class="hljs-number">0</span>;
+  setInterval(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// `this` refers to global object, not to CounterA's `this`</span>
+    <span class="hljs-comment">// therefore starts counting with 100, not with 0 (local this.i)</span>
+    <span class="hljs-keyword">this</span>.i++;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"counterA"</span>).innerHTML = <span class="hljs-keyword">this</span>.i;
+  }, <span class="hljs-number">500</span>);
+}
+
+<span class="hljs-comment">// manually binding that = this</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CounterB</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.i = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;
+  setInterval(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    that.i++;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"counterB"</span>).innerHTML = that.i;
+  }, <span class="hljs-number">500</span>);
+}
+
+<span class="hljs-comment">// using .bind(this)</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CounterC</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.i = <span class="hljs-number">0</span>;
+  setInterval(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.i++;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"counterC"</span>).innerHTML = <span class="hljs-keyword">this</span>.i;
+  }.bind(<span class="hljs-keyword">this</span>), <span class="hljs-number">500</span>);
+}
+
+<span class="hljs-comment">// fat arrow function</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CounterD</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.i = <span class="hljs-number">0</span>;
+  setInterval(() =&gt; {
+    <span class="hljs-keyword">this</span>.i++;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"counterD"</span>).innerHTML = <span class="hljs-keyword">this</span>.i;
+  }, <span class="hljs-number">500</span>);
+}
+</code></pre><p>Further information about fat arrow functions may be found at [MDN] (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions</a>). To see different syntax options visit [this site] (<a href="http://jsrocks.org/2014/10/arrow-functions-and-their-scope/">http://jsrocks.org/2014/10/arrow-functions-and-their-scope/</a>).</p></article></div><a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a><!-- 多说分享 start --><div class="ds-share flat" data-thread-key="jstips_14" data-title="Fat Arrow Functions" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="Introduced as a new feature in ES6, fat arrow functions may come as a handy tool to write more code in fewer lines" data-url="http://jstips.hingsir.com/dist/tips/fat-arrow-functions.html"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li><a class="ds-more" href="javascript:void(0);">分享到：</a></li><li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li><li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><!-- 多说分享 end --><!-- 多说评论框 start --><div class="ds-thread" data-thread-key="jstips_14" data-title="Fat Arrow Functions" data-url="http://jstips.hingsir.com/dist/tips/fat-arrow-functions.html"></div><!-- 多说评论框 end --><!-- 多说公共JS代码 start (一个网页只需插入一次) --><script type="text/javascript">var duoshuoQuery = {short_name:"hingsir"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();</script><!-- 多说公共JS代码 end --><div class="site-footer"><p class="copyright">Powered by <a href="https://github.com/hingsir">@hingsir</a>, 2016</p></div></div></div><a id="forkme" href="https://github.com/hingsir/jstips-site"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:100" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a></body></html>

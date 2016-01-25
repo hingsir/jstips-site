@@ -2,61 +2,76 @@ var ejs = require('ejs');
 var fs = require('fs');
 var marked = require('marked');
 var config = require('../config.js');
+var gutil = require('gulp-util')
 
 var baseUrl = config.baseUrl;
+var tipsDir = 'dist/tips';
 
-marked.setOptions({
-    enderer: new marked.Renderer(),
-    gfm: true,
-    tables: true,
-    breaks: false,
-    pedantic: false,
-    sanitize: true,
-    smartLists: true,
-    smartypants: false
-});
-marked.setOptions({
-    highlight: function (code) {
-        return require('highlight.js').highlightAuto(code).value;
-    }
-});
+function mkdirs(path){
+    var temp;
+    path.split('/').forEach(function(dir){
+        temp = temp ? temp + '/' + dir : dir;
+        if(!fs.existsSync(temp)){
+            fs.mkdir(temp);
+        }
+    })
+}
+
+function initMarked(){
+    marked.setOptions({
+        enderer: new marked.Renderer(),
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: true,
+        smartLists: true,
+        smartypants: false
+    });
+    marked.setOptions({
+        highlight: function (code) {
+            return require('highlight.js').highlightAuto(code).value;
+        }
+    });
+}
+
+function makeTitle(tip){
+    return ['## #',tip.baseInfo.number,' - ',tip.baseInfo.title,'\n',
+        '> ',tip.baseInfo.date,' by [@',tip.baseInfo.username,'](',tip.baseInfo.profile,')\n'].join('');
+}
 
 var generate = {
     generate: function(tips){
-        this.mkdirs('dist/tips');
+
+        initMarked();
+        mkdirs(tipsDir);
+        
         tips.forEach(function(tip,index){
-            var url = 'dist/tips/'+ tip.title +'.html';
             ejs.renderFile('source/views/layout.html',{
                 config: config,
                 tips: tips,
                 tip: tip,
                 current: index,
-                content: marked(tip.source.title + tip.source.content),
-                url: baseUrl + url,
+                content: marked(makeTitle(tip) + tip.detailInfo),
+                baseUrl: baseUrl,
+                url: baseUrl + tipsDir + '/' + tip.filename,
                 shareImg: baseUrl + 'dist/images/github.jpg'
             }, function(err,result){
                 if(err) throw err;
-                fs.writeFile(url,result,'utf-8');
+                fs.writeFile(tipsDir + '/' + tip.filename,result,'utf-8');
                 if(index == 0){
-                    fs.writeFile('dist/tips/index.html',result,'utf-8');
+                    fs.writeFile(tipsDir + '/index.html',result,'utf-8');
                 }
+                gutil.log('generated: ' + tip.filename);
             })
         })
 
         ejs.renderFile('source/views/catalog.html',{
             config: config,
-            tips: tips
+            tips: tips,
+            baseUrl: baseUrl
         },function(err,result){
-            fs.writeFile('dist/tips/catalog.html',result,'utf-8');
-        })
-    },
-    mkdirs: function(path){
-        var temp;
-        path.split('/').forEach(function(dir){
-            temp = temp ? temp + '/' + dir : dir;
-            if(!fs.existsSync(temp)){
-                fs.mkdir(temp);
-            }
+            fs.writeFile(tipsDir + '/catalog.html',result,'utf-8');
         })
     }
 }

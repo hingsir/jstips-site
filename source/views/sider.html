@@ -4,8 +4,8 @@
     </div>
     <ul>
         <% tips.forEach(function(tip,index){ %>
-            <li><a href="<%= tip.id  + '.html' %>" class="<%= index == current ? 'cur' : '' %>"
-             title="<%= tip.title %>"><%= tip.title %></a></li>
+            <li><a href="<%= tip.filename %>" class="<%= index == current ? 'cur' : '' %>"
+             title="<%= tip.baseInfo.number + '.' + tip.baseInfo.title %>"><%= tip.baseInfo.number + '.' + tip.baseInfo.title %></a></li>
         <% }); %>
     </ul>
 </div>
