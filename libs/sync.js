@@ -71,8 +71,8 @@ var sync = {
         loadLocalStorage();
         synchronizeTips(remoteList, function(tips){
             saveLocalStorage();
-            tips.sort(function(a, b){console.log(a.baseInfo.number)
-                parseInt(a.baseInfo.number) - parseInt(b.baseInfo.number);
+            tips.sort(function(a, b){
+                return +a.baseInfo.number < +b.baseInfo.number ? 1 : -1;
             })
             generate.generate(tips);
         });
