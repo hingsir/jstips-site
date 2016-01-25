@@ -1,34 +1,68 @@
 var fs = require('fs');
-var generate = require('./generate.js')
+var generate = require('./generate.js');
+var github = require('./github.js')
+//var _ = require('lodash');
+
+var localStorage = {}; //
+var tips = [];
+var unsynchronized = 0; //未同步数量
+
+function loadLocalStorage(){
+    localStorage = JSON.parse(fs.readFileSync('localStorage.json'));
+}
+
+function saveLocalStorage(){
+    fs.writeFileSync('localStorage.json',JSON.stringify(localStorage),'utf-8');
+}
+
+function pushTip(item, callback){
+    var name = item.name;
+    tips.push({
+        source:{
+            name: name,
+            content: item.content
+        },
+        title: name.substr(11,name.length - 3)
+    })
+    unsynchronized--;
+    if(unsynchronized === 0){
+        callback(tips);
+    }
+}
+
+function synchronizeTips(remoteList, callback){
+
+    unsynchronized = remoteList.length;
+    remoteList.forEach(function(item,index){
+        var name = item.name;
+        if(!localStorage[name] || localStorage[name].sha !== item.sha){
+            github.request(item.git_url.replace('https://api.github.com',''),function(data){
+                var obj = JSON.parse(data);
+                localStorage[name] = {
+                    sha: item.sha,
+                    content: new Buffer(obj.content,'base64').toString()
+                }
+                pushTip(localStorage[name], callback);
+            })
+        }else{
+            localStorage[name] = item;
+            pushTip(item, callback);
+        }
+    })
+}
 
 var parse = {
-    parse: function(content){
-        var self = this;
-        self.saveFile(content);
-        var tips = self.parseTips(content);
-        generate.generate(tips);
-    },
-    saveFile: function(content){
-        var file = '_readme.md'
-        fs.unlink(file);
-        fs.appendFile(file,content,'utf-8');
-    },
-    parseTips: function(content){
-        var tips = [];
-        var titleArr = content.match(/##\s#\d+.*/g);
-        var contentArr = content.split(/##\s#\d+.*/).slice(1);
-        titleArr.forEach(function(title,index){
-            tips.push({
-                source:{
-                    title: title,
-                    content: contentArr[index]
-                },
-                id: title.replace(/.*#(\d+).*/,'$1'),
-                title: title.replace(/##\s#(\d+)[\s-]*/,'$1.'),
-                content: contentArr[index]
+    parse: function(remoteData){
+        var remoteList = JSON.parse(remoteData);console.log(remoteList)
+        synchronizeTips(remoteList, function(tips){
+
+            saveLocalStorage();
+
+            tips.sort(function(a, b){
+                a.name.substr(0,10) < b.name.substr(0,10);
             })
-        })
-        return tips;
+            generate.generate(tips);
+        });
     }
 }
 

@@ -25,7 +25,7 @@ var generate = {
     generate: function(tips){
         this.mkdirs('dist/tips');
         tips.forEach(function(tip,index){
-            var url = 'dist/tips/'+ tip.id +'.html';
+            var url = 'dist/tips/'+ tip.title +'.html';
             ejs.renderFile('source/views/layout.html',{
                 config: config,
                 tips: tips,
