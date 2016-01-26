@@ -2,21 +2,19 @@
 
 > Static site of jstips
 
-## Get stared
+## Get started
 
 Install dependencies [npm](https://www.npmjs.com/)
-
 ```sh
 $ npm install
 ```
 
 ## Run
-
 ```sh
 $ gulp && gulp md5
 ```
-## Local preview (recommends using [anywhere](https://www.npmjs.com/package/anywhere))
 
+## Local preview (recommends using [anywhere](https://www.npmjs.com/package/anywhere))
 ```sh
 $ npm install -g anywhere
 $ anywhere -p 8888
