@@ -40,12 +40,16 @@ function makeTitle(tip){
         '> ',tip.baseInfo.date,' by [@',tip.baseInfo.username,'](',tip.baseInfo.profile,')\n'].join('');
 }
 
+function removeExt(filename){
+    return filename.replace(/\.\w+/,'');
+}
+
 var generate = {
     generate: function(tips){
 
         initMarked();
         mkdirs(tipsDir);
-        
+
         tips.forEach(function(tip,index){
             ejs.renderFile('source/views/layout.html',{
                 config: config,
@@ -55,23 +59,27 @@ var generate = {
                 content: marked(makeTitle(tip) + tip.detailInfo),
                 baseUrl: baseUrl,
                 url: baseUrl + tipsDir + '/' + tip.filename,
-                shareImg: baseUrl + 'dist/images/github.jpg'
+                shareImg: baseUrl + 'dist/images/github.jpg',
+                removeExt: removeExt
             }, function(err,result){
                 if(err) throw err;
                 fs.writeFile(tipsDir + '/' + tip.filename,result,'utf-8');
+                gutil.log(gutil.colors.green('generated: ') + tip.filename);
                 if(index == 0){
                     fs.writeFile(tipsDir + '/index.html',result,'utf-8');
+                    gutil.log(gutil.colors.green('generated: ') + 'index.html');
                 }
-                gutil.log('generated: ' + tip.filename);
             })
         })
 
         ejs.renderFile('source/views/catalog.html',{
             config: config,
             tips: tips,
-            baseUrl: baseUrl
+            baseUrl: baseUrl,
+            removeExt: removeExt
         },function(err,result){
             fs.writeFile(tipsDir + '/catalog.html',result,'utf-8');
+            gutil.log(gutil.colors.green('generated: ') + 'catalog.html');
         })
     }
 }

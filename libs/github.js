@@ -1,4 +1,5 @@
 var https = require('https');
+var config = require('../config.js');
 
 var options = {
     hostname: 'api.github.com',
@@ -12,7 +13,7 @@ var options = {
 module.exports = {
     request: function(path, callback){
         options.path = path || options.path;
-        options.path += '?access_token=a99563d8bf47fb6f995d5abc661c2dc383243f81';
+        config.git_access_token && (options.path += '?access_token=' + config.git_access_token);
         https.get(options,function(res){
             var data = '';
             res.on('data',function(chunk){

@@ -21,7 +21,7 @@ function pushTip(item, callback){
         baseInfo = content.match(/\-{3}[\s\S]+\-{3}/)[0],
         detailInfo = content.replace(baseInfo,''),
         filename = name.substring(11, name.length-3) + '.html';
-        
+
     tips.push({
         source:{
             name: name,
@@ -38,8 +38,8 @@ function pushTip(item, callback){
         detailInfo: detailInfo,
         filename: filename
     })
+    gutil.log(gutil.colors.green('synchronized: ') + item.name);
     unsynchronized--;
-    gutil.log('synchronized: ' + item.name);
     if(unsynchronized === 0){
         callback(tips);
     }

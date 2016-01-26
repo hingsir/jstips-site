@@ -8,7 +8,7 @@
             </div>
             <ul>
                 <% tips.forEach(function(tip,index){ %>
-                    <li><a href="<%= tip.filename %>"
+                    <li><a href="<%= removeExt(tip.filename) %>"
                      title="<%= tip.baseInfo.number + '.' + tip.baseInfo.title %>"><%= tip.baseInfo.number + '.' + tip.baseInfo.title %></a></li>
                 <% }); %>
             </ul>
