@@ -37,9 +37,13 @@
 	height: 28px;
 	line-height: 28px;
 	overflow: hidden;
+	text-overflow:ellipsis; 
 }
 .catalog a{
+	display: block;
 	color:#666;
+	text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .catalog a:hover{
 	color:#4078c0;
