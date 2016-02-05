@@ -41,7 +41,7 @@ function makeTitle(tip){
 }
 
 function removeExt(filename){
-    return filename.replace(/\.\w+/,'');
+    return filename.replace(/\.\w+$/,'');
 }
 
 var generate = {
