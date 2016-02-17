@@ -45,14 +45,11 @@
 	height: 28px;
 	line-height: 28px;
 	overflow: hidden;
-	text-overflow:ellipsis; 
+	text-overflow:ellipsis;
+	white-space: nowrap;
 }
 .catalog ul a{
-	display: block;
 	color:#666;
-	overflow: hidden;
-	text-overflow: ellipsis;
-    white-space: nowrap;
 }
 .catalog a:hover{
 	color:#4078c0;
