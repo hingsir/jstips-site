@@ -1,4 +1,4 @@
-# [jstips-site](https://hingsir.github.io/jstips-site/dist/tips/)
+# [jstips-site](https://hingsir.github.io/jstips-site/)
 
 > Static site of jstips
 
