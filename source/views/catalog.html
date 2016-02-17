@@ -4,7 +4,14 @@
     <div class="main-content clearfix">
         <div id="catalog-wrap" class="catalog">
             <div class="catalog-header">
-                <h1><a href="https://github.com/loverajoel/jstips">A JS tip per day</a></h1>
+                <h1>
+                    <a href="https://github.com/loverajoel/jstips">A JS tip per day</a>
+                </h1>
+                <select id="J_languages_select">
+                    <% for(var i in config.languages){ %>
+                        <option value="<%=i %>" <%=i==lang?"selected=selected":"" %>><%=config.languages[i]%></option>
+                    <% } %>
+                </select>
             </div>
             <ul>
                 <% tips.forEach(function(tip,index){ %>

@@ -1,6 +1,5 @@
-var sync = require('./libs/sync.js');
+var Synchronizer = require('./libs/synchronizer.js');
 var github = require('./libs/github.js');
 
-github.request('/repos/loverajoel/jstips/contents/_posts/en',function(data){
-    sync.sync(data);
-})
+new Synchronizer('en').sync();
+new Synchronizer('zh_CN').sync();

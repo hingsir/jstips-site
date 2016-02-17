@@ -16,6 +16,14 @@
 	z-index: 1;
 	overflow-y: scroll;
 }
+#J_languages_select{
+	position: absolute;
+    right: 5px;
+    bottom: 5px;
+    padding: 0;
+    height: 20px;
+    min-height: 24px;
+}
 .catalog-header{
 	position: relative;
 	padding-top: 10px;
@@ -39,7 +47,7 @@
 	overflow: hidden;
 	text-overflow:ellipsis; 
 }
-.catalog a{
+.catalog ul a{
 	display: block;
 	color:#666;
 	overflow: hidden;
@@ -94,5 +102,8 @@
 	}
 	#forkme{
 		display: none;
+	}
+	#J_languages_select{
+		position: static;
 	}
 }
