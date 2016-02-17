@@ -21,6 +21,11 @@ gulp.task('minifycss',['clean'],function(){
 		.pipe(gulp.dest('dist/css'))
 })
 
+gulp.task('tips',['clean'],function(){
+	return gulp.src(['source/tips/**/*.*'])
+		.pipe(gulp.dest('dist/tips'))
+})
+
 gulp.task('images',['clean'],function(){
 	return gulp.src(['source/images/**/*.*'])
 		.pipe(gulp.dest('dist/images'))
@@ -56,5 +61,5 @@ gulp.task('htmlmin',['revCollector'],function(){
 		.pipe(gulp.dest('dist/tips'))
 })
 
-gulp.task('default',['minifycss','images','scripts','generate']);
-gulp.task('md5',['rev','revCollector','htmlmin']); 
+gulp.task('default',['minifycss','tips','images','scripts','generate']);
+gulp.task('md5',['rev','revCollector','htmlmin']);
