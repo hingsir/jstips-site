@@ -19,7 +19,7 @@ function mkdirs(path){
 
 function initMarked(){
     marked.setOptions({
-        enderer: new marked.Renderer(),
+        renderer: new marked.Renderer(),
         gfm: true,
         tables: true,
         breaks: false,
