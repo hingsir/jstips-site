@@ -38,7 +38,7 @@ gulp.task('scripts',['clean'],function(){
 })
 
 gulp.task('generate',['clean'],function(){
-	require('./index.js')
+	require('./index.js');
 })
 
 gulp.task('rev',function(){
@@ -59,6 +59,9 @@ gulp.task('htmlmin',['revCollector'],function(){
 	return gulp.src('dist/tips/**/*.html')
 		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(gulp.dest('dist/tips'))
+})
+gulp.task('deploy',function(){
+	require('./libs/deploy.js');
 })
 
 gulp.task('default',['minifycss','tips','images','scripts','generate']);
