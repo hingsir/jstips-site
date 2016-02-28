@@ -14,7 +14,7 @@ $ npm install
 $ gulp && gulp md5
 ```
 
-## commit files
+## Commit files
 ```sh
 $ gulp deploy
 ```
