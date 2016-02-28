@@ -14,6 +14,11 @@ $ npm install
 $ gulp && gulp md5
 ```
 
+## commit files
+```sh
+$ gulp deploy
+```
+
 ## Local preview (recommends using [anywhere](https://www.npmjs.com/package/anywhere))
 ```sh
 $ npm install -g anywhere

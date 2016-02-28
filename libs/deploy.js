@@ -4,8 +4,10 @@ exec('git add -A', function(err, stdout, stderr){
 	if(err) throw err;
 	console.log(stdout);
 	exec('git commit -m "update site at ' + new Date + '"' ,function(err, stdout, stderr){
+		if(err) throw err;
 		console.log(stdout);
 		exec('git push origin gh-pages',function(err, stdout, stderr){
+			if(err) throw err;
 			console.log(stdout);
 		})
 	});
