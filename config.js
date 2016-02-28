@@ -8,7 +8,8 @@ module.exports = {
 	highlight_style: 'github',
     languages: {
         'en': 'English',
-        'zh_CN': '简体中文'
+        'zh_CN': '简体中文',
+        'zh_TW': ' 繁体中文'
     },
     git_access_token:''
 }
