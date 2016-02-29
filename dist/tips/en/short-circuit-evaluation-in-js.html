@@ -27,15 +27,15 @@
 
 ( test || isFalse());  <span class="hljs-regexp">//</span> Test <span class="hljs-keyword">is</span> <span class="hljs-literal">false</span>.
 </code></pre><p>The logical OR could also be used to set a default value for function argument.</p><pre><code class="lang-js">function theSameOldFoo(<span class="hljs-keyword">name</span>){ 
-    <span class="hljs-keyword">name</span> = <span class="hljs-keyword">name</span> || <span class="hljs-string">'Bar'</span> ;
-    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"My best friend's name is "</span> + <span class="hljs-keyword">name</span>);
+  <span class="hljs-keyword">name</span> = <span class="hljs-keyword">name</span> || <span class="hljs-string">'Bar'</span> ;
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"My best friend's name is "</span> + <span class="hljs-keyword">name</span>);
 }
 theSameOldFoo();  <span class="hljs-comment">// My best friend's name is Bar</span>
 theSameOldFoo(<span class="hljs-string">'Bhaskar'</span>);  <span class="hljs-comment">// My best friend's name is Bhaskar</span>
-</code></pre><p>The logical AND could be used to avoid exceptions when using properties of undefined. Example:-</p><pre><code class="lang-js"><span class="hljs-keyword">var</span> dog = { 
+</code></pre><p>The logical AND could be used to avoid exceptions when using properties of undefined. Example:</p><pre><code class="lang-js"><span class="hljs-keyword">var</span> dog = { 
   bark: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Woof Woof'</span>);
-   }
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Woof Woof'</span>);
+  }
 };
 
 <span class="hljs-comment">// Calling dog.bark();</span>
