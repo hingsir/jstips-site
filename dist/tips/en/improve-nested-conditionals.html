@@ -51,7 +51,12 @@
     printYellowBackground()<span class="hljs-comment">;</span>
     <span class="hljs-keyword">break</span><span class="hljs-comment">;</span>
 }
-</code></pre><p>But we must always avoid having several checks in every condition and avoid using <code>switch</code> as much as possible. We also must take into account that the most efficient way to do this is through an <code>object</code>.</p><pre><code class="lang-javascript">var colorObj = {
+</code></pre><p>If refactoring is an option, we can try to simplify the functions themselves. For example instead of having a function for each background color we could have an function that takes the color as an argument.</p><pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printBackground</span><span class="hljs-params">(color)</span> </span>{
+  <span class="hljs-keyword">if</span> (!color || <span class="hljs-keyword">typeof</span> color !== <span class="hljs-string">'string'</span>) {
+    <span class="hljs-keyword">return</span>; <span class="hljs-comment">// Invalid color, return immediately</span>
+  }
+}
+</code></pre><p>But if refactoring is not an option, we must always avoid having several checks in every condition and avoid using <code>switch</code> as much as possible. We also must take into account that the most efficient way to do this is through an <code>object</code>.</p><pre><code class="lang-javascript">var colorObj = {
   <span class="hljs-string">'black'</span>: <span class="hljs-built_in">print</span>BlackBackground,
   <span class="hljs-string">'red'</span>: <span class="hljs-built_in">print</span>RedBackground,
   <span class="hljs-string">'blue'</span>: <span class="hljs-built_in">print</span>BlueBackground,
