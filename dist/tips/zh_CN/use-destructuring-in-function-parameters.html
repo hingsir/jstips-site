@@ -38,7 +38,7 @@ sayHelloTimes2(<span class="hljs-number">5678</span>)
 <span class="hljs-comment">// -&gt; Hello Anony Moose! I've seen you undefined times before.</span>
 sayHelloTimes2()
 <span class="hljs-comment">// -&gt; Hello Anony Moose! I've seen you undefined times before.</span>
-</code></pre><p>对于<code>= {}</code>，它解决了<em>object</em>未传递时的单个参数的默认值不起作用的问题：</p><pre><code class="lang-js"><span class="hljs-keyword">var</span> sayHelloTimes2a = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">{ name = "Anony", surname = "Moose" }, times</span>) </span>{
+</code></pre><p>对于<code>= {}</code>，它掩盖了<em>object</em>未传递时的情况，但对于个别属性默认值的情形下会抛出异常：</p><pre><code class="lang-js"><span class="hljs-keyword">var</span> sayHelloTimes2a = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">{ name = "Anony", surname = "Moose" }, times</span>) </span>{
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hello <span class="hljs-subst">${name}</span> <span class="hljs-subst">${surname}</span>! I've seen you <span class="hljs-subst">${times}</span> times before.`</span>);
 };
 
