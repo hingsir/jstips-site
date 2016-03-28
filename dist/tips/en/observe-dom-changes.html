@@ -19,40 +19,40 @@
         <span class="hljs-keyword">if</span> (targetElement) {
             rootObserver.disconnect();
             <span class="hljs-keyword">var</span> elementObserver = <span class="hljs-keyword">new</span> MutationObserver(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">mutations</span>) </span>{
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Inside element observer"</span>)
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Inside element observer"</span>);
                 subTargetElement = targetElement.querySelector(subTargetSelector);
                 <span class="hljs-keyword">if</span> (subTargetElement) {
                     elementObserver.disconnect();
-                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subTargetElement found!"</span>)
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"subTargetElement found!"</span>);
                 }
-            })
+            });
             elementObserver.observe(targetElement, observeConfig);
         }
-    })
+    });
     rootObserver.observe(rootElement, observeConfig);
 }
 
 (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
 
-    initExtension(<span class="hljs-built_in">document</span>.body, <span class="hljs-string">"div.target"</span>, <span class="hljs-string">"div.subtarget"</span>)
+    initExtension(<span class="hljs-built_in">document</span>.body, <span class="hljs-string">"div.target"</span>, <span class="hljs-string">"div.subtarget"</span>);
 
     setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
         del = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
-        del.innerHTML = <span class="hljs-string">"&lt;div class='target'&gt;target&lt;/div&gt;"</span>
-        <span class="hljs-built_in">document</span>.body.appendChild(del)
+        del.innerHTML = <span class="hljs-string">"&lt;div class='target'&gt;target&lt;/div&gt;"</span>;
+        <span class="hljs-built_in">document</span>.body.appendChild(del);
     }, <span class="hljs-number">3000</span>);
 
 
     setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.body.querySelector(<span class="hljs-string">'div.target'</span>)
+        <span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.body.querySelector(<span class="hljs-string">'div.target'</span>);
         <span class="hljs-keyword">if</span> (el) {
             del = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
-            del.innerHTML = <span class="hljs-string">"&lt;div class='subtarget'&gt;subtarget&lt;/div&gt;"</span>
-            el.appendChild(del)
+            del.innerHTML = <span class="hljs-string">"&lt;div class='subtarget'&gt;subtarget&lt;/div&gt;"</span>;
+            el.appendChild(del);
         }
     }, <span class="hljs-number">5000</span>);
 
-})()
+})();
 </code></pre></article></div><a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a><!-- 多说分享 start --><div class="ds-share flat" data-thread-key="jstips_36" data-title="Observe DOM changes in extensions" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="When you develop extensions to existent sites it&#39;s not so easy to play with DOM &#39;cause of modern dynamic javascript." data-url="http://jstips.hingsir.com/dist/tips/en/observe-dom-changes.html"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li><a class="ds-more" href="javascript:void(0);">分享到：</a></li><li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li><li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li><li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li></ul></div></div><!-- 多说分享 end --><!-- 多说评论框 start --><div class="ds-thread" data-thread-key="jstips_36" data-title="Observe DOM changes in extensions" data-url="http://jstips.hingsir.com/dist/tips/en/observe-dom-changes.html"></div><!-- 多说评论框 end --><!-- 多说公共JS代码 start (一个网页只需插入一次) --><script type="text/javascript">var duoshuoQuery = {short_name:"hingsir"};
     (function() {
         var ds = document.createElement('script');
