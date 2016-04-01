@@ -1,12 +1,214 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>JsTips - Useful JavaScript Tips</title><meta name="keywords" content="jstips,tips,Useful JavaScript Tips"><meta name="description" content="Introduces these short and useful daily JavaScript tips that will allow you to improve your code writing. With less than 2 minutes each day, you will be able to read about performance, conventions, hacks, interview questions and all the items that the future of this awesome language holds for us"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scale=no"><link rel="icon" type="image/x-icon" href="../../images/favicon.ico"><link rel="stylesheet" type="text/css" href="../../css/all-7e45beae0a.min.css"><script type="text/javascript">window.onload = function(){
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsTips - Useful JavaScript Tips</title>
+    <meta name="keywords" content="jstips,tips,Useful JavaScript Tips">
+    <meta name="description" content="Introduces these short and useful daily JavaScript tips that will allow you to improve your code writing. With less than 2 minutes each day, you will be able to read about performance, conventions, hacks, interview questions and all the items that the future of this awesome language holds for us">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scale=no">
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/all.min.css">
+    <script type="text/javascript">
+        window.onload = function(){
                 document.getElementById('J_languages_select').onchange = function(){
                 var lang = this.value;
                 window.location.href = window.location.href.replace(/tips\/(\w+)\//,function($,$1){
                     return $.replace($1,lang);
                 })
             }
-        }</script></head><body><div class="main-content clearfix"><div id="sider-wrap" class="catalog"><div class="catalog-header"><h1><a href="https://github.com/loverajoel/jstips">Useful JS Tips</a></h1><select id="J_languages_select"><option value="en">English</option><option value="zh_CN">简体中文</option><option value="zh_TW" selected="selected">繁体中文</option></select></div><ul><li><a href="DOM-event-listening-made-easy" class="" title="51.簡單的監聽 DOM 事件">51.簡單的監聽 DOM 事件</a></li><li><a href="helpful-console-log-hacks" class="" title="50.實用的 Console Logging 技巧">50.實用的 Console Logging 技巧</a></li><li><a href="extract-unix-timestamp-easily" class="" title="49.在 JavaScript 簡單取得 unix timestamp">49.在 JavaScript 簡單取得 unix timestamp</a></li><li><a href="reminders-about-reduce-function-usage" class="" title="48.如何 reduce 陣列">48.如何 reduce 陣列</a></li><li><a href="basics-declarations" class="" title="47.宣告的基本知識">47.宣告的基本知識</a></li><li><a href="detect-document-ready-in-pure-js" class="" title="46.使用 pure JavaScript 檢查文件是否準備">46.使用 pure JavaScript 檢查文件是否準備</a></li><li><a href="calculate-the-max-min-value-from-an-array" class="" title="45.從陣列計算最大和最小值">45.從陣列計算最大和最小值</a></li><li><a href="know-the-passing-mechanism" class="" title="44.了解傳送機制">44.了解傳送機制</a></li><li><a href="use-destructuring-in-function-parameters" class="" title="43.在函式參數裡使用解構子">43.在函式參數裡使用解構子</a></li><li><a href="preventing-unapply-attacks" class="" title="42.防止 Unapply 攻擊">42.防止 Unapply 攻擊</a></li><li><a href="array-average-and-median" class="" title="41.陣列平均值和中間值">41.陣列平均值和中間值</a></li><li><a href="using-json-stringify" class="" title="40.使用 JSON.Stringify">40.使用 JSON.Stringify</a></li><li><a href="advanced-properties" class="" title="39.進階 JavaScript 屬性">39.進階 JavaScript 屬性</a></li><li><a href="flattening-multidimensional-arrays-in-javascript" class="" title="38.在 JavaScript 中將多維陣列扁平化">38.在 JavaScript 中將多維陣列扁平化</a></li><li><a href="deduplicate-an-array" class="" title="37.移除陣列重複元素">37.移除陣列重複元素</a></li><li><a href="observe-dom-changes" class="" title="36.觀察在擴充中 DOM 的變化">36.觀察在擴充中 DOM 的變化</a></li><li><a href="assignment-shorthands" class="" title="35.賦值運算子">35.賦值運算子</a></li><li><a href="implementing-asynchronous-loops" class="" title="34.實作非同步迴圈">34.實作非同步迴圈</a></li><li><a href="create-range-0...n-easily-using-one-line" class="" title="33.使用一行程式碼建立一個 `[0, 1, ..., N - 1]` 的陣列">33.使用一行程式碼建立一個 `[0, 1, ..., N - 1]` 的陣列</a></li><li><a href="map-to-the-rescue-adding-order-to-object-properties" class="" title="32.透過 Map() 在你的物件屬性加入排序">32.透過 Map() 在你的物件屬性加入排序</a></li><li><a href="avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization" class="" title="31.避免修改或傳送 arguments 到其他函式 - 它會影響優化">31.避免修改或傳送 arguments 到其他函式 - 它會影響優化</a></li><li><a href="converting-truthy-falsy-values-to-boolean" class="" title="30.將 truthy 和 falsy 轉換成布林值">30.將 truthy 和 falsy 轉換成布林值</a></li><li><a href="speed-up-recursive-functions-with-memoization" class="" title="29.使用 memoization 加速遞迴">29.使用 memoization 加速遞迴</a></li><li><a href="curry-vs-partial-application" class="" title="28.柯里化（currying）和部分應用程式">28.柯里化（currying）和部分應用程式</a></li><li><a href="short-circiut-evaluation-in-js" class="" title="27.JavaScript 中的捷徑計算">27.JavaScript 中的捷徑計算</a></li><li><a href="filtering-and-sorting-a-list-of-strings" class="cur" title="26.過濾和排序字串清單">26.過濾和排序字串清單</a></li><li><a href="Using-immediately-invoked-function-expression" class="" title="25.使用立即函式表達式">25.使用立即函式表達式</a></li><li><a href="use_===_instead_of_==" class="" title="24.使用 === 來替代 ==">24.使用 === 來替代 ==</a></li><li><a href="converting-to-number-fast-way" class="" title="23.轉換為數字更快的方式">23.轉換為數字更快的方式</a></li><li><a href="two-ways-to-empty-an-array" class="" title="22.將陣列清空的兩種方法">22.將陣列清空的兩種方法</a></li><li><a href="shuffle-an-array" class="" title="21.將陣列洗牌">21.將陣列洗牌</a></li><li><a href="return-objects-to-enable-chaining-of-functions" class="" title="20.回傳物件並使用函式鏈結">20.回傳物件並使用函式鏈結</a></li><li><a href="safe-string-concatenation" class="" title="19.安全的使用字串串接">19.安全的使用字串串接</a></li><li><a href="rounding-the-fast-way" class="" title="18.Truncating 最快的方式（含有風險）">18.Truncating 最快的方式（含有風險）</a></li><li><a href="nodejs-run-a-module-if-it-is-not-required" class="" title="17.Node.js - 執行尚未被 required 的模組">17.Node.js - 執行尚未被 required 的模組</a></li><li><a href="passing-arguments-to-callback-functions" class="" title="16.將參數傳送到 callback 函式">16.將參數傳送到 callback 函式</a></li><li><a href="even-simpler-way-of-using-indexof-as-a-contains-clause" class="" title="15.更簡單的方式將 indexOf 當作 contains 使用">15.更簡單的方式將 indexOf 當作 contains 使用</a></li><li><a href="fat-arrow-functions" class="" title="14.箭頭函式">14.箭頭函式</a></li><li><a href="tip-to-measure-performance-of-a-javascript-block" class="" title="13.測量 JavaScript 程式碼區塊性能的 tip">13.測量 JavaScript 程式碼區塊性能的 tip</a></li><li><a href="pseudomandatory-parameters-in-es6-functions" class="" title="12.在 ES6 函式內的預設參數">12.在 ES6 函式內的預設參數</a></li><li><a href="hoisting" class="" title="11.提升變數">11.提升變數</a></li><li><a href="check-if-a-property-is-in-a-object" class="" title="10.檢查屬性是否存在物件內">10.檢查屬性是否存在物件內</a></li><li><a href="template-strings" class="" title="09.模板字串">09.模板字串</a></li><li><a href="converting-a-node-list-to-an-array" class="" title="08.將 Node List 轉換成陣列">08.將 Node List 轉換成陣列</a></li><li><a href="use-strict-and-get-lazy" class="" title="07.在 JavaScript 使用嚴格模式">07.在 JavaScript 使用嚴格模式</a></li><li><a href="writing-a-single-method-for-arrays-and-a-single-element" class="" title="06.撰寫一個可以接受單一參數和陣列的方法">06.撰寫一個可以接受單一參數和陣列的方法</a></li><li><a href="differences-between-undefined-and-null" class="" title="05.undefined 和 null 的差別">05.undefined 和 null 的差別</a></li><li><a href="sorting-strings-with-accented-characters" class="" title="04.將帶有音節字元的字串進行排序">04.將帶有音節字元的字串進行排序</a></li><li><a href="improve-nested-conditionals" class="" title="03.改善巢狀化的條件式">03.改善巢狀化的條件式</a></li><li><a href="keys-in-children-components-are-important" class="" title="02.在子元件 Keys 是很重要的">02.在子元件 Keys 是很重要的</a></li><li><a href="angularjs-digest-vs-apply" class="" title="01.AngularJs - $digest vs $apply">01.AngularJs - $digest vs $apply</a></li><li><a href="insert-item-inside-an-array" class="" title="00.在陣列中加入元素">00.在陣列中加入元素</a></li></ul></div><div id="content-wrap"><div id="readme" class="boxed-group clearfix announce instapaper_body md"><article class="markdown-body entry-content" itemprop="mainContentOfPage"><h2 id="-26-">#26 - 過濾和排序字串清單</h2><blockquote><p>2016-01-26 by <a href="https://github.com/davegomez">@davegomez</a></p></blockquote><p>你可能有一份很大的清單，而你需要過濾重複的內容並移除，再依字母排序。</p><p>在我們的範例，我使用了不同版本的 <strong>JavaScript 保留字元</strong> 的清單，但你要注意到，這裡有一些重複的字元而且他們不是依字母排序的。所以，這裡有一個相當棒的字串<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">陣列</a>清單來測試這個 JavaScript tip。</p><pre><code class="lang-js">var keywords = ['<span class="hljs-keyword">do</span><span class="hljs-string">', '</span><span class="hljs-keyword">if</span><span class="hljs-string">', '</span><span class="hljs-keyword">in</span><span class="hljs-string">', '</span><span class="hljs-keyword">for</span><span class="hljs-string">', '</span><span class="hljs-keyword">new</span><span class="hljs-string">', '</span>try<span class="hljs-string">', '</span><span class="hljs-keyword">var</span><span class="hljs-string">', '</span><span class="hljs-keyword">case</span><span class="hljs-string">', '</span><span class="hljs-keyword">else</span><span class="hljs-string">', '</span>enum<span class="hljs-string">', '</span><span class="hljs-literal">null</span><span class="hljs-string">', '</span>this<span class="hljs-string">', '</span><span class="hljs-literal">true</span><span class="hljs-string">', '</span><span class="hljs-built_in">void</span><span class="hljs-string">', '</span><span class="hljs-keyword">with</span><span class="hljs-string">', '</span>break<span class="hljs-string">', '</span>catch<span class="hljs-string">', '</span><span class="hljs-keyword">class</span><span class="hljs-string">', '</span>const<span class="hljs-string">', '</span><span class="hljs-literal">false</span><span class="hljs-string">', '</span>super<span class="hljs-string">', '</span>throw<span class="hljs-string">', '</span><span class="hljs-keyword">while</span><span class="hljs-string">', '</span><span class="hljs-keyword">delete</span><span class="hljs-string">', '</span><span class="hljs-keyword">export</span><span class="hljs-string">', '</span><span class="hljs-keyword">import</span><span class="hljs-string">', '</span><span class="hljs-keyword">return</span><span class="hljs-string">', '</span><span class="hljs-keyword">switch</span><span class="hljs-string">', '</span>typeof<span class="hljs-string">', '</span><span class="hljs-keyword">default</span><span class="hljs-string">', '</span>extends<span class="hljs-string">', '</span>finally<span class="hljs-string">', '</span>continue<span class="hljs-string">', '</span>debugger<span class="hljs-string">', '</span><span class="hljs-keyword">function</span><span class="hljs-string">', '</span><span class="hljs-keyword">do</span><span class="hljs-string">', '</span><span class="hljs-keyword">if</span><span class="hljs-string">', '</span><span class="hljs-keyword">in</span><span class="hljs-string">', '</span><span class="hljs-keyword">for</span><span class="hljs-string">', '</span><span class="hljs-built_in">int</span><span class="hljs-string">', '</span><span class="hljs-keyword">new</span><span class="hljs-string">', '</span>try<span class="hljs-string">', '</span><span class="hljs-keyword">var</span><span class="hljs-string">', '</span><span class="hljs-keyword">byte</span><span class="hljs-string">', '</span><span class="hljs-keyword">case</span><span class="hljs-string">', '</span><span class="hljs-built_in">char</span><span class="hljs-string">', '</span><span class="hljs-keyword">else</span><span class="hljs-string">', '</span>enum<span class="hljs-string">', '</span><span class="hljs-keyword">goto</span><span class="hljs-string">', '</span><span class="hljs-keyword">long</span><span class="hljs-string">', '</span><span class="hljs-literal">null</span><span class="hljs-string">', '</span>this<span class="hljs-string">', '</span><span class="hljs-literal">true</span><span class="hljs-string">', '</span><span class="hljs-built_in">void</span><span class="hljs-string">', '</span><span class="hljs-keyword">with</span><span class="hljs-string">', '</span>break<span class="hljs-string">', '</span>catch<span class="hljs-string">', '</span><span class="hljs-keyword">class</span><span class="hljs-string">', '</span>const<span class="hljs-string">', '</span><span class="hljs-literal">false</span><span class="hljs-string">', '</span><span class="hljs-keyword">final</span><span class="hljs-string">', '</span><span class="hljs-built_in">float</span><span class="hljs-string">', '</span><span class="hljs-keyword">short</span><span class="hljs-string">', '</span>super<span class="hljs-string">', '</span>throw<span class="hljs-string">', '</span><span class="hljs-keyword">while</span><span class="hljs-string">', '</span><span class="hljs-keyword">delete</span><span class="hljs-string">', '</span><span class="hljs-keyword">double</span><span class="hljs-string">', '</span><span class="hljs-keyword">export</span><span class="hljs-string">', '</span><span class="hljs-keyword">import</span><span class="hljs-string">', '</span><span class="hljs-keyword">native</span><span class="hljs-string">', '</span><span class="hljs-keyword">public</span><span class="hljs-string">', '</span><span class="hljs-keyword">return</span><span class="hljs-string">', '</span><span class="hljs-keyword">static</span><span class="hljs-string">', '</span><span class="hljs-keyword">switch</span><span class="hljs-string">', '</span>throws<span class="hljs-string">', '</span>typeof<span class="hljs-string">', '</span><span class="hljs-built_in">boolean</span><span class="hljs-string">', '</span><span class="hljs-keyword">default</span><span class="hljs-string">', '</span>extends<span class="hljs-string">', '</span>finally<span class="hljs-string">', '</span><span class="hljs-keyword">package</span><span class="hljs-string">', '</span><span class="hljs-keyword">private</span><span class="hljs-string">', '</span>abstract<span class="hljs-string">', '</span>continue<span class="hljs-string">', '</span>debugger<span class="hljs-string">', '</span><span class="hljs-keyword">function</span><span class="hljs-string">', '</span>volatile<span class="hljs-string">', '</span><span class="hljs-keyword">interface</span><span class="hljs-string">', '</span>protected<span class="hljs-string">', '</span>transient<span class="hljs-string">', '</span>implements<span class="hljs-string">', '</span>instanceof<span class="hljs-string">', '</span>synchronized<span class="hljs-string">', '</span><span class="hljs-keyword">do</span><span class="hljs-string">', '</span><span class="hljs-keyword">if</span><span class="hljs-string">', '</span><span class="hljs-keyword">in</span><span class="hljs-string">', '</span><span class="hljs-keyword">for</span><span class="hljs-string">', '</span>let<span class="hljs-string">', '</span><span class="hljs-keyword">new</span><span class="hljs-string">', '</span>try<span class="hljs-string">', '</span><span class="hljs-keyword">var</span><span class="hljs-string">', '</span><span class="hljs-keyword">case</span><span class="hljs-string">', '</span><span class="hljs-keyword">else</span><span class="hljs-string">', '</span>enum<span class="hljs-string">', '</span>eval<span class="hljs-string">', '</span><span class="hljs-literal">null</span><span class="hljs-string">', '</span>this<span class="hljs-string">', '</span><span class="hljs-literal">true</span><span class="hljs-string">', '</span><span class="hljs-built_in">void</span><span class="hljs-string">', '</span><span class="hljs-keyword">with</span><span class="hljs-string">', '</span>break<span class="hljs-string">', '</span>catch<span class="hljs-string">', '</span><span class="hljs-keyword">class</span><span class="hljs-string">', '</span>const<span class="hljs-string">', '</span><span class="hljs-literal">false</span><span class="hljs-string">', '</span>super<span class="hljs-string">', '</span>throw<span class="hljs-string">', '</span><span class="hljs-keyword">while</span><span class="hljs-string">', '</span>yield<span class="hljs-string">', '</span><span class="hljs-keyword">delete</span><span class="hljs-string">', '</span><span class="hljs-keyword">export</span><span class="hljs-string">', '</span><span class="hljs-keyword">import</span><span class="hljs-string">', '</span><span class="hljs-keyword">public</span><span class="hljs-string">', '</span><span class="hljs-keyword">return</span><span class="hljs-string">', '</span><span class="hljs-keyword">static</span><span class="hljs-string">', '</span><span class="hljs-keyword">switch</span><span class="hljs-string">', '</span>typeof<span class="hljs-string">', '</span><span class="hljs-keyword">default</span><span class="hljs-string">', '</span>extends<span class="hljs-string">', '</span>finally<span class="hljs-string">', '</span><span class="hljs-keyword">package</span><span class="hljs-string">', '</span><span class="hljs-keyword">private</span><span class="hljs-string">', '</span>continue<span class="hljs-string">', '</span>debugger<span class="hljs-string">', '</span><span class="hljs-keyword">function</span><span class="hljs-string">', '</span>arguments<span class="hljs-string">', '</span><span class="hljs-keyword">interface</span><span class="hljs-string">', '</span>protected<span class="hljs-string">', '</span>implements<span class="hljs-string">', '</span>instanceof<span class="hljs-string">', '</span><span class="hljs-keyword">do</span><span class="hljs-string">', '</span><span class="hljs-keyword">if</span><span class="hljs-string">', '</span><span class="hljs-keyword">in</span><span class="hljs-string">', '</span><span class="hljs-keyword">for</span><span class="hljs-string">', '</span>let<span class="hljs-string">', '</span><span class="hljs-keyword">new</span><span class="hljs-string">', '</span>try<span class="hljs-string">', '</span><span class="hljs-keyword">var</span><span class="hljs-string">', '</span><span class="hljs-keyword">case</span><span class="hljs-string">', '</span><span class="hljs-keyword">else</span><span class="hljs-string">', '</span>enum<span class="hljs-string">', '</span>eval<span class="hljs-string">', '</span><span class="hljs-literal">null</span><span class="hljs-string">', '</span>this<span class="hljs-string">', '</span><span class="hljs-literal">true</span><span class="hljs-string">', '</span><span class="hljs-built_in">void</span><span class="hljs-string">', '</span><span class="hljs-keyword">with</span><span class="hljs-string">', '</span>await<span class="hljs-string">', '</span>break<span class="hljs-string">', '</span>catch<span class="hljs-string">', '</span><span class="hljs-keyword">class</span><span class="hljs-string">', '</span>const<span class="hljs-string">', '</span><span class="hljs-literal">false</span><span class="hljs-string">', '</span>super<span class="hljs-string">', '</span>throw<span class="hljs-string">', '</span><span class="hljs-keyword">while</span><span class="hljs-string">', '</span>yield<span class="hljs-string">', '</span><span class="hljs-keyword">delete</span><span class="hljs-string">', '</span><span class="hljs-keyword">export</span><span class="hljs-string">', '</span><span class="hljs-keyword">import</span><span class="hljs-string">', '</span><span class="hljs-keyword">public</span><span class="hljs-string">', '</span><span class="hljs-keyword">return</span><span class="hljs-string">', '</span><span class="hljs-keyword">static</span><span class="hljs-string">', '</span><span class="hljs-keyword">switch</span><span class="hljs-string">', '</span>typeof<span class="hljs-string">', '</span><span class="hljs-keyword">default</span><span class="hljs-string">', '</span>extends<span class="hljs-string">', '</span>finally<span class="hljs-string">', '</span><span class="hljs-keyword">package</span><span class="hljs-string">', '</span><span class="hljs-keyword">private</span><span class="hljs-string">', '</span>continue<span class="hljs-string">', '</span>debugger<span class="hljs-string">', '</span><span class="hljs-keyword">function</span><span class="hljs-string">', '</span>arguments<span class="hljs-string">', '</span><span class="hljs-keyword">interface</span><span class="hljs-string">', '</span>protected<span class="hljs-string">', '</span>implements<span class="hljs-string">', '</span>instanceof<span class="hljs-string">'];</span>
-</code></pre><p>因為我們不想改變我們原有的清單，所以我們使用高階函式叫做 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"><code>filter</code></a>，它會基於我們傳送的陣列（<em>函式</em>）並回傳一個過濾後的新陣列。基於目前的清單和新的清單索引 <code>index</code> 的比較，會把和 index 相符的元素 push 到新陣列成為新的清單。</p><p>最後，我們使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort"><code>sort</code></a> 函式來排序過濾後的結果，將比較函式當作唯一的參數，回傳依字母排序後的清單。</p><pre><code class="lang-js"><span class="hljs-keyword">var</span> filteredAndSortedKeywords = keywords
+        }
+    </script>
+</head><body>
+    <div class="main-content clearfix">
+        <div id="sider-wrap" class="catalog">
+    <div class="catalog-header">
+        <h1>
+            <a href="https://github.com/loverajoel/jstips">Useful JS Tips</a>
+        </h1>
+        <select id="J_languages_select">
+            
+                <option value="en" >English</option>
+            
+                <option value="zh_CN" >简体中文</option>
+            
+                <option value="zh_TW" selected=selected> 繁体中文</option>
+            
+        </select>
+    </div>
+    <ul>
+        
+            <li><a href="DOM-event-listening-made-easy" class=""
+             title="51.簡單的監聽 DOM 事件">51.簡單的監聽 DOM 事件</a></li>
+        
+            <li><a href="helpful-console-log-hacks" class=""
+             title="50.實用的 Console Logging 技巧">50.實用的 Console Logging 技巧</a></li>
+        
+            <li><a href="extract-unix-timestamp-easily" class=""
+             title="49.在 JavaScript 簡單取得 unix timestamp">49.在 JavaScript 簡單取得 unix timestamp</a></li>
+        
+            <li><a href="reminders-about-reduce-function-usage" class=""
+             title="48.如何 reduce 陣列">48.如何 reduce 陣列</a></li>
+        
+            <li><a href="basics-declarations" class=""
+             title="47.宣告的基本知識">47.宣告的基本知識</a></li>
+        
+            <li><a href="detect-document-ready-in-pure-js" class=""
+             title="46.使用 pure JavaScript 檢查文件是否準備">46.使用 pure JavaScript 檢查文件是否準備</a></li>
+        
+            <li><a href="calculate-the-max-min-value-from-an-array" class=""
+             title="45.從陣列計算最大和最小值">45.從陣列計算最大和最小值</a></li>
+        
+            <li><a href="know-the-passing-mechanism" class=""
+             title="44.了解傳送機制">44.了解傳送機制</a></li>
+        
+            <li><a href="use-destructuring-in-function-parameters" class=""
+             title="43.在函式參數裡使用解構子">43.在函式參數裡使用解構子</a></li>
+        
+            <li><a href="preventing-unapply-attacks" class=""
+             title="42.防止 Unapply 攻擊">42.防止 Unapply 攻擊</a></li>
+        
+            <li><a href="array-average-and-median" class=""
+             title="41.陣列平均值和中間值">41.陣列平均值和中間值</a></li>
+        
+            <li><a href="using-json-stringify" class=""
+             title="40.使用 JSON.Stringify">40.使用 JSON.Stringify</a></li>
+        
+            <li><a href="advanced-properties" class=""
+             title="39.進階 JavaScript 屬性">39.進階 JavaScript 屬性</a></li>
+        
+            <li><a href="flattening-multidimensional-arrays-in-javascript" class=""
+             title="38.在 JavaScript 中將多維陣列扁平化">38.在 JavaScript 中將多維陣列扁平化</a></li>
+        
+            <li><a href="deduplicate-an-array" class=""
+             title="37.移除陣列重複元素">37.移除陣列重複元素</a></li>
+        
+            <li><a href="observe-dom-changes" class=""
+             title="36.觀察在擴充中 DOM 的變化">36.觀察在擴充中 DOM 的變化</a></li>
+        
+            <li><a href="assignment-shorthands" class=""
+             title="35.賦值運算子">35.賦值運算子</a></li>
+        
+            <li><a href="implementing-asynchronous-loops" class=""
+             title="34.實作非同步迴圈">34.實作非同步迴圈</a></li>
+        
+            <li><a href="create-range-0...n-easily-using-one-line" class=""
+             title="33.使用一行程式碼建立一個 `[0, 1, ..., N - 1]` 的陣列">33.使用一行程式碼建立一個 `[0, 1, ..., N - 1]` 的陣列</a></li>
+        
+            <li><a href="map-to-the-rescue-adding-order-to-object-properties" class=""
+             title="32.透過 Map() 在你的物件屬性加入排序">32.透過 Map() 在你的物件屬性加入排序</a></li>
+        
+            <li><a href="avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization" class=""
+             title="31.避免修改或傳送 arguments 到其他函式 - 它會影響優化">31.避免修改或傳送 arguments 到其他函式 - 它會影響優化</a></li>
+        
+            <li><a href="converting-truthy-falsy-values-to-boolean" class=""
+             title="30.將 truthy 和 falsy 轉換成布林值">30.將 truthy 和 falsy 轉換成布林值</a></li>
+        
+            <li><a href="speed-up-recursive-functions-with-memoization" class=""
+             title="29.使用 memoization 加速遞迴">29.使用 memoization 加速遞迴</a></li>
+        
+            <li><a href="curry-vs-partial-application" class=""
+             title="28.柯里化（currying）和部分應用程式">28.柯里化（currying）和部分應用程式</a></li>
+        
+            <li><a href="short-circiut-evaluation-in-js" class=""
+             title="27.JavaScript 中的捷徑計算">27.JavaScript 中的捷徑計算</a></li>
+        
+            <li><a href="filtering-and-sorting-a-list-of-strings" class="cur"
+             title="26.過濾和排序字串清單">26.過濾和排序字串清單</a></li>
+        
+            <li><a href="Using-immediately-invoked-function-expression" class=""
+             title="25.使用立即函式表達式">25.使用立即函式表達式</a></li>
+        
+            <li><a href="use_===_instead_of_==" class=""
+             title="24.使用 === 來替代 ==">24.使用 === 來替代 ==</a></li>
+        
+            <li><a href="converting-to-number-fast-way" class=""
+             title="23.轉換為數字更快的方式">23.轉換為數字更快的方式</a></li>
+        
+            <li><a href="two-ways-to-empty-an-array" class=""
+             title="22.將陣列清空的兩種方法">22.將陣列清空的兩種方法</a></li>
+        
+            <li><a href="shuffle-an-array" class=""
+             title="21.將陣列洗牌">21.將陣列洗牌</a></li>
+        
+            <li><a href="return-objects-to-enable-chaining-of-functions" class=""
+             title="20.回傳物件並使用函式鏈結">20.回傳物件並使用函式鏈結</a></li>
+        
+            <li><a href="safe-string-concatenation" class=""
+             title="19.安全的使用字串串接">19.安全的使用字串串接</a></li>
+        
+            <li><a href="rounding-the-fast-way" class=""
+             title="18.Truncating 最快的方式（含有風險）">18.Truncating 最快的方式（含有風險）</a></li>
+        
+            <li><a href="nodejs-run-a-module-if-it-is-not-required" class=""
+             title="17.Node.js - 執行尚未被 required 的模組">17.Node.js - 執行尚未被 required 的模組</a></li>
+        
+            <li><a href="passing-arguments-to-callback-functions" class=""
+             title="16.將參數傳送到 callback 函式">16.將參數傳送到 callback 函式</a></li>
+        
+            <li><a href="even-simpler-way-of-using-indexof-as-a-contains-clause" class=""
+             title="15.更簡單的方式將 indexOf 當作 contains 使用">15.更簡單的方式將 indexOf 當作 contains 使用</a></li>
+        
+            <li><a href="fat-arrow-functions" class=""
+             title="14.箭頭函式">14.箭頭函式</a></li>
+        
+            <li><a href="tip-to-measure-performance-of-a-javascript-block" class=""
+             title="13.測量 JavaScript 程式碼區塊性能的 tip">13.測量 JavaScript 程式碼區塊性能的 tip</a></li>
+        
+            <li><a href="pseudomandatory-parameters-in-es6-functions" class=""
+             title="12.在 ES6 函式內的預設參數">12.在 ES6 函式內的預設參數</a></li>
+        
+            <li><a href="hoisting" class=""
+             title="11.提升變數">11.提升變數</a></li>
+        
+            <li><a href="check-if-a-property-is-in-a-object" class=""
+             title="10.檢查屬性是否存在物件內">10.檢查屬性是否存在物件內</a></li>
+        
+            <li><a href="template-strings" class=""
+             title="09.模板字串">09.模板字串</a></li>
+        
+            <li><a href="converting-a-node-list-to-an-array" class=""
+             title="08.將 Node List 轉換成陣列">08.將 Node List 轉換成陣列</a></li>
+        
+            <li><a href="use-strict-and-get-lazy" class=""
+             title="07.在 JavaScript 使用嚴格模式">07.在 JavaScript 使用嚴格模式</a></li>
+        
+            <li><a href="writing-a-single-method-for-arrays-and-a-single-element" class=""
+             title="06.撰寫一個可以接受單一參數和陣列的方法">06.撰寫一個可以接受單一參數和陣列的方法</a></li>
+        
+            <li><a href="differences-between-undefined-and-null" class=""
+             title="05.undefined 和 null 的差別">05.undefined 和 null 的差別</a></li>
+        
+            <li><a href="sorting-strings-with-accented-characters" class=""
+             title="04.將帶有音節字元的字串進行排序">04.將帶有音節字元的字串進行排序</a></li>
+        
+            <li><a href="improve-nested-conditionals" class=""
+             title="03.改善巢狀化的條件式">03.改善巢狀化的條件式</a></li>
+        
+            <li><a href="keys-in-children-components-are-important" class=""
+             title="02.在子元件 Keys 是很重要的">02.在子元件 Keys 是很重要的</a></li>
+        
+            <li><a href="angularjs-digest-vs-apply" class=""
+             title="01.AngularJs - $digest vs $apply">01.AngularJs - $digest vs $apply</a></li>
+        
+            <li><a href="insert-item-inside-an-array" class=""
+             title="00.在陣列中加入元素">00.在陣列中加入元素</a></li>
+        
+    </ul>
+</div>
+        <div id="content-wrap">
+             <div id="readme" class="boxed-group clearfix announce instapaper_body md">
+ 	<article class="markdown-body entry-content" itemprop="mainContentOfPage">
+ 		<h2 id="-26-">#26 - 過濾和排序字串清單</h2>
+<blockquote>
+<p>2016-01-26 by <a href="https://github.com/davegomez">@davegomez</a></p>
+</blockquote>
+<p>你可能有一份很大的清單，而你需要過濾重複的內容並移除，再依字母排序。</p>
+<p>在我們的範例，我使用了不同版本的 <strong>JavaScript 保留字元</strong> 的清單，但你要注意到，這裡有一些重複的字元而且他們不是依字母排序的。所以，這裡有一個相當棒的字串<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">陣列</a>清單來測試這個 JavaScript tip。</p>
+<pre><code class="lang-js">var keywords = ['<span class="hljs-keyword">do</span><span class="hljs-string">', '</span><span class="hljs-keyword">if</span><span class="hljs-string">', '</span><span class="hljs-keyword">in</span><span class="hljs-string">', '</span><span class="hljs-keyword">for</span><span class="hljs-string">', '</span><span class="hljs-keyword">new</span><span class="hljs-string">', '</span>try<span class="hljs-string">', '</span><span class="hljs-keyword">var</span><span class="hljs-string">', '</span><span class="hljs-keyword">case</span><span class="hljs-string">', '</span><span class="hljs-keyword">else</span><span class="hljs-string">', '</span>enum<span class="hljs-string">', '</span><span class="hljs-literal">null</span><span class="hljs-string">', '</span>this<span class="hljs-string">', '</span><span class="hljs-literal">true</span><span class="hljs-string">', '</span><span class="hljs-built_in">void</span><span class="hljs-string">', '</span><span class="hljs-keyword">with</span><span class="hljs-string">', '</span>break<span class="hljs-string">', '</span>catch<span class="hljs-string">', '</span><span class="hljs-keyword">class</span><span class="hljs-string">', '</span>const<span class="hljs-string">', '</span><span class="hljs-literal">false</span><span class="hljs-string">', '</span>super<span class="hljs-string">', '</span>throw<span class="hljs-string">', '</span><span class="hljs-keyword">while</span><span class="hljs-string">', '</span><span class="hljs-keyword">delete</span><span class="hljs-string">', '</span><span class="hljs-keyword">export</span><span class="hljs-string">', '</span><span class="hljs-keyword">import</span><span class="hljs-string">', '</span><span class="hljs-keyword">return</span><span class="hljs-string">', '</span><span class="hljs-keyword">switch</span><span class="hljs-string">', '</span>typeof<span class="hljs-string">', '</span><span class="hljs-keyword">default</span><span class="hljs-string">', '</span>extends<span class="hljs-string">', '</span>finally<span class="hljs-string">', '</span>continue<span class="hljs-string">', '</span>debugger<span class="hljs-string">', '</span><span class="hljs-keyword">function</span><span class="hljs-string">', '</span><span class="hljs-keyword">do</span><span class="hljs-string">', '</span><span class="hljs-keyword">if</span><span class="hljs-string">', '</span><span class="hljs-keyword">in</span><span class="hljs-string">', '</span><span class="hljs-keyword">for</span><span class="hljs-string">', '</span><span class="hljs-built_in">int</span><span class="hljs-string">', '</span><span class="hljs-keyword">new</span><span class="hljs-string">', '</span>try<span class="hljs-string">', '</span><span class="hljs-keyword">var</span><span class="hljs-string">', '</span><span class="hljs-keyword">byte</span><span class="hljs-string">', '</span><span class="hljs-keyword">case</span><span class="hljs-string">', '</span><span class="hljs-built_in">char</span><span class="hljs-string">', '</span><span class="hljs-keyword">else</span><span class="hljs-string">', '</span>enum<span class="hljs-string">', '</span><span class="hljs-keyword">goto</span><span class="hljs-string">', '</span><span class="hljs-keyword">long</span><span class="hljs-string">', '</span><span class="hljs-literal">null</span><span class="hljs-string">', '</span>this<span class="hljs-string">', '</span><span class="hljs-literal">true</span><span class="hljs-string">', '</span><span class="hljs-built_in">void</span><span class="hljs-string">', '</span><span class="hljs-keyword">with</span><span class="hljs-string">', '</span>break<span class="hljs-string">', '</span>catch<span class="hljs-string">', '</span><span class="hljs-keyword">class</span><span class="hljs-string">', '</span>const<span class="hljs-string">', '</span><span class="hljs-literal">false</span><span class="hljs-string">', '</span><span class="hljs-keyword">final</span><span class="hljs-string">', '</span><span class="hljs-built_in">float</span><span class="hljs-string">', '</span><span class="hljs-keyword">short</span><span class="hljs-string">', '</span>super<span class="hljs-string">', '</span>throw<span class="hljs-string">', '</span><span class="hljs-keyword">while</span><span class="hljs-string">', '</span><span class="hljs-keyword">delete</span><span class="hljs-string">', '</span><span class="hljs-keyword">double</span><span class="hljs-string">', '</span><span class="hljs-keyword">export</span><span class="hljs-string">', '</span><span class="hljs-keyword">import</span><span class="hljs-string">', '</span><span class="hljs-keyword">native</span><span class="hljs-string">', '</span><span class="hljs-keyword">public</span><span class="hljs-string">', '</span><span class="hljs-keyword">return</span><span class="hljs-string">', '</span><span class="hljs-keyword">static</span><span class="hljs-string">', '</span><span class="hljs-keyword">switch</span><span class="hljs-string">', '</span>throws<span class="hljs-string">', '</span>typeof<span class="hljs-string">', '</span><span class="hljs-built_in">boolean</span><span class="hljs-string">', '</span><span class="hljs-keyword">default</span><span class="hljs-string">', '</span>extends<span class="hljs-string">', '</span>finally<span class="hljs-string">', '</span><span class="hljs-keyword">package</span><span class="hljs-string">', '</span><span class="hljs-keyword">private</span><span class="hljs-string">', '</span>abstract<span class="hljs-string">', '</span>continue<span class="hljs-string">', '</span>debugger<span class="hljs-string">', '</span><span class="hljs-keyword">function</span><span class="hljs-string">', '</span>volatile<span class="hljs-string">', '</span><span class="hljs-keyword">interface</span><span class="hljs-string">', '</span>protected<span class="hljs-string">', '</span>transient<span class="hljs-string">', '</span>implements<span class="hljs-string">', '</span>instanceof<span class="hljs-string">', '</span>synchronized<span class="hljs-string">', '</span><span class="hljs-keyword">do</span><span class="hljs-string">', '</span><span class="hljs-keyword">if</span><span class="hljs-string">', '</span><span class="hljs-keyword">in</span><span class="hljs-string">', '</span><span class="hljs-keyword">for</span><span class="hljs-string">', '</span>let<span class="hljs-string">', '</span><span class="hljs-keyword">new</span><span class="hljs-string">', '</span>try<span class="hljs-string">', '</span><span class="hljs-keyword">var</span><span class="hljs-string">', '</span><span class="hljs-keyword">case</span><span class="hljs-string">', '</span><span class="hljs-keyword">else</span><span class="hljs-string">', '</span>enum<span class="hljs-string">', '</span>eval<span class="hljs-string">', '</span><span class="hljs-literal">null</span><span class="hljs-string">', '</span>this<span class="hljs-string">', '</span><span class="hljs-literal">true</span><span class="hljs-string">', '</span><span class="hljs-built_in">void</span><span class="hljs-string">', '</span><span class="hljs-keyword">with</span><span class="hljs-string">', '</span>break<span class="hljs-string">', '</span>catch<span class="hljs-string">', '</span><span class="hljs-keyword">class</span><span class="hljs-string">', '</span>const<span class="hljs-string">', '</span><span class="hljs-literal">false</span><span class="hljs-string">', '</span>super<span class="hljs-string">', '</span>throw<span class="hljs-string">', '</span><span class="hljs-keyword">while</span><span class="hljs-string">', '</span>yield<span class="hljs-string">', '</span><span class="hljs-keyword">delete</span><span class="hljs-string">', '</span><span class="hljs-keyword">export</span><span class="hljs-string">', '</span><span class="hljs-keyword">import</span><span class="hljs-string">', '</span><span class="hljs-keyword">public</span><span class="hljs-string">', '</span><span class="hljs-keyword">return</span><span class="hljs-string">', '</span><span class="hljs-keyword">static</span><span class="hljs-string">', '</span><span class="hljs-keyword">switch</span><span class="hljs-string">', '</span>typeof<span class="hljs-string">', '</span><span class="hljs-keyword">default</span><span class="hljs-string">', '</span>extends<span class="hljs-string">', '</span>finally<span class="hljs-string">', '</span><span class="hljs-keyword">package</span><span class="hljs-string">', '</span><span class="hljs-keyword">private</span><span class="hljs-string">', '</span>continue<span class="hljs-string">', '</span>debugger<span class="hljs-string">', '</span><span class="hljs-keyword">function</span><span class="hljs-string">', '</span>arguments<span class="hljs-string">', '</span><span class="hljs-keyword">interface</span><span class="hljs-string">', '</span>protected<span class="hljs-string">', '</span>implements<span class="hljs-string">', '</span>instanceof<span class="hljs-string">', '</span><span class="hljs-keyword">do</span><span class="hljs-string">', '</span><span class="hljs-keyword">if</span><span class="hljs-string">', '</span><span class="hljs-keyword">in</span><span class="hljs-string">', '</span><span class="hljs-keyword">for</span><span class="hljs-string">', '</span>let<span class="hljs-string">', '</span><span class="hljs-keyword">new</span><span class="hljs-string">', '</span>try<span class="hljs-string">', '</span><span class="hljs-keyword">var</span><span class="hljs-string">', '</span><span class="hljs-keyword">case</span><span class="hljs-string">', '</span><span class="hljs-keyword">else</span><span class="hljs-string">', '</span>enum<span class="hljs-string">', '</span>eval<span class="hljs-string">', '</span><span class="hljs-literal">null</span><span class="hljs-string">', '</span>this<span class="hljs-string">', '</span><span class="hljs-literal">true</span><span class="hljs-string">', '</span><span class="hljs-built_in">void</span><span class="hljs-string">', '</span><span class="hljs-keyword">with</span><span class="hljs-string">', '</span>await<span class="hljs-string">', '</span>break<span class="hljs-string">', '</span>catch<span class="hljs-string">', '</span><span class="hljs-keyword">class</span><span class="hljs-string">', '</span>const<span class="hljs-string">', '</span><span class="hljs-literal">false</span><span class="hljs-string">', '</span>super<span class="hljs-string">', '</span>throw<span class="hljs-string">', '</span><span class="hljs-keyword">while</span><span class="hljs-string">', '</span>yield<span class="hljs-string">', '</span><span class="hljs-keyword">delete</span><span class="hljs-string">', '</span><span class="hljs-keyword">export</span><span class="hljs-string">', '</span><span class="hljs-keyword">import</span><span class="hljs-string">', '</span><span class="hljs-keyword">public</span><span class="hljs-string">', '</span><span class="hljs-keyword">return</span><span class="hljs-string">', '</span><span class="hljs-keyword">static</span><span class="hljs-string">', '</span><span class="hljs-keyword">switch</span><span class="hljs-string">', '</span>typeof<span class="hljs-string">', '</span><span class="hljs-keyword">default</span><span class="hljs-string">', '</span>extends<span class="hljs-string">', '</span>finally<span class="hljs-string">', '</span><span class="hljs-keyword">package</span><span class="hljs-string">', '</span><span class="hljs-keyword">private</span><span class="hljs-string">', '</span>continue<span class="hljs-string">', '</span>debugger<span class="hljs-string">', '</span><span class="hljs-keyword">function</span><span class="hljs-string">', '</span>arguments<span class="hljs-string">', '</span><span class="hljs-keyword">interface</span><span class="hljs-string">', '</span>protected<span class="hljs-string">', '</span>implements<span class="hljs-string">', '</span>instanceof<span class="hljs-string">'];</span>
+</code></pre>
+<p>因為我們不想改變我們原有的清單，所以我們使用高階函式叫做 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"><code>filter</code></a>，它會基於我們傳送的陣列（<em>函式</em>）並回傳一個過濾後的新陣列。基於目前的清單和新的清單索引 <code>index</code> 的比較，會把和 index 相符的元素 push 到新陣列成為新的清單。</p>
+<p>最後，我們使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort"><code>sort</code></a> 函式來排序過濾後的結果，將比較函式當作唯一的參數，回傳依字母排序後的清單。</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> filteredAndSortedKeywords = keywords
   .filter(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(keyword, index)</span> </span>{
       <span class="hljs-keyword">return</span> keywords.indexOf(keyword) === index;
     })
@@ -15,17 +217,42 @@
       <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a &gt; b) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
       <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 });
-</code></pre><p>使用 <strong>ES6</strong>（ECMAScript 2015）版本的<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭頭函式</a>看起來更簡潔：</p><pre><code class="lang-js">const filteredAndSortedKeywords = keywords
+</code></pre>
+<p>使用 <strong>ES6</strong>（ECMAScript 2015）版本的<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭頭函式</a>看起來更簡潔：</p>
+<pre><code class="lang-js">const filteredAndSortedKeywords = keywords
   .filter(<span class="hljs-function"><span class="hljs-params">(keyword, index)</span> =&gt;</span> keywords.indexOf(keyword) === index)
   .sort(<span class="hljs-function"><span class="hljs-params">(a, b)</span> =&gt;</span> {
       <span class="hljs-keyword">if</span> (a &lt; b) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
       <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a &gt; b) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
       <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     });
-</code></pre><p>這是最後過濾以及排序後的 JavaScript 保留字元清單：</p><pre><code class="lang-js">console.log(filteredAndSortedKeywords);
+</code></pre>
+<p>這是最後過濾以及排序後的 JavaScript 保留字元清單：</p>
+<pre><code class="lang-js">console.log(filteredAndSortedKeywords);
 
 // ['abstract', 'arguments', 'await', 'boolean', 'break', 'byte', 'case', 'catch', 'char', 'class', 'const', 'continue', 'debugger', 'default', '<span class="hljs-keyword">delete</span><span class="hljs-string">', '</span><span class="hljs-keyword">do</span><span class="hljs-string">', '</span><span class="hljs-keyword">double</span><span class="hljs-string">', '</span><span class="hljs-keyword">else</span><span class="hljs-string">', '</span>enum<span class="hljs-string">', '</span>eval<span class="hljs-string">', '</span><span class="hljs-keyword">export</span><span class="hljs-string">', '</span>extends<span class="hljs-string">', '</span><span class="hljs-literal">false</span><span class="hljs-string">', '</span><span class="hljs-keyword">final</span><span class="hljs-string">', '</span>finally<span class="hljs-string">', '</span><span class="hljs-built_in">float</span><span class="hljs-string">', '</span><span class="hljs-keyword">for</span><span class="hljs-string">', '</span><span class="hljs-keyword">function</span><span class="hljs-string">', '</span><span class="hljs-keyword">goto</span><span class="hljs-string">', '</span><span class="hljs-keyword">if</span><span class="hljs-string">', '</span>implements<span class="hljs-string">', '</span><span class="hljs-keyword">import</span><span class="hljs-string">', '</span><span class="hljs-keyword">in</span><span class="hljs-string">', '</span>instanceof<span class="hljs-string">', '</span><span class="hljs-built_in">int</span><span class="hljs-string">', '</span><span class="hljs-keyword">interface</span><span class="hljs-string">', '</span>let<span class="hljs-string">', '</span><span class="hljs-keyword">long</span><span class="hljs-string">', '</span><span class="hljs-keyword">native</span><span class="hljs-string">', '</span><span class="hljs-keyword">new</span><span class="hljs-string">', '</span><span class="hljs-literal">null</span><span class="hljs-string">', '</span><span class="hljs-keyword">package</span><span class="hljs-string">', '</span><span class="hljs-keyword">private</span><span class="hljs-string">', '</span>protected<span class="hljs-string">', '</span><span class="hljs-keyword">public</span><span class="hljs-string">', '</span><span class="hljs-keyword">return</span><span class="hljs-string">', '</span><span class="hljs-keyword">short</span><span class="hljs-string">', '</span><span class="hljs-keyword">static</span><span class="hljs-string">', '</span>super<span class="hljs-string">', '</span><span class="hljs-keyword">switch</span><span class="hljs-string">', '</span>synchronized<span class="hljs-string">', '</span>this<span class="hljs-string">', '</span>throw<span class="hljs-string">', '</span>throws<span class="hljs-string">', '</span>transient<span class="hljs-string">', '</span><span class="hljs-literal">true</span><span class="hljs-string">', '</span>try<span class="hljs-string">', '</span>typeof<span class="hljs-string">', '</span><span class="hljs-keyword">var</span><span class="hljs-string">', '</span><span class="hljs-built_in">void</span><span class="hljs-string">', '</span>volatile<span class="hljs-string">', '</span><span class="hljs-keyword">while</span><span class="hljs-string">', '</span><span class="hljs-keyword">with</span><span class="hljs-string">', '</span>yield<span class="hljs-string">']</span>
-</code></pre></article></div><a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a><!-- 多说分享 start --><div class="ds-share flat" data-thread-key="jstips_26" data-title="過濾和排序字串清單" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="你可能有一份很大的清單，而你需要過濾重複的內容並移除，再依字母排序。" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/filtering-and-sorting-a-list-of-strings.html"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li><a class="ds-more" href="javascript:void(0);">分享到：</a></li><li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li><li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li><li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li></ul></div></div><!-- 多说分享 end --><!-- 多说评论框 start --><div class="ds-thread" data-thread-key="jstips_26" data-title="過濾和排序字串清單" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/filtering-and-sorting-a-list-of-strings.html"></div><!-- 多说评论框 end --><!-- 多说公共JS代码 start (一个网页只需插入一次) --><script type="text/javascript">var duoshuoQuery = {short_name:"hingsir"};
+</code></pre>
+ 	</article>
+</div>
+            <a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a>
+            <!-- 多说分享 start -->
+<div class="ds-share flat" data-thread-key="jstips_26" data-title="過濾和排序字串清單" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="你可能有一份很大的清單，而你需要過濾重複的內容並移除，再依字母排序。" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/filtering-and-sorting-a-list-of-strings.html">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+        <li><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+        <li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li>
+      </ul>
+    </div>
+ </div>
+<!-- 多说分享 end -->
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="jstips_26" data-title="過濾和排序字串清單" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/filtering-and-sorting-a-list-of-strings.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hingsir"};
     (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -33,10 +260,21 @@
         ds.charset = 'UTF-8';
         (document.getElementsByTagName('head')[0]
          || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();</script><!-- 多说公共JS代码 end --><div class="site-footer"><p class="copyright">Powered by <a href="https://github.com/hingsir">@hingsir</a>, 2016</p></div></div></div><a id="forkme" href="https://github.com/hingsir/jstips-site"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:100" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a><script>var _hmt = _hmt || [];
+    })();
+</script>
+<!-- 多说公共JS代码 end -->            <div class="site-footer">
+                <p class="copyright">Powered by <a href="https://github.com/hingsir">@hingsir</a>, 2016</p>
+            </div>
+        </div>
+    </div>
+    <a id="forkme" href="https://github.com/hingsir/jstips-site"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:100;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    <script>
+    var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
       hm.src = "//hm.baidu.com/hm.js?d2663479c9de1b01cbc8485ab8cb623d";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
-    })();</script></body></html>
+    })();
+</script></body>
+</html>
