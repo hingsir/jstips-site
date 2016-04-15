@@ -13,23 +13,23 @@ Object.defineProperty(a, <span class="hljs-string">'readonly'</span>, {
 
 a.<span class="hljs-keyword">readonly</span> = <span class="hljs-number">20</span>;
 console.log(a.<span class="hljs-keyword">readonly</span>); <span class="hljs-comment">// 15</span>
-</code></pre><p>语法如下：</p><pre><code class="lang-js"><span class="hljs-selector-tag">Object</span><span class="hljs-selector-class">.defineProperty</span>(<span class="hljs-selector-tag">dest</span>, <span class="hljs-selector-tag">propName</span>, <span class="hljs-selector-tag">options</span>)
+</code></pre><p>语法如下：</p><pre><code class="lang-js"><span class="hljs-selector-tag">Object</span><span class="hljs-selector-class">.defineProperty</span>(<span class="hljs-selector-tag">dest</span>, <span class="hljs-selector-tag">propName</span>, <span class="hljs-selector-tag">options</span>);
 </code></pre><p>或者定义多个：</p><pre><code class="lang-js"><span class="hljs-selector-tag">Object</span><span class="hljs-selector-class">.defineProperties</span>(dest, {
   <span class="hljs-attribute">propA</span>: optionsA,
   <span class="hljs-attribute">propB</span>: optionsB, <span class="hljs-comment">//...</span>
-})
+});
 </code></pre><p><code>options</code>包含如下的属性：</p><ul><li><em>value</em>: 如果参数不是<code>getter</code>（请看下文），<code>value</code>是必须的。<code>{a: 12}</code> === <code>Object.defineProperty(obj, &#39;a&#39;, {value: 12})</code></li><li><em>writable</em>: 将参数设为只读。需要注意的是如果参数是嵌套对象，它的元素仍是能可修改的。</li><li><em>enumerable</em>: 将参数设为隐藏。这意味着<code>for ... of</code>循环和<code>stringify</code>的结果里不会包含这些参数，但是这个参数还是存在的。提示：这并不意味着参数是私有的！他依旧可以从外界访问，只是意味着不会被打印。</li><li><em>configurable</em>: 将属性设置为不能更改，比如：防止参数被删除或重新定义。如果此对象是一个嵌套对象，他的参数依旧是可配置的。</li></ul><p>所以如果想创建私有静态变量，你可以这样定义：</p><pre><code class="lang-js">Object.defineProperty(obj, <span class="hljs-string">'myPrivateProp'</span>, {<span class="hljs-string">value:</span> val, <span class="hljs-string">enumerable:</span> <span class="hljs-literal">false</span>, <span class="hljs-string">writable:</span> <span class="hljs-literal">false</span>, <span class="hljs-string">configurable:</span> <span class="hljs-literal">false</span>});
 </code></pre><p>除了配置属性，由于<code>defineProperty</code>第二个参数是字符串，所以允许我们定义<em>动态变量(defineProperty)</em>。例如，我们可以说我们要根据一些外部配置创建一个属性：</p><pre><code class="lang-js">
 <span class="hljs-variable"><span class="hljs-keyword">var</span> obj</span> = {
   getTypeFromExternal(): <span class="hljs-literal">true</span> <span class="hljs-comment">// illegal in ES5.1</span>
-}
+};
 
 Object.defineProperty(obj, getTypeFromExternal(), {value: <span class="hljs-literal">true</span>}); <span class="hljs-comment">// ok</span>
 
 <span class="hljs-comment">// For the example sake, ES6 introduced a new syntax:</span>
 <span class="hljs-variable"><span class="hljs-keyword">var</span> obj</span> = {
   [getTypeFromExternal()]: <span class="hljs-literal">true</span>
-}
+};
 </code></pre><p>还没有结束！高级特性允许我们创建<strong>getter</strong>和<strong>setter</strong>，就像其他面向对象(OOP)语言！这种情况下，我们不能使用<code>writable</code>、<code>enumerable</code>和<code>configurable</code>参数，而是：</p><pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foobar</span> <span class="hljs-params">()</span> </span>{
   <span class="hljs-keyword">var</span> _foo; <span class="hljs-comment">//  true private property</span>
 
@@ -38,7 +38,7 @@ Object.defineProperty(obj, getTypeFromExternal(), {value: <span class="hljs-lite
     <span class="hljs-keyword">set</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{ _foo = value }
   });
 
-}
+};
 
 <span class="hljs-keyword">var</span> foobar = <span class="hljs-keyword">new</span> Foobar();
 foobar.foo; <span class="hljs-comment">// 15</span>
@@ -46,9 +46,9 @@ foobar.foo = <span class="hljs-number">20</span>; <span class="hljs-comment">// 
 </code></pre><p>除了封装与先进的访问器这些明显的优点，你还发现我们并没有“调用”<code>getter</code>，而是不需要使用小括号直接“取得”了属性！这太棒了！例如，我们可以想象我们有一个多层嵌套对象，像这样：</p><pre><code class="lang-js">var obj = {<span class="hljs-string">a:</span> {<span class="hljs-string">b:</span> {<span class="hljs-string">c:</span> [{<span class="hljs-string">d:</span> <span class="hljs-number">10</span>}, {<span class="hljs-string">d:</span> <span class="hljs-number">20</span>}] } } };
 </code></pre><p>现在我们不需要调用<code>a.b.c[0].d</code>（其中某个属性可能是<code>undefined</code>且抛出错误），我们可以创建一个别名：</p><pre><code class="lang-js">Object.defineProperty(obj, 'firstD', {
   <span class="hljs-attribute">get</span>: function () { return a &amp;&amp; a<span class="hljs-variable">.b</span> &amp;&amp; a<span class="hljs-variable">.b</span><span class="hljs-variable">.c</span> &amp;&amp; a<span class="hljs-variable">.b</span><span class="hljs-variable">.c</span>[0] &amp;&amp; a<span class="hljs-variable">.b</span><span class="hljs-variable">.c</span>[0]<span class="hljs-variable">.d</span> }
-})
+});
 
-console<span class="hljs-variable">.log</span>(obj<span class="hljs-variable">.firstD</span>) // 10
+<span class="hljs-attribute">console.log(obj.firstD); // 10</span>
 </code></pre><h3 id="-">提示</h3><p>如果你定义了<code>getter</code>而没有定义<code>setter</code>却仍要给它赋值，你将会得到一个错误。这在使用像<code>$.extend</code>或<code>_.merge</code>这样的辅助方法时是尤为重要的。要小心！</p><h3 id="-">链接</h3><ul><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">defineProperty</a></li><li><a href="http://bdadam.com/blog/defining-properties-in-javascript.html">Defining properties in JavaScript</a></li></ul></article></div><a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a><!-- 多说分享 start --><div class="ds-share flat" data-thread-key="jstips_39" data-title="Javascript高级特性" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="怎样给一个对象添加私有参数、`getter`或`setter`。" data-url="http://jstips.hingsir.com/dist/tips/zh_CN/advanced-properties.html"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li><a class="ds-more" href="javascript:void(0);">分享到：</a></li><li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li><li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li><li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li></ul></div></div><!-- 多说分享 end --><!-- 多说评论框 start --><div class="ds-thread" data-thread-key="jstips_39" data-title="Javascript高级特性" data-url="http://jstips.hingsir.com/dist/tips/zh_CN/advanced-properties.html"></div><!-- 多说评论框 end --><!-- 多说公共JS代码 start (一个网页只需插入一次) --><script type="text/javascript">var duoshuoQuery = {short_name:"hingsir"};
     (function() {
         var ds = document.createElement('script');
