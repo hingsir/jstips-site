@@ -1,6 +1,7 @@
 var Synchronizer = require('./libs/synchronizer.js');
 var github = require('./libs/github.js');
+var config = require('./config.js');
 
-new Synchronizer('en').sync();
-new Synchronizer('zh_CN').sync();
-new Synchronizer('zh_TW').sync();
+for(var lang in config.languages){
+	new Synchronizer(lang).sync();
+}
