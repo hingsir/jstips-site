@@ -63,7 +63,7 @@ Synchronizer.prototype = {
         var self = this,
             name = item.name,
             content = item.content,
-            baseInfo = content.match(/\-{3}[\s\S]+\-{3}/)[0],
+            baseInfo = content.match(/\-{3}[\s\S]+?\-{3}/)[0],
             detailInfo = content.replace(baseInfo,''),
             filename = name.substring(11, name.length-3) + '.html';
 
