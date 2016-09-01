@@ -1,11 +1,20 @@
 var ejs = require('ejs');
 var fs = require('fs');
-var marked = require('marked');
 var config = require('../config.js');
-var gutil = require('gulp-util')
+var gutil = require('gulp-util');
+
+var md = require('markdown-it')({
+    html: true,
+    linkify: true,
+    typographer: true,
+    highlight: function (code) {
+        return require('highlight.js').highlightAuto(code).value;
+    }
+});
 
 var baseUrl = config.baseUrl;
 var tipsDir = '';
+
 
 function mkdirs(path){
     var temp;
@@ -15,24 +24,6 @@ function mkdirs(path){
             fs.mkdir(temp);
         }
     })
-}
-
-function initMarked(){
-    marked.setOptions({
-        renderer: new marked.Renderer(),
-        gfm: true,
-        tables: true,
-        breaks: false,
-        pedantic: false,
-        sanitize: true,
-        smartLists: true,
-        smartypants: false
-    });
-    marked.setOptions({
-        highlight: function (code) {
-            return require('highlight.js').highlightAuto(code).value;
-        }
-    });
 }
 
 function makeTitle(tip){
@@ -47,7 +38,6 @@ function removeExt(filename){
 var generator = {
     generate: function(tips,dir,lang){
         tipsDir = dir || 'dist/tips/en';
-        initMarked();
         mkdirs(tipsDir);
 
         tips.forEach(function(tip,index){
@@ -56,7 +46,7 @@ var generator = {
                 tips: tips,
                 tip: tip,
                 current: index,
-                content: marked(makeTitle(tip) + tip.detailInfo),
+                content: md.render(makeTitle(tip) + tip.detailInfo),
                 baseUrl: baseUrl,
                 url: baseUrl + tipsDir + '/' + tip.filename,
                 shareImg: baseUrl + 'dist/images/github.jpg',
