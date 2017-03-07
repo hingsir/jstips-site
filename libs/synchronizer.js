@@ -2,6 +2,7 @@ var fs = require('fs');
 var generator = require('./generator.js');
 var github = require('./github.js');
 var gutil = require('gulp-util');
+var _ = require('underscore');
 
 function Synchronizer(lang){
     this.lang = lang || 'en';
@@ -13,21 +14,34 @@ function Synchronizer(lang){
 Synchronizer.prototype = {
     sync: function(){
         var self = this;
-        github.request('/repos/loverajoel/jstips/contents/_posts/' + self.lang,function(data){
+        github.request('/repos/loverajoel/jstips/contents/_posts/' + self.lang, function(data){
             self._sync(data);
         })
     },
-    _sync: function(remoteData){
+    _sync: function(categoryData){
         var self = this;
-        var remoteList = JSON.parse(remoteData);
-        self._loadLocalStorage();
-        self._synchronizeTips(remoteList, function(tips){
-            self._saveLocalStorage();
-            tips.sort(function(a, b){
-                return +a.baseInfo.number < +b.baseInfo.number ? 1 : -1;
+        var categories = JSON.parse(categoryData);
+        var promises = []
+        categories.forEach(function(item){
+          promises.push(new Promise(function(resolve, reject){
+            github.request('/repos/loverajoel/jstips/contents/' + item.path, function(data){
+                resolve(JSON.parse(data))
             })
-            generator.generate(tips,'dist/tips/' + self.lang, self.lang);
-        });
+          }))
+        })
+        Promise.all(promises).then(function(data){
+          var remoteList = _.flatten(data);
+          self._loadLocalStorage();
+          self._synchronizeTips(remoteList, function(tips){
+              self._saveLocalStorage();
+              tips.sort(function(a, b){
+                  return +a.baseInfo.number < +b.baseInfo.number ? 1 : -1;
+              })
+              generator.generate(tips,'dist/tips/' + self.lang, self.lang);
+          });
+        })
+        return;
+
     },
     _loadLocalStorage: function(){
         try{
