@@ -53,7 +53,7 @@ Synchronizer.prototype = {
     _saveLocalStorage: function(){
         fs.writeFileSync(this.localStorageFile,JSON.stringify(this.localStorage),'utf-8');
     },
-    _synchronizeTips: function(remoteList, callback){
+    _synchronizeTips: function(remoteList, callback){console.log(remoteList.length)
         var self = this;
         self.unsynchronized = remoteList.length;
         remoteList.forEach(function(item,index){
