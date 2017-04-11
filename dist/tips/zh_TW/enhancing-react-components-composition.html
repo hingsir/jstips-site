@@ -43,7 +43,7 @@
             <li><a href="picking-and-rejecting-object-properties" class=""
              title="70.選擇或是拋棄物件屬性">70.選擇或是拋棄物件屬性</a></li>
         
-            <li><a href="enhancing-react-components-composition" class=""
+            <li><a href="enhancing-react-components-composition" class="cur"
              title="69.增強你的 React component 的組合">69.增強你的 React component 的組合</a></li>
         
             <li><a href="why-you-should-use-Object.is()-in-equality-comparison" class=""
@@ -199,7 +199,7 @@
             <li><a href="rounding-the-fast-way" class=""
              title="18.Truncating 最快的方式（含有風險）">18.Truncating 最快的方式（含有風險）</a></li>
         
-            <li><a href="nodejs-run-a-module-if-it-is-not-required" class="cur"
+            <li><a href="nodejs-run-a-module-if-it-is-not-required" class=""
              title="17.Node.js - 執行尚未被 required 的模組">17.Node.js - 執行尚未被 required 的模組</a></li>
         
             <li><a href="passing-arguments-to-callback-functions" class=""
@@ -258,27 +258,106 @@
         <div id="content-wrap">
              <div id="readme" class="boxed-group clearfix announce instapaper_body md">
  	<article class="markdown-body entry-content" itemprop="mainContentOfPage">
- 		<h2>#17 - Node.js - 執行尚未被 required 的模組</h2>
+ 		<h2>#69 - 增強你的 React component 的組合</h2>
 <blockquote>
-<p>2016-01-17 by <a href="https://twitter.com/odsdq">@odsdq</a></p>
+<p>2017-04-04 by <a href="https://github.com/loverajoel">@loverajoel</a></p>
 </blockquote>
-<p>在 nodejs，你可以讓你的程式取決於 <code>require('./something.js')</code> 或 <code>node something.js</code> 這兩種不同的方式來執行你的程式碼。如果你想要將你的獨立模組交互使用是非常有用的。</p>
-<pre><code class="language-js"><span class="hljs-keyword">if</span> (!<span class="hljs-function"><span class="hljs-keyword">module</span>.<span class="hljs-title">parent</span>) {</span>
-    <span class="hljs-comment">// 透過 `node something.js` 執行</span>
-    app.listen(<span class="hljs-number">8088</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-        console.<span class="hljs-built_in">log</span>('app listening on port <span class="hljs-number">8088</span>');
-    })
-} <span class="hljs-keyword">else</span> {
-    <span class="hljs-comment">// 使用 `require('/.something.js')` 方法</span>
-    <span class="hljs-function"><span class="hljs-keyword">module</span>.<span class="hljs-title">exports</span> =</span> app;
+<blockquote>
+<p>在 Facebook 上，我們使用上千個 React 的 component，
+我們找不到任何推薦你使用 component 建立繼承的情況。</p>
+</blockquote>
+<p><em>Long live to composition, inheritance is dead.</em></p>
+<p>所以，你如何在 React <em>繼承</em>一個 component？</p>
+<p>好吧，相當明顯的，@Facebook 的人認為從父 component 繼承是不恰當的，讓我們看看其他方法：</p>
+<h2>提前規劃</h2>
+<p>在某些情況，你有一個 component 但是不知道它會不會有 children（大多數人都是這樣）。關於這點，React 給了我們 <code>props.children</code>：</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">List</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{'List</span> <span class="hljs-attr">List-</span>' + <span class="hljs-attr">props.importance</span>}&gt;</span>
+      {props.children}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span>
+    );
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DownloadMenu</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">List</span> <span class="hljs-attr">importance</span>=<span class="hljs-string">"High"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Download SBCL<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Download Racket<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Download Haskell<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">List</span>&gt;</span></span>
+    );
 }
 </code></pre>
-<p>更多資訊請參考 <a href="https://nodejs.org/api/modules.html#modules_module_parent">nodejs modules 官方文件</a>。</p>
+<p>我們可以看到，<code>props.children</code> 接收從 component 開始到結束 tag 內所有的元素。</p>
+<p>此外，我們可以利用 <code>props</code> 來填補：</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ListWithHeader</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{'List</span> <span class="hljs-attr">List-</span>' + <span class="hljs-attr">props.importance</span>}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"List List-Header"</span>&gt;</span>
+        {props.header}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      {props.children}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span>
+    );
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DownloadMenuWithHeader</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">List</span> <span class="hljs-attr">importance</span>=<span class="hljs-string">"High"</span> <span class="hljs-attr">header</span>=<span class="hljs-string">{</span> &lt;<span class="hljs-attr">LispLogo</span> /&gt;</span> }&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Download SBCL<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">List</span>&gt;</span>
+    );
+}
+</span></code></pre>
+<h2>通用 component 以及客製化</h2>
+<p>所以，我們有了一個很棒的 <em>FolderView</em> component</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">FolderView</span>(<span class="hljs-params">props</span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"FolderView"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{props.folderName}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"FolderView FolderView-Actions"</span>&gt;</span>
+        {props.availableActions}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"FolderView FolderView-Files"</span>&gt;</span>
+        {props.files}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+    );
+}
+</code></pre>
+<p>這可以表達我們檔案系統內任何的資料夾，然而我們只想要區別它，所以它顯示圖片和桌面資料夾。</p>
+<pre><code class="language-javascript">function DesktopFolder(<span class="hljs-built_in">props</span>) {
+  <span class="hljs-built_in">return</span> (
+    &lt;FolderView folderName=<span class="hljs-string">"Desktop"</span>
+      availableActions={
+        &lt;<span class="hljs-built_in">li</span>&gt;Create Folder&lt;/<span class="hljs-built_in">li</span>&gt;
+        &lt;<span class="hljs-built_in">li</span>&gt;Create Document&lt;/<span class="hljs-built_in">li</span>&gt;
+      }
+      files={<span class="hljs-built_in">props</span>.files}
+      /&gt;
+    );
+}
+
+function PicturesFolder(<span class="hljs-built_in">props</span>) {
+  <span class="hljs-built_in">return</span> (
+    &lt;FolderView
+      folderName=<span class="hljs-string">"Pictures"</span>
+      availableActions={
+        &lt;<span class="hljs-built_in">li</span>&gt;New Picture&lt;/<span class="hljs-built_in">li</span>&gt;
+      }
+      files={<span class="hljs-built_in">props</span>.files}
+      /&gt;
+    );
+}
+</code></pre>
+<p>就是這樣，我們<em>客製化</em>我們的 component，沒有建立任何的繼承結構。</p>
  	</article>
 </div>
             <a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a>
             <!-- 多说分享 start -->
-<div class="ds-share flat" data-thread-key="jstips_17" data-title="Node.js - 執行尚未被 required 的模組" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="在 nodejs，你可以讓你的程式取決於 `require(&#39;./something.js&#39;)` 或 `node something.js` 這兩種不同的方式來執行你的程式碼。如果你想要將你的獨立模組交互使用是非常有用的。" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/nodejs-run-a-module-if-it-is-not-required.html">
+<div class="ds-share flat" data-thread-key="jstips_69" data-title="增強你的 React component 的組合" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="React 對於你如何組織你的 component 是相當靈活的，但這個模式讓你的 app component 可以更有效的利用。" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/enhancing-react-components-composition.html">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
         <li><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
@@ -290,7 +369,7 @@
  </div>
 <!-- 多说分享 end -->
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="jstips_17" data-title="Node.js - 執行尚未被 required 的模組" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/nodejs-run-a-module-if-it-is-not-required.html"></div>
+<div class="ds-thread" data-thread-key="jstips_69" data-title="增強你的 React component 的組合" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/enhancing-react-components-composition.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

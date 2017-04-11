@@ -46,7 +46,7 @@
             <li><a href="enhancing-react-components-composition" class=""
              title="69.增強你的 React component 的組合">69.增強你的 React component 的組合</a></li>
         
-            <li><a href="why-you-should-use-Object.is()-in-equality-comparison" class=""
+            <li><a href="why-you-should-use-Object.is()-in-equality-comparison" class="cur"
              title="68.為什麼在做相等比較的時候，你應該使用 Object.is()">68.為什麼在做相等比較的時候，你應該使用 Object.is()</a></li>
         
             <li><a href="recursion-iteration-and-tail-calls-in-js" class=""
@@ -199,7 +199,7 @@
             <li><a href="rounding-the-fast-way" class=""
              title="18.Truncating 最快的方式（含有風險）">18.Truncating 最快的方式（含有風險）</a></li>
         
-            <li><a href="nodejs-run-a-module-if-it-is-not-required" class="cur"
+            <li><a href="nodejs-run-a-module-if-it-is-not-required" class=""
              title="17.Node.js - 執行尚未被 required 的模組">17.Node.js - 執行尚未被 required 的模組</a></li>
         
             <li><a href="passing-arguments-to-callback-functions" class=""
@@ -258,27 +258,34 @@
         <div id="content-wrap">
              <div id="readme" class="boxed-group clearfix announce instapaper_body md">
  	<article class="markdown-body entry-content" itemprop="mainContentOfPage">
- 		<h2>#17 - Node.js - 執行尚未被 required 的模組</h2>
+ 		<h2>#68 - 為什麼在做相等比較的時候，你應該使用 <a href="http://Object.is">Object.is</a>()</h2>
 <blockquote>
-<p>2016-01-17 by <a href="https://twitter.com/odsdq">@odsdq</a></p>
+<p>2017-04-03 by <a href="https://github.com/TarekAlQaddy">@TarekAlQaddy</a></p>
 </blockquote>
-<p>在 nodejs，你可以讓你的程式取決於 <code>require('./something.js')</code> 或 <code>node something.js</code> 這兩種不同的方式來執行你的程式碼。如果你想要將你的獨立模組交互使用是非常有用的。</p>
-<pre><code class="language-js"><span class="hljs-keyword">if</span> (!<span class="hljs-function"><span class="hljs-keyword">module</span>.<span class="hljs-title">parent</span>) {</span>
-    <span class="hljs-comment">// 透過 `node something.js` 執行</span>
-    app.listen(<span class="hljs-number">8088</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-        console.<span class="hljs-built_in">log</span>('app listening on port <span class="hljs-number">8088</span>');
-    })
-} <span class="hljs-keyword">else</span> {
-    <span class="hljs-comment">// 使用 `require('/.something.js')` 方法</span>
-    <span class="hljs-function"><span class="hljs-keyword">module</span>.<span class="hljs-title">exports</span> =</span> app;
-}
+<p>我們都知道 JavaScript 是一個較鬆散的型別，在某些情況它特別是在 <code>==</code> 的情況，當你透過 <code>==</code> 來做比較時，常常會得到意外的結果，基於這個原因我們會強制轉換或建立新的變數來「將兩個操作變數中的其中一個轉換為其他類型，然後進行比較」。</p>
+<pre><code class="language-javascript"><span class="hljs-number">0</span> == <span class="hljs-string">' '</span> <span class="hljs-comment">//true</span>
+<span class="hljs-literal">null</span> == <span class="hljs-literal">undefined</span> <span class="hljs-comment">//true</span>
+[<span class="hljs-number">1</span>] == <span class="hljs-literal">true</span> <span class="hljs-comment">//true</span>
 </code></pre>
-<p>更多資訊請參考 <a href="https://nodejs.org/api/modules.html#modules_module_parent">nodejs modules 官方文件</a>。</p>
+<p>所以他們提供我們三等號 <code>===</code> 的相等操作符，它更嚴格而且不強制去轉換變數，然而 <code>===</code> 比較不是一個比較好的解決方式，你可以得到這樣的結果：</p>
+<pre><code class="language-javascript"><span class="hljs-attr">NaN</span> === NaN //<span class="hljs-literal">false</span>
+</code></pre>
+<p>好消息是在 ES6 有一個新的 <code>Object.is()</code>，它是更精確而且和 <code>===</code> 有相同的功能，在某些特殊情況下也運作的很好：</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">Object</span>.<span class="hljs-keyword">is</span>(<span class="hljs-number">0</span> , <span class="hljs-string">' '</span>); <span class="hljs-comment">//false</span>
+<span class="hljs-built_in">Object</span>.<span class="hljs-keyword">is</span>(<span class="hljs-keyword">null</span>, undefined); <span class="hljs-comment">//false</span>
+<span class="hljs-built_in">Object</span>.<span class="hljs-keyword">is</span>([<span class="hljs-number">1</span>], <span class="hljs-keyword">true</span>); <span class="hljs-comment">//false</span>
+<span class="hljs-built_in">Object</span>.<span class="hljs-keyword">is</span>(NaN, NaN); <span class="hljs-comment">//true</span>
+</code></pre>
+<p>Mozilla 團隊 不認為 <code>Object.is</code> 比 <code>===</code> 更嚴格，他們宣稱我們應該思考這些方法如何處理 <code>NaN</code>、<code>-0</code> 和 <code>+0</code>，但是整體來說我認為它在實際的應用程式中是一個好的解決方式。</p>
+<p>現在我們來看看這個比較表：</p>
+<p><img src="http://i.imgur.com/pCyqkLc.png" alt="differences of operators in equality comparisons javascript"></p>
+<h2>參考：</h2>
+<p><a href="http://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness">Equality comparisons and sameness</a></p>
  	</article>
 </div>
             <a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a>
             <!-- 多说分享 start -->
-<div class="ds-share flat" data-thread-key="jstips_17" data-title="Node.js - 執行尚未被 required 的模組" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="在 nodejs，你可以讓你的程式取決於 `require(&#39;./something.js&#39;)` 或 `node something.js` 這兩種不同的方式來執行你的程式碼。如果你想要將你的獨立模組交互使用是非常有用的。" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/nodejs-run-a-module-if-it-is-not-required.html">
+<div class="ds-share flat" data-thread-key="jstips_68" data-title="為什麼在做相等比較的時候，你應該使用 Object.is()" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="在 JavaScript 中對於較鬆散的相等比較，有更好的解決方式" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/why-you-should-use-Object.is()-in-equality-comparison.html">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
         <li><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
@@ -290,7 +297,7 @@
  </div>
 <!-- 多说分享 end -->
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="jstips_17" data-title="Node.js - 執行尚未被 required 的模組" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/nodejs-run-a-module-if-it-is-not-required.html"></div>
+<div class="ds-thread" data-thread-key="jstips_68" data-title="為什麼在做相等比較的時候，你應該使用 Object.is()" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/why-you-should-use-Object.is()-in-equality-comparison.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

@@ -43,7 +43,7 @@
             <li><a href="picking-and-rejecting-object-properties" class=""
              title="70.选择（picking）和反选（rejecting）对象的属性 ">70.选择（picking）和反选（rejecting）对象的属性 </a></li>
         
-            <li><a href="why-you-should-use-Object.is()-in-equality-comparison" class=""
+            <li><a href="why-you-should-use-Object.is()-in-equality-comparison" class="cur"
              title="68.为什么你应该在相等比较中使用 Object.is()  ">68.为什么你应该在相等比较中使用 Object.is()  </a></li>
         
             <li><a href="tapping-for-quick-debugging" class=""
@@ -157,7 +157,7 @@
             <li><a href="curry-vs-partial-application" class=""
              title="28.柯里化(currying)与部分应用(partial application)">28.柯里化(currying)与部分应用(partial application)</a></li>
         
-            <li><a href="short-circuit-evaluation-in-js" class="cur"
+            <li><a href="short-circuit-evaluation-in-js" class=""
              title="27.JS中的短路求值">27.JS中的短路求值</a></li>
         
             <li><a href="filtering-and-sorting-a-list-of-strings" class=""
@@ -246,69 +246,34 @@
         <div id="content-wrap">
              <div id="readme" class="boxed-group clearfix announce instapaper_body md">
  	<article class="markdown-body entry-content" itemprop="mainContentOfPage">
- 		<h2>#27 - JS中的短路求值</h2>
+ 		<h2>#68 - 为什么你应该在相等比较中使用 <a href="http://Object.is">Object.is</a>()</h2>
 <blockquote>
-<p>2016-01-27 by <a href="https://www.twitter.com/bhaskarmelkani">@bhaskarmelkani</a></p>
+<p>2017-04-03 by <a href="https://github.com/TarekAlQaddy">@TarekAlQaddy</a></p>
 </blockquote>
-<p><a href="https://zh.wikipedia.org/wiki/%E7%9F%AD%E8%B7%AF%E6%B1%82%E5%80%BC">短路求值</a>是说, 只有当第一个运算数的值无法确定逻辑运算的结果时，才对第二个运算数进行求值：当AND(<code>&amp;&amp;</code>)的第一个运算数的值为false时，其结果必定为false；当OR(<code>||</code>)的第一个运算数为true时，最后结果必定为true。</p>
-<p>对于下面的<code>test</code>条件和<code>isTrue</code>与<code>isFalse</code>方法</p>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> test = <span class="hljs-literal">true</span>;
-<span class="hljs-keyword">var</span> isTrue = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Test is true.'</span>);
-};
-<span class="hljs-keyword">var</span> isFalse = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Test is false.'</span>);
-};
-
+<p>我们都知道 JavasSript 是弱类型的，并且当我们使用 ‘==’ 作比较时，在一些情况下由于类型转换或者说“把两个操作数中的一个转换成另一个，然后在比较”，会出现意想不到的结果。</p>
+<pre><code class="language-javascript"><span class="hljs-number">0</span> == <span class="hljs-string">' '</span> <span class="hljs-comment">//true</span>
+<span class="hljs-literal">null</span> == <span class="hljs-literal">undefined</span> <span class="hljs-comment">//true</span>
+[<span class="hljs-number">1</span>] == <span class="hljs-literal">true</span> <span class="hljs-comment">//true</span>
 </code></pre>
-<p>使用逻辑与 - <code>&amp;&amp;</code>.</p>
-<pre><code class="language-js"><span class="hljs-comment">// 普通的if语句</span>
-<span class="hljs-keyword">if</span><span class="hljs-comment">(test)</span>{
-  isTrue<span class="hljs-comment">()</span>;    <span class="hljs-comment">// Test is true</span>
-}
-
-<span class="hljs-comment">// 上面的语句可以使用 '&amp;&amp;' 写为：</span>
-
-<span class="hljs-comment">( test &amp;&amp; isTrue()</span> );  <span class="hljs-comment">// Test is true</span>
+<p>因此 JavaScript 中给我们提供了全等操作符 ‘===’, 它比不全等操作符更加严格并且不会发生类型转换。但是用 ‘===’ 来进行比较并不是最好的解决方案。你可能会得到：</p>
+<pre><code class="language-javascript"><span class="hljs-attr">NaN</span> === NaN //<span class="hljs-literal">false</span>
 </code></pre>
-<p>使用逻辑或 - <code>||</code>.</p>
-<pre><code class="language-js">test = <span class="hljs-literal">false</span>;
-<span class="hljs-keyword">if</span>(!test){
-  isFalse();    <span class="hljs-regexp">//</span> Test <span class="hljs-keyword">is</span> <span class="hljs-literal">false</span>.
-}
-
-( test || isFalse());  <span class="hljs-regexp">//</span> Test <span class="hljs-keyword">is</span> <span class="hljs-literal">false</span>.
+<p>好消息是 ES6 中提供了新的 ‘<a href="http://Object.is">Object.is</a>()’ 方法，它具有 ‘===’ 的一些特点，而且更好、更精确，在一些特殊案例中表现的很好：</p>
+<pre><code class="language-javascript"><span class="hljs-built_in">Object</span>.<span class="hljs-keyword">is</span>(<span class="hljs-number">0</span> , <span class="hljs-string">' '</span>); <span class="hljs-comment">//false</span>
+<span class="hljs-built_in">Object</span>.<span class="hljs-keyword">is</span>(<span class="hljs-keyword">null</span>, undefined); <span class="hljs-comment">//false</span>
+<span class="hljs-built_in">Object</span>.<span class="hljs-keyword">is</span>([<span class="hljs-number">1</span>], <span class="hljs-keyword">true</span>); <span class="hljs-comment">//false</span>
+<span class="hljs-built_in">Object</span>.<span class="hljs-keyword">is</span>(NaN, NaN); <span class="hljs-comment">//true</span>
 </code></pre>
-<p>逻辑或可以用来给参数设置默认值。</p>
-<pre><code class="language-js">function theSameOldFoo(<span class="hljs-keyword">name</span>){
-    <span class="hljs-keyword">name</span> = <span class="hljs-keyword">name</span> || <span class="hljs-string">'Bar'</span> ;
-    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"My best friend's name is "</span> + <span class="hljs-keyword">name</span>);
-}
-theSameOldFoo();  <span class="hljs-comment">// My best friend's name is Bar</span>
-theSameOldFoo(<span class="hljs-string">'Bhaskar'</span>);  <span class="hljs-comment">// My best friend's name is Bhaskar</span>
-</code></pre>
-<p>逻辑与可以用来避免调用undefined参数的属性时报错
-例如:-</p>
-<pre><code class="language-js"><span class="hljs-built_in">var</span> dog = {
-  <span class="hljs-attribute">bark</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Woof Woof'</span>);
-   }
-};
-
-<span class="hljs-comment">// 调用 dog.bark();</span>
-dog.bark(); <span class="hljs-comment">// Woof Woof.</span>
-
-<span class="hljs-comment">// 但是当dog未定义时，dog.bark() 将会抛出"Cannot read property 'bark' of undefined." 错误</span>
-<span class="hljs-comment">// 防止这种情况，我们可以使用 &amp;&amp;.</span>
-
-dog&amp;&amp;dog.bark();   <span class="hljs-comment">// This will only call dog.bark(), if dog is defined.</span>
-
-</code></pre>
+<p>Mozilla 团队并不认为 <a href="http://Object.is">Object.is</a> 比 ‘===’ 更加‘严格’，他们说我们应该考虑的是这个方法如何处理 NaN, -0 和 +0。但是总的来说， 我认为它在实际应用中是一个很好的实践。</p>
+<p>现在来看看这张图表的对比…</p>
+<p><img src="http://i.imgur.com/pCyqkLc.png" alt="differences of operators in equality comparisons javascript"></p>
+<h2>References:</h2>
+<p><a href="http://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness">Equality comparisons and sameness</a></p>
  	</article>
 </div>
             <a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a>
             <!-- 多说分享 start -->
-<div class="ds-share flat" data-thread-key="jstips_27" data-title="JS中的短路求值" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="短路求值是说, 只有当第一个运算数的值无法确定逻辑运算的结果时，才对第二个运算数进行求值：当AND(`&amp;&amp;`)的第一个运算数的值为false时，其结果必定为false；当OR(`||`)的第一个运算数为true时，最后结果必定为true。" data-url="http://jstips.hingsir.com/dist/tips/zh_CN/short-circuit-evaluation-in-js.html">
+<div class="ds-share flat" data-thread-key="jstips_68" data-title="为什么你应该在相等比较中使用 Object.is()  " data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="JavaScript 中一个很棒的相等比较解决方案" data-url="http://jstips.hingsir.com/dist/tips/zh_CN/why-you-should-use-Object.is()-in-equality-comparison.html">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
         <li><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
@@ -320,7 +285,7 @@ dog&amp;&amp;dog.bark();   <span class="hljs-comment">// This will only call dog
  </div>
 <!-- 多说分享 end -->
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="jstips_27" data-title="JS中的短路求值" data-url="http://jstips.hingsir.com/dist/tips/zh_CN/short-circuit-evaluation-in-js.html"></div>
+<div class="ds-thread" data-thread-key="jstips_68" data-title="为什么你应该在相等比较中使用 Object.is()  " data-url="http://jstips.hingsir.com/dist/tips/zh_CN/why-you-should-use-Object.is()-in-equality-comparison.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

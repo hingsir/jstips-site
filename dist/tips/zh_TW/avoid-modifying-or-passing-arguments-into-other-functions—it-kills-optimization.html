@@ -1,17 +1,305 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>JsTips - Useful JavaScript Tips</title><meta name="keywords" content="jstips,tips,Useful JavaScript Tips"><meta name="description" content="Introduces these short and useful daily JavaScript tips that will allow you to improve your code writing. With less than 2 minutes each day, you will be able to read about performance, conventions, hacks, interview questions and all the items that the future of this awesome language holds for us"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scale=no"><link rel="icon" type="image/x-icon" href="../../images/favicon.ico"><link rel="stylesheet" type="text/css" href="../../css/all-7e45beae0a.min.css"><script type="text/javascript">window.onload = function(){
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsTips - Useful JavaScript Tips</title>
+    <meta name="keywords" content="jstips,tips,Useful JavaScript Tips">
+    <meta name="description" content="Introduces these short and useful daily JavaScript tips that will allow you to improve your code writing. With less than 2 minutes each day, you will be able to read about performance, conventions, hacks, interview questions and all the items that the future of this awesome language holds for us">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scale=no">
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/all.min.css">
+    <script type="text/javascript">
+        window.onload = function(){
                 document.getElementById('J_languages_select').onchange = function(){
                 var lang = this.value;
                 window.location.href = window.location.href.replace(/tips\/(\w+)\//,function($,$1){
                     return $.replace($1,lang);
                 })
             }
-        }</script></head><body><div class="main-content clearfix"><div id="sider-wrap" class="catalog"><div class="catalog-header"><h1><a href="https://github.com/loverajoel/jstips">Useful JS Tips</a></h1><select id="J_languages_select"><option value="en">English</option><option value="zh_CN">简体中文</option><option value="zh_TW" selected="selected">繁体中文</option></select></div><ul><li><a href="recursion-iteration-and-tail-calls-in-js" class="" title="67.在 JavaScript 遞歸、反覆運算並尾呼叫">67.在 JavaScript 遞歸、反覆運算並尾呼叫</a></li><li><a href="state-to-props-maps-with-memory" class="" title="66.從 State 到 Prop 的映射">66.從 State 到 Prop 的映射</a></li><li><a href="tapping-for-quick-debugging" class="" title="65.使用監聽（tap）來快速 debug">65.使用監聽（tap）來快速 debug</a></li><li><a href="3-array-hacks" class="" title="64.使用 Array 的三個技巧">64.使用 Array 的三個技巧</a></li><li><a href="working-with-websocket-timeout" class="" title="63.處理 Websocket 超時">63.處理 Websocket 超時</a></li><li><a href="preventing-unwanted-scopes-creation-in-angularjs" class="" title="62.在 AngularJs 防止不必要的 scope 建立">62.在 AngularJs 防止不必要的 scope 建立</a></li><li><a href="binding-objects-to-functions" class="" title="61.Bind 物件到 function">61.Bind 物件到 function</a></li><li><a href="three-useful-hacks" class="" title="60.三個有用的技巧">60.三個有用的技巧</a></li><li><a href="keyword-var-vs-let" class="" title="59.ES6 的 var 和 let">59.ES6 的 var 和 let</a></li><li><a href="break-continue-loop-functional" class="" title="58.在 functional programming break 或 continue 迴圈">58.在 functional programming break 或 continue 迴圈</a></li><li><a href="comma-operaton-in-js" class="" title="57.JavaScript 的逗號操作符">57.JavaScript 的逗號操作符</a></li><li><a href="copy-to-clipboard" class="" title="56.複製到剪貼版">56.複製到剪貼版</a></li><li><a href="make-easy-loop-on-array" class="" title="55.使用一個陣列建立一個簡單的迴圈">55.使用一個陣列建立一個簡單的迴圈</a></li><li><a href="use-optional-arguments" class="" title="54.如何使用在函式中的可選參數（包含 callback）">54.如何使用在函式中的可選參數（包含 callback）</a></li><li><a href="get-file-extension" class="" title="53.取得檔案的副檔名">53.取得檔案的副檔名</a></li><li><a href="return-values-with-the-new-operator" class="" title="52.使用「new」運算符的回傳值">52.使用「new」運算符的回傳值</a></li><li><a href="DOM-event-listening-made-easy" class="" title="51.簡單的監聽 DOM 事件">51.簡單的監聽 DOM 事件</a></li><li><a href="helpful-console-log-hacks" class="" title="50.實用的 Console Logging 技巧">50.實用的 Console Logging 技巧</a></li><li><a href="extract-unix-timestamp-easily" class="" title="49.在 JavaScript 簡單取得 unix timestamp">49.在 JavaScript 簡單取得 unix timestamp</a></li><li><a href="reminders-about-reduce-function-usage" class="" title="48.如何 reduce 陣列">48.如何 reduce 陣列</a></li><li><a href="basics-declarations" class="" title="47.宣告的基本知識">47.宣告的基本知識</a></li><li><a href="detect-document-ready-in-pure-js" class="" title="46.使用 pure JavaScript 檢查文件是否準備">46.使用 pure JavaScript 檢查文件是否準備</a></li><li><a href="calculate-the-max-min-value-from-an-array" class="" title="45.從陣列計算最大和最小值">45.從陣列計算最大和最小值</a></li><li><a href="know-the-passing-mechanism" class="" title="44.了解傳送機制">44.了解傳送機制</a></li><li><a href="use-destructuring-in-function-parameters" class="" title="43.在函式參數裡使用解構子">43.在函式參數裡使用解構子</a></li><li><a href="preventing-unapply-attacks" class="" title="42.防止 Unapply 攻擊">42.防止 Unapply 攻擊</a></li><li><a href="array-average-and-median" class="" title="41.陣列平均值和中間值">41.陣列平均值和中間值</a></li><li><a href="using-json-stringify" class="" title="40.使用 JSON.Stringify">40.使用 JSON.Stringify</a></li><li><a href="advanced-properties" class="" title="39.進階 JavaScript 屬性">39.進階 JavaScript 屬性</a></li><li><a href="flattening-multidimensional-arrays-in-javascript" class="" title="38.在 JavaScript 中將多維陣列扁平化">38.在 JavaScript 中將多維陣列扁平化</a></li><li><a href="deduplicate-an-array" class="" title="37.移除陣列重複元素">37.移除陣列重複元素</a></li><li><a href="observe-dom-changes" class="" title="36.觀察在擴充中 DOM 的變化">36.觀察在擴充中 DOM 的變化</a></li><li><a href="assignment-shorthands" class="" title="35.賦值運算子">35.賦值運算子</a></li><li><a href="implementing-asynchronous-loops" class="" title="34.實作非同步迴圈">34.實作非同步迴圈</a></li><li><a href="create-range-0...n-easily-using-one-line" class="" title="33.使用一行程式碼建立一個 `[0, 1, ..., N - 1]` 的陣列">33.使用一行程式碼建立一個 `[0, 1, ..., N - 1]` 的陣列</a></li><li><a href="map-to-the-rescue-adding-order-to-object-properties" class="" title="32.透過 Map() 在你的物件屬性加入排序">32.透過 Map() 在你的物件屬性加入排序</a></li><li><a href="avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization" class="cur" title="31.避免修改或傳送 arguments 到其他函式 - 它會影響優化">31.避免修改或傳送 arguments 到其他函式 - 它會影響優化</a></li><li><a href="converting-truthy-falsy-values-to-boolean" class="" title="30.將 truthy 和 falsy 轉換成布林值">30.將 truthy 和 falsy 轉換成布林值</a></li><li><a href="speed-up-recursive-functions-with-memoization" class="" title="29.使用 memoization 加速遞迴">29.使用 memoization 加速遞迴</a></li><li><a href="curry-vs-partial-application" class="" title="28.柯里化（currying）和部分應用程式">28.柯里化（currying）和部分應用程式</a></li><li><a href="short-circiut-evaluation-in-js" class="" title="27.JavaScript 中的捷徑計算">27.JavaScript 中的捷徑計算</a></li><li><a href="filtering-and-sorting-a-list-of-strings" class="" title="26.過濾和排序字串清單">26.過濾和排序字串清單</a></li><li><a href="Using-immediately-invoked-function-expression" class="" title="25.使用立即函式表達式">25.使用立即函式表達式</a></li><li><a href="use_===_instead_of_==" class="" title="24.使用 === 來替代 ==">24.使用 === 來替代 ==</a></li><li><a href="converting-to-number-fast-way" class="" title="23.轉換為數字更快的方式">23.轉換為數字更快的方式</a></li><li><a href="two-ways-to-empty-an-array" class="" title="22.將陣列清空的兩種方法">22.將陣列清空的兩種方法</a></li><li><a href="shuffle-an-array" class="" title="21.將陣列洗牌">21.將陣列洗牌</a></li><li><a href="return-objects-to-enable-chaining-of-functions" class="" title="20.回傳物件並使用函式鏈結">20.回傳物件並使用函式鏈結</a></li><li><a href="safe-string-concatenation" class="" title="19.安全的使用字串串接">19.安全的使用字串串接</a></li><li><a href="rounding-the-fast-way" class="" title="18.Truncating 最快的方式（含有風險）">18.Truncating 最快的方式（含有風險）</a></li><li><a href="nodejs-run-a-module-if-it-is-not-required" class="" title="17.Node.js - 執行尚未被 required 的模組">17.Node.js - 執行尚未被 required 的模組</a></li><li><a href="passing-arguments-to-callback-functions" class="" title="16.將參數傳送到 callback 函式">16.將參數傳送到 callback 函式</a></li><li><a href="even-simpler-way-of-using-indexof-as-a-contains-clause" class="" title="15.更簡單的方式將 indexOf 當作 contains 使用">15.更簡單的方式將 indexOf 當作 contains 使用</a></li><li><a href="fat-arrow-functions" class="" title="14.箭頭函式">14.箭頭函式</a></li><li><a href="tip-to-measure-performance-of-a-javascript-block" class="" title="13.測量 JavaScript 程式碼區塊性能的 tip">13.測量 JavaScript 程式碼區塊性能的 tip</a></li><li><a href="pseudomandatory-parameters-in-es6-functions" class="" title="12.在 ES6 函式內的預設參數">12.在 ES6 函式內的預設參數</a></li><li><a href="hoisting" class="" title="11.提升變數">11.提升變數</a></li><li><a href="check-if-a-property-is-in-a-object" class="" title="10.檢查屬性是否存在物件內">10.檢查屬性是否存在物件內</a></li><li><a href="template-strings" class="" title="09.模板字串">09.模板字串</a></li><li><a href="converting-a-node-list-to-an-array" class="" title="08.將 Node List 轉換成陣列">08.將 Node List 轉換成陣列</a></li><li><a href="use-strict-and-get-lazy" class="" title="07.在 JavaScript 使用嚴格模式">07.在 JavaScript 使用嚴格模式</a></li><li><a href="writing-a-single-method-for-arrays-and-a-single-element" class="" title="06.撰寫一個可以接受單一參數和陣列的方法">06.撰寫一個可以接受單一參數和陣列的方法</a></li><li><a href="differences-between-undefined-and-null" class="" title="05.undefined 和 null 的差別">05.undefined 和 null 的差別</a></li><li><a href="sorting-strings-with-accented-characters" class="" title="04.將帶有音節字元的字串進行排序">04.將帶有音節字元的字串進行排序</a></li><li><a href="improve-nested-conditionals" class="" title="03.改善巢狀化的條件式">03.改善巢狀化的條件式</a></li><li><a href="keys-in-children-components-are-important" class="" title="02.在子元件 Keys 是很重要的">02.在子元件 Keys 是很重要的</a></li><li><a href="angularjs-digest-vs-apply" class="" title="01.AngularJs - $digest vs $apply">01.AngularJs - $digest vs $apply</a></li><li><a href="insert-item-inside-an-array" class="" title="00.在陣列中加入元素">00.在陣列中加入元素</a></li></ul></div><div id="content-wrap"><div id="readme" class="boxed-group clearfix announce instapaper_body md"><article class="markdown-body entry-content" itemprop="mainContentOfPage"><h2>#31 - 避免修改或傳送 arguments 到其他函式 - 它會影響優化</h2><blockquote><p>2016-01-31 by <a href="https://github.com/berkana">@berkana</a></p></blockquote><h3>背景</h3><p>在 JavaScript 的函式，變數名稱 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments"><code>arguments</code></a> 讓你可以存取所有傳送到函式的參數。<code>arguments</code> 是一個 <em>類陣列物件</em>；<code>arguments</code> 可以使用陣列表示來存取，而且它有 <em>length</em> 屬性，但不具備陣列的 <code>filter</code> 和 <code>map</code> 以及 <code>forEach</code> 的方法。以下程式碼是轉換 <code>arguments</code> 到陣列相當普遍的做法。</p><pre><code class="language-js"><span class="hljs-title">var</span> args = <span class="hljs-type">Array</span>.proto<span class="hljs-keyword">type</span>.slice.call(arguments);
-</code></pre><p>將 <code>arguments</code> 傳送到 <code>Array</code> 原型的上的 <code>slice</code> 方法；<code>slice</code> 方法回傳淺拷貝的 <code>arguments</code> 當作新的陣列物件。一般常見的簡寫方法：</p><pre><code class="language-js"><span class="hljs-keyword">var</span> args = [].slice.call(<span class="hljs-built_in">arguments</span>);
-</code></pre><p>在這個情況下，只是呼叫一個空陣列陣列，而不是從 <code>Array</code> 原型上呼叫 <code>slice</code> 方法。</p><h3>優化</h3><p>不幸的是，傳送到任何函式呼叫的 <code>arguments</code>，造成在 Chrome 和 Node 跳過 JavaScript V8 引擎的優化功能，這可能會導致性能降低。參考這篇 <a href="https://github.com/petkaantonov/bluebird/wiki/Optimization-killers">optimization killers</a> 文章。傳送 <code>arguments</code> 到函式稱為 <em>leaking <code>arguments</code></em>。</p><p>相反的，假設你需要包含參數的陣列，你可以藉助這個方法：</p><pre><code class="language-js"><span class="hljs-built_in">var</span> <span class="hljs-built_in">args</span> = <span class="hljs-built_in">new</span> Array(arguments.<span class="hljs-built_in">length</span>);
+        }
+    </script>
+</head><body>
+    <div class="main-content clearfix">
+        <div id="sider-wrap" class="catalog">
+    <div class="catalog-header">
+        <h1>
+            <a href="https://github.com/loverajoel/jstips">Useful JS Tips</a>
+        </h1>
+        <select id="J_languages_select">
+            
+                <option value="en" >English</option>
+            
+                <option value="zh_CN" >简体中文</option>
+            
+                <option value="zh_TW" selected=selected>繁体中文</option>
+            
+        </select>
+    </div>
+    <ul>
+        
+            <li><a href="vuejs-how-vuejs-makes-a-copy-update-replace-inside-the-data-binding" class=""
+             title="71.Vuejs 如何在資料綁定時，拷貝、更新並取代原來的資料">71.Vuejs 如何在資料綁定時，拷貝、更新並取代原來的資料</a></li>
+        
+            <li><a href="picking-and-rejecting-object-properties" class=""
+             title="70.選擇或是拋棄物件屬性">70.選擇或是拋棄物件屬性</a></li>
+        
+            <li><a href="enhancing-react-components-composition" class=""
+             title="69.增強你的 React component 的組合">69.增強你的 React component 的組合</a></li>
+        
+            <li><a href="why-you-should-use-Object.is()-in-equality-comparison" class=""
+             title="68.為什麼在做相等比較的時候，你應該使用 Object.is()">68.為什麼在做相等比較的時候，你應該使用 Object.is()</a></li>
+        
+            <li><a href="recursion-iteration-and-tail-calls-in-js" class=""
+             title="67.在 JavaScript 遞歸、反覆運算並尾呼叫">67.在 JavaScript 遞歸、反覆運算並尾呼叫</a></li>
+        
+            <li><a href="state-to-props-maps-with-memory" class=""
+             title="66.從 State 到 Prop 的映射">66.從 State 到 Prop 的映射</a></li>
+        
+            <li><a href="tapping-for-quick-debugging" class=""
+             title="65.使用監聽（tap）來快速 debug">65.使用監聽（tap）來快速 debug</a></li>
+        
+            <li><a href="3-array-hacks" class=""
+             title="64.使用 Array 的三個技巧">64.使用 Array 的三個技巧</a></li>
+        
+            <li><a href="working-with-websocket-timeout" class=""
+             title="63.處理 Websocket 超時">63.處理 Websocket 超時</a></li>
+        
+            <li><a href="preventing-unwanted-scopes-creation-in-angularjs" class=""
+             title="62.在 AngularJs 防止不必要的 scope 建立">62.在 AngularJs 防止不必要的 scope 建立</a></li>
+        
+            <li><a href="binding-objects-to-functions" class=""
+             title="61.Bind 物件到 function">61.Bind 物件到 function</a></li>
+        
+            <li><a href="three-useful-hacks" class=""
+             title="60.三個有用的技巧">60.三個有用的技巧</a></li>
+        
+            <li><a href="keyword-var-vs-let" class=""
+             title="59.ES6 的 var 和 let">59.ES6 的 var 和 let</a></li>
+        
+            <li><a href="break-continue-loop-functional" class=""
+             title="58.在 functional programming break 或 continue 迴圈">58.在 functional programming break 或 continue 迴圈</a></li>
+        
+            <li><a href="comma-operaton-in-js" class=""
+             title="57.JavaScript 的逗號操作符">57.JavaScript 的逗號操作符</a></li>
+        
+            <li><a href="copy-to-clipboard" class=""
+             title="56.複製到剪貼版">56.複製到剪貼版</a></li>
+        
+            <li><a href="make-easy-loop-on-array" class=""
+             title="55.使用一個陣列建立一個簡單的迴圈">55.使用一個陣列建立一個簡單的迴圈</a></li>
+        
+            <li><a href="use-optional-arguments" class=""
+             title="54.如何使用在函式中的可選參數（包含 callback）">54.如何使用在函式中的可選參數（包含 callback）</a></li>
+        
+            <li><a href="get-file-extension" class=""
+             title="53.取得檔案的副檔名">53.取得檔案的副檔名</a></li>
+        
+            <li><a href="return-values-with-the-new-operator" class=""
+             title="52.使用「new」運算符的回傳值">52.使用「new」運算符的回傳值</a></li>
+        
+            <li><a href="DOM-event-listening-made-easy" class=""
+             title="51.簡單的監聽 DOM 事件">51.簡單的監聽 DOM 事件</a></li>
+        
+            <li><a href="helpful-console-log-hacks" class=""
+             title="50.實用的 Console Logging 技巧">50.實用的 Console Logging 技巧</a></li>
+        
+            <li><a href="extract-unix-timestamp-easily" class=""
+             title="49.在 JavaScript 簡單取得 unix timestamp">49.在 JavaScript 簡單取得 unix timestamp</a></li>
+        
+            <li><a href="reminders-about-reduce-function-usage" class=""
+             title="48.如何 reduce 陣列">48.如何 reduce 陣列</a></li>
+        
+            <li><a href="basics-declarations" class=""
+             title="47.宣告的基本知識">47.宣告的基本知識</a></li>
+        
+            <li><a href="detect-document-ready-in-pure-js" class=""
+             title="46.使用 pure JavaScript 檢查文件是否準備">46.使用 pure JavaScript 檢查文件是否準備</a></li>
+        
+            <li><a href="calculate-the-max-min-value-from-an-array" class=""
+             title="45.從陣列計算最大和最小值">45.從陣列計算最大和最小值</a></li>
+        
+            <li><a href="know-the-passing-mechanism" class=""
+             title="44.了解傳送機制">44.了解傳送機制</a></li>
+        
+            <li><a href="use-destructuring-in-function-parameters" class=""
+             title="43.在函式參數裡使用解構子">43.在函式參數裡使用解構子</a></li>
+        
+            <li><a href="preventing-unapply-attacks" class=""
+             title="42.防止 Unapply 攻擊">42.防止 Unapply 攻擊</a></li>
+        
+            <li><a href="array-average-and-median" class=""
+             title="41.陣列平均值和中間值">41.陣列平均值和中間值</a></li>
+        
+            <li><a href="using-json-stringify" class=""
+             title="40.使用 JSON.Stringify">40.使用 JSON.Stringify</a></li>
+        
+            <li><a href="advanced-properties" class=""
+             title="39.進階 JavaScript 屬性">39.進階 JavaScript 屬性</a></li>
+        
+            <li><a href="flattening-multidimensional-arrays-in-javascript" class=""
+             title="38.在 JavaScript 中將多維陣列扁平化">38.在 JavaScript 中將多維陣列扁平化</a></li>
+        
+            <li><a href="deduplicate-an-array" class=""
+             title="37.移除陣列重複元素">37.移除陣列重複元素</a></li>
+        
+            <li><a href="observe-dom-changes" class=""
+             title="36.觀察在擴充中 DOM 的變化">36.觀察在擴充中 DOM 的變化</a></li>
+        
+            <li><a href="assignment-shorthands" class=""
+             title="35.賦值運算子">35.賦值運算子</a></li>
+        
+            <li><a href="implementing-asynchronous-loops" class=""
+             title="34.實作非同步迴圈">34.實作非同步迴圈</a></li>
+        
+            <li><a href="create-range-0...n-easily-using-one-line" class=""
+             title="33.使用一行程式碼建立一個 `[0, 1, ..., N - 1]` 的陣列">33.使用一行程式碼建立一個 `[0, 1, ..., N - 1]` 的陣列</a></li>
+        
+            <li><a href="map-to-the-rescue-adding-order-to-object-properties" class=""
+             title="32.透過 Map() 在你的物件屬性加入排序">32.透過 Map() 在你的物件屬性加入排序</a></li>
+        
+            <li><a href="avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization" class="cur"
+             title="31.避免修改或傳送 arguments 到其他函式 - 它會影響優化">31.避免修改或傳送 arguments 到其他函式 - 它會影響優化</a></li>
+        
+            <li><a href="converting-truthy-falsy-values-to-boolean" class=""
+             title="30.將 truthy 和 falsy 轉換成布林值">30.將 truthy 和 falsy 轉換成布林值</a></li>
+        
+            <li><a href="speed-up-recursive-functions-with-memoization" class=""
+             title="29.使用 memoization 加速遞迴">29.使用 memoization 加速遞迴</a></li>
+        
+            <li><a href="curry-vs-partial-application" class=""
+             title="28.柯里化（currying）和部分應用程式">28.柯里化（currying）和部分應用程式</a></li>
+        
+            <li><a href="short-circiut-evaluation-in-js" class=""
+             title="27.JavaScript 中的捷徑計算">27.JavaScript 中的捷徑計算</a></li>
+        
+            <li><a href="filtering-and-sorting-a-list-of-strings" class=""
+             title="26.過濾和排序字串清單">26.過濾和排序字串清單</a></li>
+        
+            <li><a href="Using-immediately-invoked-function-expression" class=""
+             title="25.使用立即函式表達式">25.使用立即函式表達式</a></li>
+        
+            <li><a href="use_===_instead_of_==" class=""
+             title="24.使用 === 來替代 ==">24.使用 === 來替代 ==</a></li>
+        
+            <li><a href="converting-to-number-fast-way" class=""
+             title="23.轉換為數字更快的方式">23.轉換為數字更快的方式</a></li>
+        
+            <li><a href="two-ways-to-empty-an-array" class=""
+             title="22.將陣列清空的兩種方法">22.將陣列清空的兩種方法</a></li>
+        
+            <li><a href="shuffle-an-array" class=""
+             title="21.將陣列洗牌">21.將陣列洗牌</a></li>
+        
+            <li><a href="return-objects-to-enable-chaining-of-functions" class=""
+             title="20.回傳物件並使用函式鏈結">20.回傳物件並使用函式鏈結</a></li>
+        
+            <li><a href="safe-string-concatenation" class=""
+             title="19.安全的使用字串串接">19.安全的使用字串串接</a></li>
+        
+            <li><a href="rounding-the-fast-way" class=""
+             title="18.Truncating 最快的方式（含有風險）">18.Truncating 最快的方式（含有風險）</a></li>
+        
+            <li><a href="nodejs-run-a-module-if-it-is-not-required" class=""
+             title="17.Node.js - 執行尚未被 required 的模組">17.Node.js - 執行尚未被 required 的模組</a></li>
+        
+            <li><a href="passing-arguments-to-callback-functions" class=""
+             title="16.將參數傳送到 callback 函式">16.將參數傳送到 callback 函式</a></li>
+        
+            <li><a href="even-simpler-way-of-using-indexof-as-a-contains-clause" class=""
+             title="15.更簡單的方式將 indexOf 當作 contains 使用">15.更簡單的方式將 indexOf 當作 contains 使用</a></li>
+        
+            <li><a href="fat-arrow-functions" class=""
+             title="14.箭頭函式">14.箭頭函式</a></li>
+        
+            <li><a href="tip-to-measure-performance-of-a-javascript-block" class=""
+             title="13.測量 JavaScript 程式碼區塊性能的 tip">13.測量 JavaScript 程式碼區塊性能的 tip</a></li>
+        
+            <li><a href="pseudomandatory-parameters-in-es6-functions" class=""
+             title="12.在 ES6 函式內的預設參數">12.在 ES6 函式內的預設參數</a></li>
+        
+            <li><a href="hoisting" class=""
+             title="11.提升變數">11.提升變數</a></li>
+        
+            <li><a href="check-if-a-property-is-in-a-object" class=""
+             title="10.檢查屬性是否存在物件內">10.檢查屬性是否存在物件內</a></li>
+        
+            <li><a href="template-strings" class=""
+             title="09.模板字串">09.模板字串</a></li>
+        
+            <li><a href="converting-a-node-list-to-an-array" class=""
+             title="08.將 Node List 轉換成陣列">08.將 Node List 轉換成陣列</a></li>
+        
+            <li><a href="use-strict-and-get-lazy" class=""
+             title="07.在 JavaScript 使用嚴格模式">07.在 JavaScript 使用嚴格模式</a></li>
+        
+            <li><a href="writing-a-single-method-for-arrays-and-a-single-element" class=""
+             title="06.撰寫一個可以接受單一參數和陣列的方法">06.撰寫一個可以接受單一參數和陣列的方法</a></li>
+        
+            <li><a href="differences-between-undefined-and-null" class=""
+             title="05.undefined 和 null 的差別">05.undefined 和 null 的差別</a></li>
+        
+            <li><a href="sorting-strings-with-accented-characters" class=""
+             title="04.將帶有音節字元的字串進行排序">04.將帶有音節字元的字串進行排序</a></li>
+        
+            <li><a href="improve-nested-conditionals" class=""
+             title="03.改善巢狀化的條件式">03.改善巢狀化的條件式</a></li>
+        
+            <li><a href="keys-in-children-components-are-important" class=""
+             title="02.在子元件 Keys 是很重要的">02.在子元件 Keys 是很重要的</a></li>
+        
+            <li><a href="angularjs-digest-vs-apply" class=""
+             title="01.AngularJs - $digest vs $apply">01.AngularJs - $digest vs $apply</a></li>
+        
+            <li><a href="insert-item-inside-an-array" class=""
+             title="00.在陣列中加入元素">00.在陣列中加入元素</a></li>
+        
+    </ul>
+</div>
+        <div id="content-wrap">
+             <div id="readme" class="boxed-group clearfix announce instapaper_body md">
+ 	<article class="markdown-body entry-content" itemprop="mainContentOfPage">
+ 		<h2>#31 - 避免修改或傳送 arguments 到其他函式 - 它會影響優化</h2>
+<blockquote>
+<p>2016-01-31 by <a href="https://github.com/berkana">@berkana</a></p>
+</blockquote>
+<h3>背景</h3>
+<p>在 JavaScript 的函式，變數名稱 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments"><code>arguments</code></a> 讓你可以存取所有傳送到函式的參數。<code>arguments</code> 是一個 <em>類陣列物件</em>；<code>arguments</code> 可以使用陣列表示來存取，而且它有 <em>length</em> 屬性，但不具備陣列的 <code>filter</code> 和 <code>map</code> 以及 <code>forEach</code> 的方法。以下程式碼是轉換 <code>arguments</code> 到陣列相當普遍的做法。</p>
+<pre><code class="language-js"><span class="hljs-title">var</span> args = <span class="hljs-type">Array</span>.proto<span class="hljs-keyword">type</span>.slice.call(arguments);
+</code></pre>
+<p>將 <code>arguments</code> 傳送到 <code>Array</code> 原型的上的 <code>slice</code> 方法；<code>slice</code> 方法回傳淺拷貝的 <code>arguments</code> 當作新的陣列物件。一般常見的簡寫方法：</p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> args = [].slice.call(<span class="hljs-built_in">arguments</span>);
+</code></pre>
+<p>在這個情況下，只是呼叫一個空陣列陣列，而不是從 <code>Array</code> 原型上呼叫 <code>slice</code> 方法。</p>
+<h3>優化</h3>
+<p>不幸的是，傳送到任何函式呼叫的 <code>arguments</code>，造成在 Chrome 和 Node 跳過 JavaScript V8 引擎的優化功能，這可能會導致性能降低。參考這篇 <a href="https://github.com/petkaantonov/bluebird/wiki/Optimization-killers">optimization killers</a> 文章。傳送 <code>arguments</code> 到函式稱為 <em>leaking <code>arguments</code></em>。</p>
+<p>相反的，假設你需要包含參數的陣列，你可以藉助這個方法：</p>
+<pre><code class="language-js"><span class="hljs-built_in">var</span> <span class="hljs-built_in">args</span> = <span class="hljs-built_in">new</span> Array(arguments.<span class="hljs-built_in">length</span>);
 <span class="hljs-keyword">for</span>(<span class="hljs-built_in">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">args</span>.<span class="hljs-built_in">length</span>; ++i) {
   <span class="hljs-built_in">args</span>[i] = arguments[i];
 }
-</code></pre><p>雖然程式碼更冗長，但是在上線環境增進了效能的優化，所以是值得的。</p></article></div><a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a><!-- 多说分享 start --><div class="ds-share flat" data-thread-key="jstips_31" data-title="避免修改或傳送 arguments 到其他函式 - 它會影響優化" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="在 JavaScript 的函式，變數名稱 `arguments` 讓你可以存取所有傳送到函式的參數。`arguments` 是一個 *類陣列物件*；`arguments` 可以使用陣列表示來存取，而且它有 *length* 屬性，但不具備陣列的 `filter` 和 `map` 以及 `forEach` 的方法。以下程式碼是轉換 `arguments` 到陣列相當普遍的做法。" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization.html"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li><a class="ds-more" href="javascript:void(0);">分享到：</a></li><li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li><li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li><li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li></ul></div></div><!-- 多说分享 end --><!-- 多说评论框 start --><div class="ds-thread" data-thread-key="jstips_31" data-title="避免修改或傳送 arguments 到其他函式 - 它會影響優化" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization.html"></div><!-- 多说评论框 end --><!-- 多说公共JS代码 start (一个网页只需插入一次) --><script type="text/javascript">var duoshuoQuery = {short_name:"hingsir"};
+</code></pre>
+<p>雖然程式碼更冗長，但是在上線環境增進了效能的優化，所以是值得的。</p>
+ 	</article>
+</div>
+            <a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a>
+            <!-- 多说分享 start -->
+<div class="ds-share flat" data-thread-key="jstips_31" data-title="避免修改或傳送 arguments 到其他函式 - 它會影響優化" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="在 JavaScript 的函式，變數名稱 `arguments` 讓你可以存取所有傳送到函式的參數。`arguments` 是一個 *類陣列物件*；`arguments` 可以使用陣列表示來存取，而且它有 *length* 屬性，但不具備陣列的 `filter` 和 `map` 以及 `forEach` 的方法。以下程式碼是轉換 `arguments` 到陣列相當普遍的做法。" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization.html">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+        <li><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+        <li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li>
+      </ul>
+    </div>
+ </div>
+<!-- 多说分享 end -->
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="jstips_31" data-title="避免修改或傳送 arguments 到其他函式 - 它會影響優化" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"hingsir"};
     (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -19,10 +307,21 @@
         ds.charset = 'UTF-8';
         (document.getElementsByTagName('head')[0]
          || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();</script><!-- 多说公共JS代码 end --><div class="site-footer"><p class="copyright">Powered by <a href="https://github.com/hingsir">@hingsir</a>, 2016</p></div></div></div><a id="forkme" href="https://github.com/hingsir/jstips-site"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:100" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a><script>var _hmt = _hmt || [];
+    })();
+</script>
+<!-- 多说公共JS代码 end -->            <div class="site-footer">
+                <p class="copyright">Powered by <a href="https://github.com/hingsir">@hingsir</a>, 2016</p>
+            </div>
+        </div>
+    </div>
+    <a id="forkme" href="https://github.com/hingsir/jstips-site"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:100;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    <script>
+    var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
       hm.src = "//hm.baidu.com/hm.js?d2663479c9de1b01cbc8485ab8cb623d";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
-    })();</script></body></html>
+    })();
+</script></body>
+</html>

@@ -40,7 +40,7 @@
             <li><a href="vuejs-how-vuejs-makes-a-copy-update-replace-inside-the-data-binding" class=""
              title="71.Vuejs 如何在資料綁定時，拷貝、更新並取代原來的資料">71.Vuejs 如何在資料綁定時，拷貝、更新並取代原來的資料</a></li>
         
-            <li><a href="picking-and-rejecting-object-properties" class=""
+            <li><a href="picking-and-rejecting-object-properties" class="cur"
              title="70.選擇或是拋棄物件屬性">70.選擇或是拋棄物件屬性</a></li>
         
             <li><a href="enhancing-react-components-composition" class=""
@@ -199,7 +199,7 @@
             <li><a href="rounding-the-fast-way" class=""
              title="18.Truncating 最快的方式（含有風險）">18.Truncating 最快的方式（含有風險）</a></li>
         
-            <li><a href="nodejs-run-a-module-if-it-is-not-required" class="cur"
+            <li><a href="nodejs-run-a-module-if-it-is-not-required" class=""
              title="17.Node.js - 執行尚未被 required 的模組">17.Node.js - 執行尚未被 required 的模組</a></li>
         
             <li><a href="passing-arguments-to-callback-functions" class=""
@@ -258,27 +258,54 @@
         <div id="content-wrap">
              <div id="readme" class="boxed-group clearfix announce instapaper_body md">
  	<article class="markdown-body entry-content" itemprop="mainContentOfPage">
- 		<h2>#17 - Node.js - 執行尚未被 required 的模組</h2>
+ 		<h2>#70 - 選擇或是拋棄物件屬性</h2>
 <blockquote>
-<p>2016-01-17 by <a href="https://twitter.com/odsdq">@odsdq</a></p>
+<p>2017-04-05 by <a href="https://github.com/loverajoel">@loverajoel</a></p>
 </blockquote>
-<p>在 nodejs，你可以讓你的程式取決於 <code>require('./something.js')</code> 或 <code>node something.js</code> 這兩種不同的方式來執行你的程式碼。如果你想要將你的獨立模組交互使用是非常有用的。</p>
-<pre><code class="language-js"><span class="hljs-keyword">if</span> (!<span class="hljs-function"><span class="hljs-keyword">module</span>.<span class="hljs-title">parent</span>) {</span>
-    <span class="hljs-comment">// 透過 `node something.js` 執行</span>
-    app.listen(<span class="hljs-number">8088</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-        console.<span class="hljs-built_in">log</span>('app listening on port <span class="hljs-number">8088</span>');
-    })
-} <span class="hljs-keyword">else</span> {
-    <span class="hljs-comment">// 使用 `require('/.something.js')` 方法</span>
-    <span class="hljs-function"><span class="hljs-keyword">module</span>.<span class="hljs-title">exports</span> =</span> app;
+<p>有時候我們需要列出物件中某些屬性，假設我們有一個陣列來表達一個資料表，我們需要有些 function 來 <code>select</code> 欄位：</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pick</span><span class="hljs-params">(obj, keys)</span> </span>{
+    <span class="hljs-keyword">return</span> keys.map(k =&gt; k in obj ? {[k]: obj[k]} : {})
+               .reduce((res, o) =&gt; Object.assign(res, o), {});
 }
+
+<span class="hljs-keyword">const</span> row = {
+    <span class="hljs-string">'accounts.id'</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">'client.name'</span>: <span class="hljs-string">'John Doe'</span>,
+    <span class="hljs-string">'bank.code'</span>: <span class="hljs-string">'MDAKW213'</span>
+};
+
+<span class="hljs-keyword">const</span> table = [
+    row,
+    {<span class="hljs-string">'accounts.id'</span>: <span class="hljs-number">3</span>, <span class="hljs-string">'client.name'</span>: <span class="hljs-string">'Steve Doe'</span>, <span class="hljs-string">'bank.code'</span>: <span class="hljs-string">'STV12JB'</span>}
+];
+
+pick(row, [<span class="hljs-string">'client.name'</span>]); <span class="hljs-comment">// 取得 Client 名稱</span>
+
+table.map(row =&gt; pick(row, [<span class="hljs-string">'client.name'</span>])); <span class="hljs-comment">// 取得一些 client 名稱的列表</span>
 </code></pre>
-<p>更多資訊請參考 <a href="https://nodejs.org/api/modules.html#modules_module_parent">nodejs modules 官方文件</a>。</p>
+<p>在 pick 我們透過一個小手段，首先，我們 <code>map</code> 一個 function，每次透過目前的 key 只有該屬性的物件被回傳（或者，如果在物件內沒有任何的屬性會回傳一個空的物件）。然後透過 merge 物件，我們 <code>reduce</code> 這些單一屬性的集合物件。</p>
+<p>但是如果我們想要 <code>reject</code> 屬性呢？好吧，function 需要一些改變：</p>
+<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reject</span>(<span class="hljs-params">obj, keys</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.keys(obj)
+        .filter(k =&gt; !keys.includes(k))
+        .map(k =&gt; <span class="hljs-built_in">Object</span>.assign({}, {[k]: obj[k]}))
+        .reduce((res, o) =&gt; <span class="hljs-built_in">Object</span>.assign(res, o), {});
+}
+
+<span class="hljs-comment">// 或者恢復 pick</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reject</span>(<span class="hljs-params">obj, keys</span>) </span>{
+    <span class="hljs-keyword">const</span> vkeys = <span class="hljs-built_in">Object</span>.keys(obj)
+        .filter(k =&gt; !keys.includes(k));
+    <span class="hljs-keyword">return</span> pick(obj, vkeys);
+}
+
+reject({<span class="hljs-attribute">a</span>: <span class="hljs-number">2</span>, <span class="hljs-attribute">b</span>: <span class="hljs-number">3</span>, <span class="hljs-attribute">c</span>: <span class="hljs-number">4</span>}, [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>]); <span class="hljs-comment">// =&gt; {c: 4}</span>
+</code></pre>
  	</article>
 </div>
             <a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a>
             <!-- 多说分享 start -->
-<div class="ds-share flat" data-thread-key="jstips_17" data-title="Node.js - 執行尚未被 required 的模組" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="在 nodejs，你可以讓你的程式取決於 `require(&#39;./something.js&#39;)` 或 `node something.js` 這兩種不同的方式來執行你的程式碼。如果你想要將你的獨立模組交互使用是非常有用的。" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/nodejs-run-a-module-if-it-is-not-required.html">
+<div class="ds-share flat" data-thread-key="jstips_70" data-title="選擇或是拋棄物件屬性" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="有時候我們需要列出物件中某些屬性，假設我們有一個陣列來表達一個資料表，我們需要有些 function 來 `select` 欄位。" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/picking-and-rejecting-object-properties.html">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
         <li><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
@@ -290,7 +317,7 @@
  </div>
 <!-- 多说分享 end -->
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="jstips_17" data-title="Node.js - 執行尚未被 required 的模組" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/nodejs-run-a-module-if-it-is-not-required.html"></div>
+<div class="ds-thread" data-thread-key="jstips_70" data-title="選擇或是拋棄物件屬性" data-url="http://jstips.hingsir.com/dist/tips/zh_TW/picking-and-rejecting-object-properties.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
