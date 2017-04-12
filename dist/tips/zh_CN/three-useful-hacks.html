@@ -1,276 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>JsTips - Useful JavaScript Tips</title>
-    <meta name="keywords" content="jstips,tips,Useful JavaScript Tips">
-    <meta name="description" content="Introduces these short and useful daily JavaScript tips that will allow you to improve your code writing. With less than 2 minutes each day, you will be able to read about performance, conventions, hacks, interview questions and all the items that the future of this awesome language holds for us">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scale=no">
-    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../css/all.min.css">
-    <script type="text/javascript">
-        window.onload = function(){
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>JsTips - Useful JavaScript Tips</title><meta name="keywords" content="jstips,tips,Useful JavaScript Tips"><meta name="description" content="Introduces these short and useful daily JavaScript tips that will allow you to improve your code writing. With less than 2 minutes each day, you will be able to read about performance, conventions, hacks, interview questions and all the items that the future of this awesome language holds for us"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scale=no"><link rel="icon" type="image/x-icon" href="../../images/favicon.ico"><link rel="stylesheet" type="text/css" href="../../css/all-7e45beae0a.min.css"><script type="text/javascript">window.onload = function(){
                 document.getElementById('J_languages_select').onchange = function(){
                 var lang = this.value;
                 window.location.href = window.location.href.replace(/tips\/(\w+)\//,function($,$1){
                     return $.replace($1,lang);
                 })
             }
-        }
-    </script>
-</head><body>
-    <div class="main-content clearfix">
-        <div id="sider-wrap" class="catalog">
-    <div class="catalog-header">
-        <h1>
-            <a href="https://github.com/loverajoel/jstips">Useful JS Tips</a>
-        </h1>
-        <select id="J_languages_select">
-            
-                <option value="en" >English</option>
-            
-                <option value="zh_CN" selected=selected>简体中文</option>
-            
-                <option value="zh_TW" >繁体中文</option>
-            
-        </select>
-    </div>
-    <ul>
-        
-            <li><a href="vuejs-how-vuejs-makes-a-copy-update-replace-inside-the-data-binding" class=""
-             title="71.Vuejs在資料綁定時會複製更新並替換目標元素">71.Vuejs在資料綁定時會複製更新並替換目標元素</a></li>
-        
-            <li><a href="picking-and-rejecting-object-properties" class=""
-             title="70.选择（picking）和反选（rejecting）对象的属性 ">70.选择（picking）和反选（rejecting）对象的属性 </a></li>
-        
-            <li><a href="why-you-should-use-Object.is()-in-equality-comparison" class=""
-             title="68.为什么你应该在相等比较中使用 Object.is()  ">68.为什么你应该在相等比较中使用 Object.is()  </a></li>
-        
-            <li><a href="tapping-for-quick-debugging" class=""
-             title="65.使用 tap 来快速 debug">65.使用 tap 来快速 debug</a></li>
-        
-            <li><a href="3-array-hacks" class=""
-             title="64.Array 的三个技巧">64.Array 的三个技巧</a></li>
-        
-            <li><a href="working-with-websocket-timeout" class=""
-             title="63.处理 Websocket 超时问题">63.处理 Websocket 超时问题</a></li>
-        
-            <li><a href="binding-objects-to-functions" class=""
-             title="61.给函数 Bind 对象">61.给函数 Bind 对象</a></li>
-        
-            <li><a href="three-useful-hacks" class="cur"
-             title="60.三个实用的javascript小技巧">60.三个实用的javascript小技巧</a></li>
-        
-            <li><a href="keyword-var-vs-let" class=""
-             title="59.var和ES6的let">59.var和ES6的let</a></li>
-        
-            <li><a href="break-continue-loop-functional" class=""
-             title="58.break 或 continue 循环函数">58.break 或 continue 循环函数</a></li>
-        
-            <li><a href="comma-operaton-in-js" class=""
-             title="57.JavaScript 的逗号操作符">57.JavaScript 的逗号操作符</a></li>
-        
-            <li><a href="copy-to-clipboard" class=""
-             title="56.复制到粘贴板">56.复制到粘贴板</a></li>
-        
-            <li><a href="make-easy-loop-on-array" class=""
-             title="55.用数组建立一个简单的循环">55.用数组建立一个简单的循环</a></li>
-        
-            <li><a href="use-optional-arguments" class=""
-             title="54.函数中如何使用可选参数（包括可选回调函数）">54.函数中如何使用可选参数（包括可选回调函数）</a></li>
-        
-            <li><a href="get-file-extension" class=""
-             title="53.取得文件扩展名">53.取得文件扩展名</a></li>
-        
-            <li><a href="return-values-with-the-new-operator" class=""
-             title="52.new的返回值">52.new的返回值</a></li>
-        
-            <li><a href="DOM-event-listening-made-easy" class=""
-             title="51.简单监听DOM事件">51.简单监听DOM事件</a></li>
-        
-            <li><a href="helpful-console-log-hacks" class=""
-             title="50.实用的`log`技巧">50.实用的`log`技巧</a></li>
-        
-            <li><a href="extract-unix-timestamp-easily" class=""
-             title="49.简单获取unix时间戳">49.简单获取unix时间戳</a></li>
-        
-            <li><a href="reminders-about-reduce-function-usage" class=""
-             title="48.怎样`reduce()`数组">48.怎样`reduce()`数组</a></li>
-        
-            <li><a href="basics-declarations" class=""
-             title="47.变量声明">47.变量声明</a></li>
-        
-            <li><a href="detect-document-ready-in-pure-js" class=""
-             title="46.纯JS监听document是否加载完成">46.纯JS监听document是否加载完成</a></li>
-        
-            <li><a href="calculate-the-max-min-value-from-an-array" class=""
-             title="45.计算数组中的最大值/最小值">45.计算数组中的最大值/最小值</a></li>
-        
-            <li><a href="know-the-passing-mechanism" class=""
-             title="44.了解传值机制">44.了解传值机制</a></li>
-        
-            <li><a href="use-destructuring-in-function-parameters" class=""
-             title="43.函数参数内使用解构">43.函数参数内使用解构</a></li>
-        
-            <li><a href="preventing-unapply-attacks" class=""
-             title="42.预防unapply攻击">42.预防unapply攻击</a></li>
-        
-            <li><a href="array-average-and-median" class=""
-             title="41.数组平均值与中值">41.数组平均值与中值</a></li>
-        
-            <li><a href="using-json-stringify" class=""
-             title="40.使用JSON.Stringify">40.使用JSON.Stringify</a></li>
-        
-            <li><a href="advanced-properties" class=""
-             title="39.Javascript高级特性">39.Javascript高级特性</a></li>
-        
-            <li><a href="flattening-multidimensional-arrays-in-javascript" class=""
-             title="38.Javascript多维数组扁平化">38.Javascript多维数组扁平化</a></li>
-        
-            <li><a href="deduplicate-an-array" class=""
-             title="37.数组去重">37.数组去重</a></li>
-        
-            <li><a href="observe-dom-changes" class=""
-             title="36.扩展插件中观察DOM的变化">36.扩展插件中观察DOM的变化</a></li>
-        
-            <li><a href="assignment-shorthands" class=""
-             title="35.赋值技巧">35.赋值技巧</a></li>
-        
-            <li><a href="implementing-asynchronous-loops" class=""
-             title="34.实现异步循环">34.实现异步循环</a></li>
-        
-            <li><a href="create-range-0...n-easily-using-one-line" class=""
-             title="33.仅用一行生成`[0, 1, ..., N-1]`数列">33.仅用一行生成`[0, 1, ..., N-1]`数列</a></li>
-        
-            <li><a href="map-to-the-rescue-adding-order-to-object-properties" class=""
-             title="32.Map()的营救；使对象属性有顺序">32.Map()的营救；使对象属性有顺序</a></li>
-        
-            <li><a href="avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization" class=""
-             title="31.避免修改和传递`arguments`给其他方法 — 影响优化">31.避免修改和传递`arguments`给其他方法 — 影响优化</a></li>
-        
-            <li><a href="converting-truthy-falsy-values-to-boolean" class=""
-             title="30.将truthy/falsy转换为布尔值">30.将truthy/falsy转换为布尔值</a></li>
-        
-            <li><a href="speed-up-recursive-functions-with-memoization" class=""
-             title="29.运用存储加速递归 Speed up recursive functions with memoization">29.运用存储加速递归 Speed up recursive functions with memoization</a></li>
-        
-            <li><a href="curry-vs-partial-application" class=""
-             title="28.柯里化(currying)与部分应用(partial application)">28.柯里化(currying)与部分应用(partial application)</a></li>
-        
-            <li><a href="short-circuit-evaluation-in-js" class=""
-             title="27.JS中的短路求值">27.JS中的短路求值</a></li>
-        
-            <li><a href="filtering-and-sorting-a-list-of-strings" class=""
-             title="26.过滤并排序字符串列表">26.过滤并排序字符串列表</a></li>
-        
-            <li><a href="Using-immediately-invoked-function-expression" class=""
-             title="25.使用立即执行函数表达式">25.使用立即执行函数表达式</a></li>
-        
-            <li><a href="use_===_instead_of_==" class=""
-             title="24.使用 === 而不是 ==">24.使用 === 而不是 ==</a></li>
-        
-            <li><a href="converting-to-number-fast-way" class=""
-             title="23.转换为数字的更快方法">23.转换为数字的更快方法</a></li>
-        
-            <li><a href="two-ways-to-empty-an-array" class=""
-             title="22.清空数组的两种方法">22.清空数组的两种方法</a></li>
-        
-            <li><a href="shuffle-an-array" class=""
-             title="21.对数组洗牌">21.对数组洗牌</a></li>
-        
-            <li><a href="return-objects-to-enable-chaining-of-functions" class=""
-             title="20.返回对象，使方法可以链式调用">20.返回对象，使方法可以链式调用</a></li>
-        
-            <li><a href="safe-string-concatenation" class=""
-             title="19.安全的字符串拼接">19.安全的字符串拼接</a></li>
-        
-            <li><a href="rounding-the-fast-way" class=""
-             title="18.快速（但危险）的取整方法">18.快速（但危险）的取整方法</a></li>
-        
-            <li><a href="nodejs-run-a-module-if-it-is-not-required" class=""
-             title="17.Node.js - 运行未被引用的模块">17.Node.js - 运行未被引用的模块</a></li>
-        
-            <li><a href="passing-arguments-to-callback-functions" class=""
-             title="16.向回调方法传递参数">16.向回调方法传递参数</a></li>
-        
-            <li><a href="even-simpler-way-of-using-indexof-as-a-contains-clause" class=""
-             title="15.更简单的使用indexOf实现contains功能">15.更简单的使用indexOf实现contains功能</a></li>
-        
-            <li><a href="fat-arrow-functions" class=""
-             title="14.箭头函数">14.箭头函数</a></li>
-        
-            <li><a href="tip-to-measure-performance-of-a-javascript-block" class=""
-             title="13.测量javascript代码块性能的小知识">13.测量javascript代码块性能的小知识</a></li>
-        
-            <li><a href="pseudomandatory-parameters-in-es6-functions" class=""
-             title="12.ES6中的伪强制参数">12.ES6中的伪强制参数</a></li>
-        
-            <li><a href="hoisting" class=""
-             title="11.变量提升">11.变量提升</a></li>
-        
-            <li><a href="check-if-a-property-is-in-a-object" class=""
-             title="10.检查某对象是否有某属性">10.检查某对象是否有某属性</a></li>
-        
-            <li><a href="template-strings" class=""
-             title="09.模板字符串">09.模板字符串</a></li>
-        
-            <li><a href="converting-a-node-list-to-an-array" class=""
-             title="08.将Node List转换为数组(Array)">08.将Node List转换为数组(Array)</a></li>
-        
-            <li><a href="use-strict-and-get-lazy" class=""
-             title="07.使用&#34;use strict&#34; 变得懒惰">07.使用&#34;use strict&#34; 变得懒惰</a></li>
-        
-            <li><a href="writing-a-single-method-for-arrays-and-a-single-element" class=""
-             title="06.可以接受单参数与数组的方法">06.可以接受单参数与数组的方法</a></li>
-        
-            <li><a href="differences-between-undefined-and-null" class=""
-             title="05.undefined与null的区别">05.undefined与null的区别</a></li>
-        
-            <li><a href="sorting-strings-with-accented-characters" class=""
-             title="04.排列含音节字母的字符串">04.排列含音节字母的字符串</a></li>
-        
-            <li><a href="improve-nested-conditionals" class=""
-             title="03.优化嵌套的条件语句">03.优化嵌套的条件语句</a></li>
-        
-            <li><a href="keys-in-children-components-are-important" class=""
-             title="02.子容器的Key是很重要的">02.子容器的Key是很重要的</a></li>
-        
-            <li><a href="angularjs-digest-vs-apply" class=""
-             title="01.AngularJs - $digest vs $apply">01.AngularJs - $digest vs $apply</a></li>
-        
-            <li><a href="insert-item-inside-an-array" class=""
-             title="00.向数组中插入元素">00.向数组中插入元素</a></li>
-        
-    </ul>
-</div>
-        <div id="content-wrap">
-             <div id="readme" class="boxed-group clearfix announce instapaper_body md">
- 	<article class="markdown-body entry-content" itemprop="mainContentOfPage">
- 		<h2>#60 - 三个实用的javascript小技巧</h2>
-<blockquote>
-<p>2016-10-28 by <a href="https://github.com/leandrosimoes">@leandrosimoes</a></p>
-</blockquote>
-<h4>从后向前获取数组元素</h4>
-<p>如果你想从后向前获取一个数组的元素，可以这样写：</p>
-<pre><code class="language-javascript"><span class="hljs-keyword">var</span> newArray = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+        }</script></head><body><div class="main-content clearfix"><div id="sider-wrap" class="catalog"><div class="catalog-header"><h1><a href="https://github.com/loverajoel/jstips">Useful JS Tips</a></h1><select id="J_languages_select"><option value="en">English</option><option value="zh_CN" selected="selected">简体中文</option><option value="zh_TW">繁体中文</option></select></div><ul><li><a href="vuejs-how-vuejs-makes-a-copy-update-replace-inside-the-data-binding" class="" title="71.Vuejs在資料綁定時會複製更新並替換目標元素">71.Vuejs在資料綁定時會複製更新並替換目標元素</a></li><li><a href="picking-and-rejecting-object-properties" class="" title="70.选择（picking）和反选（rejecting）对象的属性 ">70.选择（picking）和反选（rejecting）对象的属性 </a></li><li><a href="why-you-should-use-Object.is()-in-equality-comparison" class="" title="68.为什么你应该在相等比较中使用 Object.is()  ">68.为什么你应该在相等比较中使用 Object.is() </a></li><li><a href="tapping-for-quick-debugging" class="" title="65.使用 tap 来快速 debug">65.使用 tap 来快速 debug</a></li><li><a href="3-array-hacks" class="" title="64.Array 的三个技巧">64.Array 的三个技巧</a></li><li><a href="working-with-websocket-timeout" class="" title="63.处理 Websocket 超时问题">63.处理 Websocket 超时问题</a></li><li><a href="binding-objects-to-functions" class="" title="61.给函数 Bind 对象">61.给函数 Bind 对象</a></li><li><a href="three-useful-hacks" class="cur" title="60.三个实用的javascript小技巧">60.三个实用的javascript小技巧</a></li><li><a href="keyword-var-vs-let" class="" title="59.var和ES6的let">59.var和ES6的let</a></li><li><a href="break-continue-loop-functional" class="" title="58.break 或 continue 循环函数">58.break 或 continue 循环函数</a></li><li><a href="comma-operaton-in-js" class="" title="57.JavaScript 的逗号操作符">57.JavaScript 的逗号操作符</a></li><li><a href="copy-to-clipboard" class="" title="56.复制到粘贴板">56.复制到粘贴板</a></li><li><a href="make-easy-loop-on-array" class="" title="55.用数组建立一个简单的循环">55.用数组建立一个简单的循环</a></li><li><a href="use-optional-arguments" class="" title="54.函数中如何使用可选参数（包括可选回调函数）">54.函数中如何使用可选参数（包括可选回调函数）</a></li><li><a href="get-file-extension" class="" title="53.取得文件扩展名">53.取得文件扩展名</a></li><li><a href="return-values-with-the-new-operator" class="" title="52.new的返回值">52.new的返回值</a></li><li><a href="DOM-event-listening-made-easy" class="" title="51.简单监听DOM事件">51.简单监听DOM事件</a></li><li><a href="helpful-console-log-hacks" class="" title="50.实用的`log`技巧">50.实用的`log`技巧</a></li><li><a href="extract-unix-timestamp-easily" class="" title="49.简单获取unix时间戳">49.简单获取unix时间戳</a></li><li><a href="reminders-about-reduce-function-usage" class="" title="48.怎样`reduce()`数组">48.怎样`reduce()`数组</a></li><li><a href="basics-declarations" class="" title="47.变量声明">47.变量声明</a></li><li><a href="detect-document-ready-in-pure-js" class="" title="46.纯JS监听document是否加载完成">46.纯JS监听document是否加载完成</a></li><li><a href="calculate-the-max-min-value-from-an-array" class="" title="45.计算数组中的最大值/最小值">45.计算数组中的最大值/最小值</a></li><li><a href="know-the-passing-mechanism" class="" title="44.了解传值机制">44.了解传值机制</a></li><li><a href="use-destructuring-in-function-parameters" class="" title="43.函数参数内使用解构">43.函数参数内使用解构</a></li><li><a href="preventing-unapply-attacks" class="" title="42.预防unapply攻击">42.预防unapply攻击</a></li><li><a href="array-average-and-median" class="" title="41.数组平均值与中值">41.数组平均值与中值</a></li><li><a href="using-json-stringify" class="" title="40.使用JSON.Stringify">40.使用JSON.Stringify</a></li><li><a href="advanced-properties" class="" title="39.Javascript高级特性">39.Javascript高级特性</a></li><li><a href="flattening-multidimensional-arrays-in-javascript" class="" title="38.Javascript多维数组扁平化">38.Javascript多维数组扁平化</a></li><li><a href="deduplicate-an-array" class="" title="37.数组去重">37.数组去重</a></li><li><a href="observe-dom-changes" class="" title="36.扩展插件中观察DOM的变化">36.扩展插件中观察DOM的变化</a></li><li><a href="assignment-shorthands" class="" title="35.赋值技巧">35.赋值技巧</a></li><li><a href="implementing-asynchronous-loops" class="" title="34.实现异步循环">34.实现异步循环</a></li><li><a href="create-range-0...n-easily-using-one-line" class="" title="33.仅用一行生成`[0, 1, ..., N-1]`数列">33.仅用一行生成`[0, 1, ..., N-1]`数列</a></li><li><a href="map-to-the-rescue-adding-order-to-object-properties" class="" title="32.Map()的营救；使对象属性有顺序">32.Map()的营救；使对象属性有顺序</a></li><li><a href="avoid-modifying-or-passing-arguments-into-other-functions—it-kills-optimization" class="" title="31.避免修改和传递`arguments`给其他方法 — 影响优化">31.避免修改和传递`arguments`给其他方法 — 影响优化</a></li><li><a href="converting-truthy-falsy-values-to-boolean" class="" title="30.将truthy/falsy转换为布尔值">30.将truthy/falsy转换为布尔值</a></li><li><a href="speed-up-recursive-functions-with-memoization" class="" title="29.运用存储加速递归 Speed up recursive functions with memoization">29.运用存储加速递归 Speed up recursive functions with memoization</a></li><li><a href="curry-vs-partial-application" class="" title="28.柯里化(currying)与部分应用(partial application)">28.柯里化(currying)与部分应用(partial application)</a></li><li><a href="short-circuit-evaluation-in-js" class="" title="27.JS中的短路求值">27.JS中的短路求值</a></li><li><a href="filtering-and-sorting-a-list-of-strings" class="" title="26.过滤并排序字符串列表">26.过滤并排序字符串列表</a></li><li><a href="Using-immediately-invoked-function-expression" class="" title="25.使用立即执行函数表达式">25.使用立即执行函数表达式</a></li><li><a href="use_===_instead_of_==" class="" title="24.使用 === 而不是 ==">24.使用 === 而不是 ==</a></li><li><a href="converting-to-number-fast-way" class="" title="23.转换为数字的更快方法">23.转换为数字的更快方法</a></li><li><a href="two-ways-to-empty-an-array" class="" title="22.清空数组的两种方法">22.清空数组的两种方法</a></li><li><a href="shuffle-an-array" class="" title="21.对数组洗牌">21.对数组洗牌</a></li><li><a href="return-objects-to-enable-chaining-of-functions" class="" title="20.返回对象，使方法可以链式调用">20.返回对象，使方法可以链式调用</a></li><li><a href="safe-string-concatenation" class="" title="19.安全的字符串拼接">19.安全的字符串拼接</a></li><li><a href="rounding-the-fast-way" class="" title="18.快速（但危险）的取整方法">18.快速（但危险）的取整方法</a></li><li><a href="nodejs-run-a-module-if-it-is-not-required" class="" title="17.Node.js - 运行未被引用的模块">17.Node.js - 运行未被引用的模块</a></li><li><a href="passing-arguments-to-callback-functions" class="" title="16.向回调方法传递参数">16.向回调方法传递参数</a></li><li><a href="even-simpler-way-of-using-indexof-as-a-contains-clause" class="" title="15.更简单的使用indexOf实现contains功能">15.更简单的使用indexOf实现contains功能</a></li><li><a href="fat-arrow-functions" class="" title="14.箭头函数">14.箭头函数</a></li><li><a href="tip-to-measure-performance-of-a-javascript-block" class="" title="13.测量javascript代码块性能的小知识">13.测量javascript代码块性能的小知识</a></li><li><a href="pseudomandatory-parameters-in-es6-functions" class="" title="12.ES6中的伪强制参数">12.ES6中的伪强制参数</a></li><li><a href="hoisting" class="" title="11.变量提升">11.变量提升</a></li><li><a href="check-if-a-property-is-in-a-object" class="" title="10.检查某对象是否有某属性">10.检查某对象是否有某属性</a></li><li><a href="template-strings" class="" title="09.模板字符串">09.模板字符串</a></li><li><a href="converting-a-node-list-to-an-array" class="" title="08.将Node List转换为数组(Array)">08.将Node List转换为数组(Array)</a></li><li><a href="use-strict-and-get-lazy" class="" title="07.使用&#34;use strict&#34; 变得懒惰">07.使用&#34;use strict&#34; 变得懒惰</a></li><li><a href="writing-a-single-method-for-arrays-and-a-single-element" class="" title="06.可以接受单参数与数组的方法">06.可以接受单参数与数组的方法</a></li><li><a href="differences-between-undefined-and-null" class="" title="05.undefined与null的区别">05.undefined与null的区别</a></li><li><a href="sorting-strings-with-accented-characters" class="" title="04.排列含音节字母的字符串">04.排列含音节字母的字符串</a></li><li><a href="improve-nested-conditionals" class="" title="03.优化嵌套的条件语句">03.优化嵌套的条件语句</a></li><li><a href="keys-in-children-components-are-important" class="" title="02.子容器的Key是很重要的">02.子容器的Key是很重要的</a></li><li><a href="angularjs-digest-vs-apply" class="" title="01.AngularJs - $digest vs $apply">01.AngularJs - $digest vs $apply</a></li><li><a href="insert-item-inside-an-array" class="" title="00.向数组中插入元素">00.向数组中插入元素</a></li></ul></div><div id="content-wrap"><div id="readme" class="boxed-group clearfix announce instapaper_body md"><article class="markdown-body entry-content" itemprop="mainContentOfPage"><h2>#60 - 三个实用的javascript小技巧</h2><blockquote><p>2016-10-28 by <a href="https://github.com/leandrosimoes">@leandrosimoes</a></p></blockquote><h4>从后向前获取数组元素</h4><p>如果你想从后向前获取一个数组的元素，可以这样写：</p><pre><code class="language-javascript"><span class="hljs-keyword">var</span> newArray = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
 
 <span class="hljs-built_in">console</span>.log(newArray.slice(<span class="hljs-number">-1</span>)) <span class="hljs-comment">// [4]</span>
 <span class="hljs-built_in">console</span>.log(newArray.slice(<span class="hljs-number">-2</span>)) <span class="hljs-comment">// [3, 4]</span>
 <span class="hljs-built_in">console</span>.log(newArray.slice(<span class="hljs-number">-3</span>)) <span class="hljs-comment">// [2, 3, 4]</span>
 <span class="hljs-built_in">console</span>.log(newArray.slice(<span class="hljs-number">-4</span>)) <span class="hljs-comment">// [1, 2, 3, 4]</span>
-</code></pre>
-<h4>短路条件句</h4>
-<p>如果你想在某个条件逻辑值为<code>true</code>时，执行某个函数，就像这样：</p>
-<pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-title">if</span> <span class="hljs-params">(condition)</span> {
+</code></pre><h4>短路条件句</h4><p>如果你想在某个条件逻辑值为<code>true</code>时，执行某个函数，就像这样：</p><pre><code class="language-javascript"><span class="hljs-function"><span class="hljs-title">if</span> <span class="hljs-params">(condition)</span> {
   <span class="hljs-title">dosomething</span><span class="hljs-params">()</span>
 }
-</span></code></pre>
-<p>这时，你可以这样子运用短路：</p>
-<pre><code class="language-javascript">condition &amp;&amp; dosomething()
-</code></pre>
-<h4>用操作符 “||” 来设置默认值</h4>
-<p>如果你必须给一个变量赋默认值，可以简单的这样写：</p>
-<pre><code class="language-javascript">var <span class="hljs-keyword">a</span>
+</span></code></pre><p>这时，你可以这样子运用短路：</p><pre><code class="language-javascript">condition &amp;&amp; dosomething()
+</code></pre><h4>用操作符 “||” 来设置默认值</h4><p>如果你必须给一个变量赋默认值，可以简单的这样写：</p><pre><code class="language-javascript">var <span class="hljs-keyword">a</span>
 
 console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">a</span>)<span class="hljs-comment"> // undefined</span>
 
@@ -281,28 +26,7 @@ console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">a</spa
 <span class="hljs-keyword">a</span> = <span class="hljs-keyword">a</span> || <span class="hljs-string">'new value'</span>
 
 console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">a</span>)<span class="hljs-comment"> // default value</span>
-</code></pre>
- 	</article>
-</div>
-            <a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a>
-            <!-- 多说分享 start -->
-<div class="ds-share flat" data-thread-key="jstips_60" data-title="三个实用的javascript小技巧" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="分享三个让开发变得更高效的实用语法糖" data-url="http://jstips.hingsir.com/dist/tips/zh_CN/three-useful-hacks.html">
-    <div class="ds-share-inline">
-      <ul  class="ds-share-icons-16">
-        <li><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-        <li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li>
-      </ul>
-    </div>
- </div>
-<!-- 多说分享 end -->
-<!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="jstips_60" data-title="三个实用的javascript小技巧" data-url="http://jstips.hingsir.com/dist/tips/zh_CN/three-useful-hacks.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"hingsir"};
+</code></pre></article></div><a id="goto-catalog" href="catalog.html">&lt;&lt;返回目录</a><!-- 多说分享 start --><div class="ds-share flat" data-thread-key="jstips_60" data-title="三个实用的javascript小技巧" data-images="http://jstips.hingsir.com/dist/images/github.jpg" data-content="分享三个让开发变得更高效的实用语法糖" data-url="http://jstips.hingsir.com/dist/tips/zh_CN/three-useful-hacks.html"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li><a class="ds-more" href="javascript:void(0);">分享到：</a></li><li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li><li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li><li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li></ul></div></div><!-- 多说分享 end --><!-- 多说评论框 start --><div class="ds-thread" data-thread-key="jstips_60" data-title="三个实用的javascript小技巧" data-url="http://jstips.hingsir.com/dist/tips/zh_CN/three-useful-hacks.html"></div><!-- 多说评论框 end --><!-- 多说公共JS代码 start (一个网页只需插入一次) --><script type="text/javascript">var duoshuoQuery = {short_name:"hingsir"};
     (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -310,21 +34,10 @@ var duoshuoQuery = {short_name:"hingsir"};
         ds.charset = 'UTF-8';
         (document.getElementsByTagName('head')[0]
          || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
-<!-- 多说公共JS代码 end -->            <div class="site-footer">
-                <p class="copyright">Powered by <a href="https://github.com/hingsir">@hingsir</a>, 2016</p>
-            </div>
-        </div>
-    </div>
-    <a id="forkme" href="https://github.com/hingsir/jstips-site"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:100;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
-    <script>
-    var _hmt = _hmt || [];
+    })();</script><!-- 多说公共JS代码 end --><div class="site-footer"><p class="copyright">Powered by <a href="https://github.com/hingsir">@hingsir</a>, 2016</p></div></div></div><a id="forkme" href="https://github.com/hingsir/jstips-site"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:100" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a><script>var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
       hm.src = "//hm.baidu.com/hm.js?d2663479c9de1b01cbc8485ab8cb623d";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
-    })();
-</script></body>
-</html>
+    })();</script></body></html>
